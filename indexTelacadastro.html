@@ -8,39 +8,59 @@
 </head>
 <body>
     
-    <div class="container-fluid">
-        <header class="row p-5" style="background-color: #272343;">
+    <div class="container-fluid" style="background-color: #272343;">
+    <!--<header class="row p-5" style="background-color: #272343;">
             <h1 class="text-center display-5 text-light ">Tela de Cadastro</h1>
-        </header>
-
+        </header>-->     
+     
         <!--inicio da tela de login-->
-        <div class="row">
+        <div class="row" >
+            <div class="row mt-5"></div>
             <div class="col-4 "></div>
-            <div style="background-color:  #bae8e8;" class="col-4 p-5" class="text-center p-5">
-                <div class="row">               
-                    <label class="form-label">Nome completo</label>
-                    <input type="text" id="nameform" class="form-control">              
+            <div style="background-color:#ffffff;;" class="col-4 p-5" class="text-center p-5">
+                <header class="row">
+                    <h1 class="text-center display-5 mb-4">Cadastrar</h1>
+                </header>
+                <div class="row mt-3">               
+                    <label for="userName" class="form-label">Nome completo</label>
+                    <input type="text" name="userName" class="form-control">              
                 </div>
-                <div class="row">
-                    <label class="form-label">Numero SUS</label>
-                    <input type="text" id="SUSname" class="form-control">               
+                <div class="row mt-3">
+                    <label for="userSus" class="form-label">Numero SUS</label>
+                    <input type="text" name="userSus" class="form-control">               
     
                 </div>
-                <div class="row">
-                    <label class="form-label">Filação</label>
-                    <input type="text" placeholder="Nome da mãe ou pai" class="form-control">
+                <div class="row mt-3">
+                    <label for="userFiliacao" class="form-label">Filação</label>
+                    <input type="text" placeholder="Nome da mãe ou pai" name="userFiliacao" class="form-control">
                 </div>
-                <div class="row">
-                    <label class="form-label">CPF</label>
-                    <input type="text" class="form-control">
+                <div class="row mt-3">
+                    <label for="userCpf" class="form-label">CPF</label>
+                    <input type="text" class="form-control" name="userCpf">
                 </div>
-                <div class="row -5">
-                    <label class="form-label">ID do paciente</label>
-                    <input type="text" class="form-control">
+                <div class="row mt-3">
+                    <label for="userEmail" class="form-label">Email</label>
+                    <input type="email" class="form-control" name="userEmail" placeholder="user@exemple.com">
+                </div> 
+                <div class="row mt-3">
+                    <label for="userPassword" class="form-label">Senha</label>
+                    <input type="password" name="userPassword" class="form-control">
+                </div>               
+                <div class="row mt-3">
+                    <label class="form-label" for="userPassword2">Digite sua senha novamente</label>
+                    <input type="password" name="userPassword2" class="form-control">
                 </div>
-    
+                <div class="row mt-3 ">
+                    <button type="button" class="btn btn-info">Cadastrar</button>
+                </div>
             </div>
-            <div class="col-4"></div>
+            <div class="col-4">               
+            </div>
+            <div class="row mt-5">
+                <footer>
+
+                </footer>
+            </div>
         </div>
         </div>
        
