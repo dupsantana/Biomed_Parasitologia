@@ -1,0 +1,47 @@
+
+body
+{
+    background-image: url(urban-vintage-78A265wPiO4-unsplash.png);
+    background-size: cover;
+}
+
+
+
+.title1
+{
+    font-family: 'Merriweather', serif;
+    font-weight: bold;
+}
+
+.titulobemvindo
+{
+    color: #ffffff; /* Cor do texto (azul escuro) */
+    font-size: 24px; /* Tamanho da fonte */
+    font-weight: bold; /* Texto em negrito */
+}
+#caixa1 {
+    opacity: 0.80;
+    background-color:#5e5b5b;
+    border-style: solid !important; /* Define o estilo da borda (obrigatório para ver a borda) */
+    border-color: #000000 !important; /* Cor da borda */
+    border-width: 2px !important; /* Espessura da borda */
+    padding: 20px;
+    text-align: center !important;
+    font-family: Arial, sans-serif !important;
+    
+}
+
+.bt-cadastro
+{
+    font-weight: bold;
+}
+
+.bt-login
+{
+    font-weight: bold;
+}
+
+.bt-esquecisenha
+{
+    color: #ffffff;
+}
