@@ -4,14 +4,6 @@ body {
 
 
 
-header
-{
-    z-index: 1030;
-    background-color: rgb(17, 42, 99);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2) !important;
-    height: 80px !important;
-    
-}
 
 
 #logo {
