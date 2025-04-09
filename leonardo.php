@@ -64,6 +64,11 @@
             </div>
         </div>
     </div>
-    <div>   </div>
+    <div class="row mt-5 bg-white m-0">         
+        <footer class="text-center p-3">
+            <p><Strong>Cleonard Solutions © 2025</Strong></p>
+            <p>Developers: bigode, pelanza e Clauds</p>
+        </footer>
+    </div>
 </body>
 </html>
