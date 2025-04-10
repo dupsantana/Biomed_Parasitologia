@@ -18,7 +18,7 @@
         <div class="col-1 fw-bold fs-4" style="color: white; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">CLINICODE</div>
         <div class="col-10"></div>
         <div class="col-1">
-            <a class="fs-4 text-decoration-none  text-white" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" href="indexTelacadastro.html">Cadastrar</a> 
+            <a class="fs-4 text-decoration-none  text-white" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" href="">Cadastrar</a> 
         </div>
     </div>
 </header>
