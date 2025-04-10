@@ -16,9 +16,12 @@
 <header class=" text-center m-0 w-100 shadow-lg" style="background-color: #272343;">
     <div class="row p-4">
         <div class="col-1 fw-bold fs-4" style="color: white; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">CLINICODE</div>
-        <div class="col-10"></div>
+        <div class="col-9"></div>
         <div class="col-1">
-            <a class="fs-4 text-decoration-none  text-white" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" href="">Cadastrar</a> 
+        <a class="item fs-4 text-decoration-none  text-white" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" href="">Entrar</a> 
+</div>
+        <div class="col-1">
+        <a class="item fs-4 text-decoration-none  text-white" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" href="">Cadastrar</a> 
         </div>
     </div>
 </header>
