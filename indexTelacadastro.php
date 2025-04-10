@@ -9,12 +9,18 @@
 <body>
 
     <!--cabeçalho da página-->
-    <div class="container-fluid " style="background-color: #e1dfe7;">
-        <header class="text-center p-4 fw-bold" style=" font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"><h1>CLINICODE</h1></header>
+    <div class="container-fluid m-0" style="background-color: #272343;">
+
+        <header class=" text-center m-0 w-100 shadow-lg" >
+            <div class="row p-4 m-0">
+                <div class="col-1 fw-bold fs-4" style="color: white; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">CLINICODE</div>                
+               
+            </div>
+        </header>
     </div>
     
     <!--Container principal da página-->
-    <div class="container-fluid" style="background-color:#e1dfe7">      
+    <div class="container-fluid p-3" style="background-color:#e1dfe7">      
     
         <!--primeira linha onde se encontra a parte principal da página-->
         <div class="row">
@@ -24,9 +30,9 @@
 
             <!--Coluna principal localizada na parte central-->
             <div style="background-color: #272343; color:#e1dfe7 ;" class="col-4 p-5 rounded" >
-                <header>
+                
                     <h2 class="text-center mb-4 display-5" style="color: white; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Cadastrar</h2>
-                </header>
+                <form action="telaLogin.php" method="post">
                 <!--Campos de input-->
                 <div class="row mt-3">               
                     <label for="userName" class="form-label">Nome</label>
@@ -49,24 +55,25 @@
                     <input type="password" name="userPassword2" class="form-control">
                 </div><br>
                 <div class="row mt-3">
-                    <button type="button" class="btn btn-info">Cadastrar</button>
+                
+                    <button type="submit" class="btn btn-info">Cadastrar</button>
+                </form>
                 </div>
             </div>
 
             <!--coluna da direita-->
             <div class="col-4"> </div>              
            
+            <div class="row p-2">
 
-            <!--Nova linha criada apenas para colocar o rodapé da página-->
-            <div class="row mt-5 bg-white m-0">
-                
-                <footer class="text-center p-3">
-                        <p><Strong>Cleonard Solutions © 2025</Strong></p>
-                        <p>Developers: bigode, pelanza e Clauds</p>
-                </footer>
             </div>
+           
+            
+        </div>       
         </div>
-        </div>
+        <?php             
+                include "footer.php";
+            ?>
        
     
 </body>
