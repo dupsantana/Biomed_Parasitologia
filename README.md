@@ -64,5 +64,6 @@ A plataforma conecta dados de diferentes áreas da Biomedicina:
 
 **Equipe Clinicode**  
 Projeto acadêmico desenvolvido por estudantes do curso de Análise e Desenvolvimento de Sistemas.  
-Alunos: Eduardo Pelloso Santana | Claudemir dos Santos Júnior | Leonardo Reis Sanita
-📫 Contato: | psantanaeduardo@gmail.com | leoreissanita14@gmail.com |claudemirdosantosjunior@gmail.com
+Alunos: Eduardo Pelloso Santana | Claudemir dos Santos Júnior | Leonardo Reis Sanita  
+
+📫 Contato: | psantanaeduardo@gmail.com | leoreissanita14@gmail.com |claudemirdosantosjunior@gmail.com  
