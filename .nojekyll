@@ -1,0 +1,4 @@
+touch .nojekyll
+git add .nojekyll
+git commit -m "Adiciona .nojekyll para desativar processamento"
+git push origin main
