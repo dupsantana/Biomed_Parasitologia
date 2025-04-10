@@ -18,19 +18,18 @@
     <div class="row p-4">
         <div class="col-1 fw-bold fs-4" style="color: white; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">CLINICODE</div>
         <div class="col-9"></div>
-        <div class="col-1">
-        <button type="button" class="btn btn-secondary fw-bold">Entrar</button>
-</div>
-        <div class="col-1">
-        <button type="button" class="btn btn-secondary fw-bold" onclick="window.location.href='indexTelacadastro.php'">
-  Cadastrar
-</button>
+        <div class="col-2">
+        <button type="button" class="btn btn-secondary fw-bold" onclick="window.location.href='#'">
+  Entrar
+
 
         </div>
     </div>
 
     </div>
 </header>
+
+
     
 </body>
 </html>

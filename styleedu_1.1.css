@@ -1,49 +1,34 @@
-
-
-
-
-
-
-
-#logo {
-    margin-left: 20px !important;
-    position: relative; 
-    z-index: 2;
+body {
+  overflow-x: hidden;
 }
 
-#botoesheader
-{
-    margin-left: 20px !important;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 
-/* Ajuste a largura máxima */
+/* Ajuste a largura máxima do carrossel */
 #carrosel {
-    
-    max-width: 800px;
-    margin: 0 auto;
-    height: 400px; /* Altura desejada */
-    object-fit: cover; /* Mantém a proporção da imagem */
-  }
-  
-
-  footer{
-    margin-top: 100px;
-    color: white;
-    background-color: #272343;
-  }
- 
-
-  .item:hover{
-    color: rgb(54, 147, 209) !important; 
-    transition: color 0.5 ease !important;
+  max-width: 800px;
+  margin: 0 auto;
+  height: 400px; /* Altura desejada */
+  object-fit: cover; /* Mantém a proporção da imagem */
 }
 
+footer {
+  margin-top: 100px;
+  color: white;
+  background-color: #272343;
+}
 
+.item:hover {
+  color: rgb(54, 147, 209) !important; 
+  transition: color 0.5s ease !important;
+}
 
-
-
-#container_quemsomos{
-    margin-top: 200px !important;
-    margin-bottom: 200px !important;
+.quemsomos {
+  margin-top: 70px !important;
+  margin-bottom: 30px !important;
 }

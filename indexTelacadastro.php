@@ -5,18 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
+    <link rel="stylesheet" href="styleedu_1.1.css">
 </head>
 <body>
 
     <!--cabeçalho da página-->
     <div class="container-fluid m-0" style="background-color: #272343;">
 
-        <header class=" text-center m-0 w-100 shadow-lg" >
-            <div class="row p-4 m-0">
-                <div class="col-1 fw-bold fs-4" style="color: white; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">CLINICODE</div>                
-               
-            </div>
-        </header>
+    <header>
+      
+      <?php include "cabeçalho_cadastro.php"; ?>
+      
+  </header>
+
+
     </div>
     
     <!--Container principal da página-->
@@ -71,9 +73,11 @@
             
         </div>       
         </div>
-        <?php             
-                include "footer.php";
-            ?>
+
+        <footer class="text-center p-3 mt-auto">
+        <p><strong>Cleonard Solutions © 2025</strong></p>
+        <p>Developers: bigode, pelanza e Clauds</p>
+    </footer>
        
     
 </body>

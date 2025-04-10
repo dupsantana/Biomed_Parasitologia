@@ -2,8 +2,8 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Systech - Soluções em Automação</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Clinicode - Prontuário eletrônico</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="styleedu_1.1.css">
@@ -46,10 +46,10 @@
             </div>
         </div>
         
-        <div id="container_quemsomos" class="container mt-5">
-            <div class="quemsomos align-items-center text-center">
+        
+            <div class="container quemsomos align-items-center text-center">
                 <h3>PRONTUÁRIO ELETRÔNICO</h3>
-                <p class="text-center mt-3">
+                <p class="text-center">
                A <strong>Clinicode</strong> é uma plataforma digital desenvolvida para integrar alunos e tutores de BIOMEDICINA em um ambiente colaborativo e seguro. Nosso objetivo é simplificar o registro e análise de exames realizados nos laboratórios, transformando dados em insights práticos para o aprendizado e a pesquisa acadêmica. 
 
   Funcionalidades-chave:
@@ -59,7 +59,7 @@ Cadastro seguro de pacientes com dados anonimizados para preservar a privacidade
                     Tecnologia a serviço da ciência. Educação que transforma.  
                 </p>
             </div>
-        </div>
+        
 
         <footer class="text-center p-3 mt-auto">
         <p><strong>Cleonard Solutions © 2025</strong></p>
