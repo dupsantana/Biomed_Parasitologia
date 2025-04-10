@@ -32,3 +32,15 @@ footer {
   margin-top: 70px !important;
   margin-bottom: 30px !important;
 }
+
+#btn_cadastro_header{
+  margin-left: 8rem;
+}
+
+#btn_login_header{
+  margin-left: 7rem;
+}
+
+#btn_login_header_cadastro{
+  margin-left: 15rem;
+}

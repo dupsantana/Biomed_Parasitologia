@@ -20,7 +20,7 @@
         <div class="col-1 fw-bold fs-4" style="color: white; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">CLINICODE</div>
         <div class="col-9"></div>
         <div class="col-2">
-        <button type="button" class="btn btn-secondary fw-bold" onclick="window.location.href='#'">
+        <button id="btn_login_header_cadastro" type="button" class="btn btn-secondary fw-bold d-flex align-items-center justify-content-center gap-3" onclick="window.location.href='#'">
   Entrar <i class="fa-solid fa-right-to-bracket"></i>
 
 

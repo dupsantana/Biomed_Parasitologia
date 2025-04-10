@@ -20,11 +20,11 @@
         <div class="col-1 fw-bold fs-4" style="color: white; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">CLINICODE</div>
         <div class="col-9"></div>
         <div class="col-1">
-        <button type="button" class="btn btn-secondary fw-bold d-flex align-items-center justify-content-center gap-3 ms-5">Entrar<i class="fa-solid fa-right-to-bracket"></i>   </button>
+        <button id="btn_login_header" type="button" class="btn btn-secondary fw-bold d-flex align-items-center justify-content-center gap-3">Entrar<i class="fa-solid fa-right-to-bracket"></i>   </button>
 </div>
         <div class="col-1">
         
-        <button type="button" class="btn btn-secondary fw-bold d-flex align-items-center justify-content-center gap-3 ms-5" onclick="window.location.href='indexTelacadastro.php'">
+        <button id="btn_cadastro_header" type="button" class="btn btn-secondary fw-bold d-flex align-items-center justify-content-center gap-3" onclick="window.location.href='indexTelacadastro.php'">
   Cadastrar<i class="fa-solid fa-clipboard"></i>
 </button>
 
