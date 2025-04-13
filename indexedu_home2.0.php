@@ -56,11 +56,9 @@
             <p class="text-center">
                 A <strong>Clinicode</strong> é uma plataforma digital desenvolvida para integrar alunos e tutores de
                 BIOMEDICINA em um ambiente colaborativo e seguro. Nosso objetivo é simplificar o registro e análise de
-                exames realizados nos laboratórios, transformando dados em insights práticos para o aprendizado e a
-                pesquisa acadêmica.
+                exames realizados nos laboratórios para o aprendizado e a pesquisa acadêmica.
 
-                Funcionalidades-chave:
-                Cadastro seguro de pacientes com dados anonimizados para preservar a privacidade, alunos inserem dados
+                Dentre suas funcionalidades estão:<br> Cadastro seguro de pacientes com dados anonimizados para preservar a privacidade, alunos inserem dados
                 enquanto tutores validam resultados e fornecem feedback. <br>Integração multidisciplinar vinculando
                 Microbiologia, Bioquimica, Hematologia, Imunologia e Parasitologia.<br>
             </p>

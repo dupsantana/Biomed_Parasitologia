@@ -14,26 +14,24 @@
 <body>
 
     
-<header class=" text-center m-0 w-100 shadow-lg" style="background-color: #272343;">
-    <div class="container">
+<header class="m-0 w-100 shadow-lg" style="background-color: #272343;">
+    <div class="container-fluid">
     <div class="row p-4">
         <div class="col-1 fw-bold fs-4" style="color: white; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">CLINICODE</div>
-        <div class="col-9"></div>
+        <div class="col-10"></div>
         <div class="col-1">
-        <button id="btn_cadastro_header" type="button" class="btn btn-secondary fw-bold d-flex align-items-center justify-content-center gap-3" onclick="window.location.href='main_aluno.php'">Entrar<i class="fa-solid fa-right-to-bracket"></i>   </button>
-  
-</button>
-</div>
-        <div class="col-1">
-        
-        <button id="btn_cadastro_header" type="button" class="btn btn-secondary fw-bold d-flex align-items-center justify-content-center gap-3" onclick="window.location.href='indexTelacadastro.php'">
-  Cadastrar<i class="fa-solid fa-clipboard"></i>
-</button>
-
+            <button id="sair_aluno"class="fw-bold btn btn btn-secondary" onclick="window.location.href='indexedu_home2.0.php'">SAIR <i class="fa-solid fa-right-from-bracket"></i></button> 
         </div>
     </div>
+    </div>
+    <div>
+    <h6 class="ms-3 pb-2"  style="color: white">Aluno: Eduardo Pelloso Santana / RGM:123456789</h6>
 
     </div>
+    
+
+
+    
 </header>
     
 </body>

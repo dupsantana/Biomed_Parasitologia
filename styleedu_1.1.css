@@ -44,3 +44,19 @@ footer {
 #btn_login_header_cadastro{
   margin-left: 15rem;
 }
+
+#headermainaluno{
+  
+    margin-left: 0;
+    margin-right: 0;
+  
+}
+
+#container_cards{
+  margin-top: 215px;
+  margin-bottom: 215px;
+}
+
+#sair_aluno{
+  margin-left: 0px !important;
+}
