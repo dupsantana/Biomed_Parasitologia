@@ -15,10 +15,24 @@
 
 <main>
 
-<header>
+<header class="m-0 w-100 shadow-lg" style="background-color: #272343;">
+    <div class="container-fluid">
+    <div class="row p-4">
+        <div class="col-1 fw-bold fs-4" style="color: white; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">CLINICODE</div>
+        <div class="col-10"></div>
+        <div class="col-1">
+            <button id="sair_aluno"class="fw-bold btn btn btn-secondary" onclick="window.location.href='indexedu_home2.0.php'">SAIR <i class="fa-solid fa-right-from-bracket"></i></button> 
+        </div>
+    </div>
+    </div>
+    <div>
+    <h6 class="ms-3 pb-2"  style="color: white">Aluno: Eduardo Pelloso Santana / RGM:123456789</h6>
 
-<?php include "cabeçalho_main_aluno.php"; ?>
+    </div>
+    
 
+
+    
 </header>
 
     <div class="container" id="container_cards">
