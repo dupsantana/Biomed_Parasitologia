@@ -28,7 +28,6 @@
 </head>
 <body>
 
-   
   <!-- HEADER -->
   <header class="w-100" style="background-color: #272343;">
   <div class="container">
@@ -41,22 +40,16 @@
   <main>
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-4 p-3 rounded" style="background-color: #272343; color: #e1dfe7;">
-          <h2 class="text-center mb-4 display-5 text-white" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Login</h2>
-          <form action="" method="post">
+        <div class="col-md-4 col-lg-3 p-4 rounded" style="background-color: #272343; color: #e1dfe7;">
+          <h2 class="text-center mb-4 display-8 text-white" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Recuperar Senha</h2>
+          <form action="inserirCodigo.php" method="post">
             <div class="mb-3">
-              <label for="rgm" class="form-label">RGM</label>
+                <p class="text-center">Digite seu email, para receber o código de confirmação</p>
+              <label for="rgm" class="form-label">Email</label>
               <input type="text" class="form-control" name="rgm">
             </div>
-            <div class="mb-3">
-              <label for="senha" class="form-label">Senha</label>
-              <input type="password" class="form-control" name="senha">
-            </div>
-            <div class="text-center mb-3">
-              <a href="ESQUECI A SENHA/esqueciSenha.php">Esqueceu a senha?</a>
-            </div>
             <div class="text-center ">
-            <button type="submit" class="btn btn-info ">Entrar</button>
+            <button type="submit" class="btn btn-info ">Enviar</button>
             </div>
           </form>
         </div>
@@ -65,7 +58,7 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="text-center p-3 text-light" style="background-color: #272343;">
+  <footer class="text-center p-1 text-light" style="background-color: #272343;">
     <div >
       <p><strong>Cleonard Solutions © 2025</strong></p>
       <p>Developers: bigode, pelanza e Clauds</p>

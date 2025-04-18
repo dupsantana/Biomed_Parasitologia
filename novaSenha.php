@@ -12,6 +12,7 @@
       padding: 0;
     }
 
+
     body {
       display: flex;
       flex-direction: column;
@@ -24,11 +25,11 @@
       align-items: center; /*alinha os itens na vertical (eixo y)*/
       justify-content: center;/*alinhaos itens na horizontal (eixo x)*/ 
     }
+
   </style>
 </head>
 <body>
 
-   
   <!-- HEADER -->
   <header class="w-100" style="background-color: #272343;">
   <div class="container">
@@ -36,36 +37,27 @@
         <div class="col-1 fw-bold fs-4" style="color: white; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">CLINICODE</div>
         
   </header>
-
   <!-- CONTEÚDO CENTRAL -->
-  <main>
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-4 p-3 rounded" style="background-color: #272343; color: #e1dfe7;">
-          <h2 class="text-center mb-4 display-5 text-white" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Login</h2>
-          <form action="" method="post">
-            <div class="mb-3">
-              <label for="rgm" class="form-label">RGM</label>
-              <input type="text" class="form-control" name="rgm">
-            </div>
-            <div class="mb-3">
-              <label for="senha" class="form-label">Senha</label>
-              <input type="password" class="form-control" name="senha">
-            </div>
-            <div class="text-center mb-3">
-              <a href="ESQUECI A SENHA/esqueciSenha.php">Esqueceu a senha?</a>
-            </div>
-            <div class="text-center ">
-            <button type="submit" class="btn btn-info ">Entrar</button>
-            </div>
-          </form>
+    <main>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-4 col-lg-3 p-4 rounded" style="background-color: #272343; color: #e1dfe7;">
+            <h2 class="text-center mb-4 display-8 text-white" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Recuperar Senha</h2>
+            <form action="TelaLogin1.php" method="post">
+              <div class="mb-3">
+                  <p class="text-center">Digite a sua nova senha</p>
+                <input type="password" class="form-control" name="newSenha">
+              </div>
+              <div class="text-center ">
+              <button type="submit" class="btn btn-info ">Confirmar</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-  </main>
-
+    </main>
   <!-- FOOTER -->
-  <footer class="text-center p-3 text-light" style="background-color: #272343;">
+  <footer class="text-center p-1 text-light" style="background-color: #272343;">
     <div >
       <p><strong>Cleonard Solutions © 2025</strong></p>
       <p>Developers: bigode, pelanza e Clauds</p>
