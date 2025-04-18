@@ -3,12 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clinicode - Prontuário eletrônico</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="styleedu_1.1.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+  <style></style>
 
 </head>
 
@@ -20,7 +22,7 @@
         <div class="col-1 fw-bold fs-4" style="color: white; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">CLINICODE</div>
         <div class="col-9"></div>
         <div class="col-1">
-        <button id="btn_cadastro_header" type="button" class="btn btn-secondary fw-bold d-flex align-items-center justify-content-center gap-3" onclick="window.location.href='main_aluno.php'">Entrar<i class="fa-solid fa-right-to-bracket"></i>   </button>
+        <button id="btn_cadastro_header" type="button" class="btn btn-secondary fw-bold d-flex align-items-center justify-content-center gap-3" onclick="window.location.href='TelaLogin1.php'">Entrar<i class="fa-solid fa-right-to-bracket"></i>   </button>
   
 </button>
 </div>
@@ -36,9 +38,10 @@
     </div>
 </header>
 
+
     
 
-    <main class="flex-grow-1">
+    <main>
         <div class="carousel-wrapper mb-5">
             <div class="container">
                 <div id="container_carrosel" class="container">
@@ -87,15 +90,17 @@
         </div>
 
 
-        <footer class="text-center p-3 mt-auto">
+        
+
+    </main>
+
+    <footer class="text-center p-3 mt-auto">
             <p><strong>Cleonard Solutions © 2025</strong></p>
             <p>Developers: bigode, pelanza e Clauds</p>
         </footer>
 
-    </main>
-
-
-
 </body>
+
+
 
 </html>

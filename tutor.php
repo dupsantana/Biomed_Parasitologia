@@ -3,16 +3,92 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professor</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="styleedu_1.1.css">
-    
+    <style>
+        /* Estilos Gerais */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f8f9fa;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        /* Header */
+        header {
+            background-color: #272343 !important;
+            padding: 1rem 0;
+        }
+
+        /* Cards */
+        .card {
+            margin: 1.5rem auto;
+            max-width: 400px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Container dos Cards */
+        #container_cards {
+            padding: 2rem 0;
+        }
+
+        /* Footer */
+        #footer_aluno {
+            background-color: #272343;
+            color: white;
+            margin-top: auto;
+            padding: 1.5rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header .row {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            header .col-1, header .col-10, header .col-1 {
+                width: 100%;
+                max-width: 100%;
+                flex: 0 0 100%;
+            }
+
+            #sair_aluno {
+                width: 100%;
+                margin-top: 1rem;
+            }
+
+            .card {
+                margin: 1rem auto;
+            }
+        }
+
+        @media (max-width: 576px) {
+            #container_cards {
+                padding: 1rem 0;
+            }
+
+            .card {
+                width: 95% !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
-
 <main>
 
 <header class="m-0 w-100 shadow-lg" style="background-color: #272343;">
@@ -49,7 +125,8 @@
                   <p class="card-text text-center">
                     Aqui você vai cadastrar seus pacientes e os exames correspondentes em seu prontuário.
                   </p>
-                  <a href="cftv.html" class="btn btn-primary fw-bold">CADASTRAR</a>
+                  <button class="btn btn-primary fw-bold p-0 text-center"> CADASTRAR </button>
+                  
                 </div>
               </div>
             </div>
@@ -66,7 +143,7 @@
                   <p class="card-text text-center">
                   Aqui você pode consultar seus alunos, pacientes e os prontuários feitos por eles.
                   </p>
-                  <a href="cftv.html" class="btn btn-primary fw-bold">CONSULTA</a>
+                  <button class="btn btn-primary fw-bold p-0 text-center"> CONSULTAR </button>
                 </div>
               </div>
               
@@ -86,14 +163,15 @@
 
 
 
-    <footer id="footer_aluno" class="text-center p-3 mt-auto">
-            <p><strong>Cleonard Solutions © 2025</strong></p>
-            <p>Developers: bigode, pelanza e Clauds</p>
-        </footer>
+   
 
 </main>
 
 
+<footer id="footer_aluno" class="text-center p-3 mt-auto">
+            <p><strong>Cleonard Solutions © 2025</strong></p>
+            <p>Developers: bigode, pelanza e Clauds</p>
+        </footer>
 
 
 

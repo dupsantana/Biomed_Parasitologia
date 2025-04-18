@@ -56,7 +56,7 @@
               <a href="ESQUECI A SENHA/esqueciSenha.php">Esqueceu a senha?</a>
             </div>
             <div class="text-center ">
-            <button type="submit" class="btn btn-info ">Entrar</button>
+            <button type="submit" class="btn btn-info " onclick="window.location.href='aluno.php'" >Entrar</button>
             </div>
           </form>
         </div>
