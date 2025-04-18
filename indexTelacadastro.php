@@ -9,32 +9,53 @@
 </head>
 <body>
 
+<style>
+
+    html,body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body{
+        display: flex;
+        flex-direction: column;
+    }
+    main {
+      flex: 1; /* serve para ocupare todo espaço entre header e footer*/ 
+      background-color: #e1dfe7;
+      display: flex;
+      align-items: center; /*alinha os itens na vertical (eixo y)*/
+      justify-content: center;/*alinhaos itens na horizontal (eixo x)*/ 
+    }
+
+</style>
+
     <!--cabeçalho da página-->
     <div class="container-fluid m-0" style="background-color: #272343;">
 
-    <header>
-      
-      <?php include "cabeçalho_cadastro.php"; ?>
-      
+    <header class="w-100" style="background-color: #272343;">
+  <div class="container">
+    <div class="row p-4">
+        <div class="col-1 fw-bold fs-4" style="color: white; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">CLINICODE</div>
+        
   </header>
-
-
     </div>
     
+    <main>    
     <!--Container principal da página-->
     <div class="container-fluid p-3" style="background-color:#e1dfe7">      
     
         <!--primeira linha onde se encontra a parte principal da página-->
-        <div class="row">
+        <div class="row justify-content-center">
 
             <!--Coluna da esquerda feita apenas para centralizar a coluna principal -->           
-            <div class="col-4 "></div>
+            <div class="col-lg-4 d-none d-lg-block"></div>
 
             <!--Coluna principal localizada na parte central-->
-            <div style="background-color: #272343; color:#e1dfe7 ;" class="col-4 p-5 rounded" >
+            <div class="col-12 col-sm-10 col-md-8 col-lg-4 p-4 rounded" style="background-color: #272343; color: #e1dfe7;" >
                 
-                    <h2 class="text-center mb-4 display-5" style="color: white; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Cadastrar</h2>
-                <form action="telaLogin.php" method="post">
+                    <h2 class="text-center mb-4 display-5" style="color: white; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Cadastrar</h2>
+                <form action="TelaLogin1.php" method="post">
                 <!--Campos de input-->
                 <div class="row mt-3">               
                     <label for="userName" class="form-label">Nome</label>
@@ -64,7 +85,7 @@
             </div>
 
             <!--coluna da direita-->
-            <div class="col-4"> </div>              
+            <div class="col-lg-4 d-none d-lg-block"> </div>              
            
             <div class="row p-2">
 
@@ -73,6 +94,7 @@
             
         </div>       
         </div>
+        </main>
 
         <footer class="text-center p-3 mt-auto">
         <p><strong>Cleonard Solutions © 2025</strong></p>
