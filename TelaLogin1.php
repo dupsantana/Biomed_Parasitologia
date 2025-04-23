@@ -53,7 +53,7 @@
               <input type="password" class="form-control" name="senha">
             </div>
             <div class="text-center mb-3">
-              <a href="ESQUECI A SENHA/esqueciSenha.php">Esqueceu a senha?</a>
+              <a href="esqueciSenha.php">Esqueceu a senha?</a>
             </div>
             <div class="text-center ">
             <button type="submit" class="btn btn-info " onclick="window.location.href='aluno.php'" >Entrar</button>
