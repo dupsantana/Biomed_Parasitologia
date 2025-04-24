@@ -62,8 +62,8 @@
                     <input type="text" name="userName" class="form-control">              
                 </div>           
                 <div class="row mt-3">
-                    <label for="userCpf" class="form-label">CPF</label>
-                    <input type="text" class="form-control" name="userCpf">
+                    <label for="userRMG" class="form-label">RGM</label>
+                    <input type="text" class="form-control" name="userRGM" placeholder="0000000000" maxlength="10" required>
                 </div>
                 <div class="row mt-3">
                     <label for="userEmail" class="form-label">Email</label>
