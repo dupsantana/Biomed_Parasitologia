@@ -1,14 +1,10 @@
 <?php
-class Aluno extends Pessoa{
+class Aluno extends Usuario{
     private $RGM;
-    private $senha;
-    private $email;
 
-
-    public function __construct($nome){
-        parent::__construct($nome);
+    public function __construct($RGM){
+        parent::__construct($rgm, $email, $senha);
         $this->RGM = $RGM;
-        $this->senha = $senha;
     }
 
     public function getRGM() {
@@ -16,20 +12,6 @@ class Aluno extends Pessoa{
     }
     public function setRGM($RGM) {
         $this->RGM = $RGM;
-    }
-
-    public function getSenha() {
-        return $this->senha;
-    }
-    public function setSenha($senha) {
-        $this->senha = $senha;
-    }
-
-    public function getEmail(){
-        return $this-> email:
-    }
-    public function setEmail($email){
-        $this-> email = $email;
     }
 
 }
