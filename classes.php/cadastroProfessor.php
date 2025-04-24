@@ -2,9 +2,11 @@
 class Aluno extends Pessoa{
     private $RGM;
     private $senha;
+    private $email;
 
-    public function __construct($nome, $email){
-        parent::__construct($nome, $email);
+
+    public function __construct($nome){
+        parent::__construct($nome);
         $this->RGM = $RGM;
         $this->senha = $senha;
     }
@@ -21,6 +23,13 @@ class Aluno extends Pessoa{
     }
     public function setSenha($senha) {
         $this->senha = $senha;
+    }
+
+    public function getEmail(){
+        return $this-> email:
+    }
+    public function setEmail($email){
+        $this-> email = $email;
     }
 
 }
