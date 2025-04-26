@@ -37,7 +37,7 @@
   <div class="container">
     <div class="row p-4">
         <div class="col-1 fw-bold fs-4" style="color: white; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">CLINICODE</div>
-        
+    </div>
   </header>
     </div>
     
@@ -88,13 +88,15 @@
             <div class="col-lg-4 d-none d-lg-block"> </div>              
            
             <div class="row p-2">
-
-            </div>
-           
+            </div>          
             
         </div>       
         </div>
         </main>
+        <?php
+        include 'validacao.php';
+        
+        ?>        
 
         <footer class="text-center p-3 mt-auto">
         <p><strong>Cleonard Solutions © 2025</strong></p>

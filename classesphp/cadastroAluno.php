@@ -4,14 +4,14 @@ class Aluno extends Usuario{
 
     public function __construct($nome, $email, $senha, $rgm){
         parent::__construct($nome, $email, $senha);
-        $this->RGM = $rgm;
+        $this->rgm = $rgm;
     }
 
     public function getrgm() {
         return $this->rgm;
     }
     public function setrgm($rgm) {
-        $this->RGM = $rgm;
+        $this->rgm = $rgm;
     }
 
 }

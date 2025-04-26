@@ -102,10 +102,12 @@
     </div>
     </div>
     <div>
-    <h6 class="ms-3 pb-2"  style="color: white">Professor: Juliana Costa Silva</h6>
-
-    </div>
+    <h6 class="ms-3 pb-2"  style="color: white">
     
+        
+    </h6>   
+
+    </div>   
 
 
     

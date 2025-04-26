@@ -37,8 +37,6 @@
 
     </div>
 </header>
-
-
     
 
     <main>
@@ -100,7 +98,7 @@
         </footer>
 
 </body>
-
+  
 
 
 </html>
