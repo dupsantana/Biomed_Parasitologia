@@ -1,17 +1,17 @@
 <?php
 class Aluno extends Usuario{
-    private $RGM;
+    private $rgm;
 
-    public function __construct($RGM){
-        parent::__construct($rgm, $email, $senha);
-        $this->RGM = $RGM;
+    public function __construct($nome, $email, $senha, $rgm){
+        parent::__construct($nome, $email, $senha);
+        $this->RGM = $rgm;
     }
 
-    public function getRGM() {
-        return $this->RGM;
+    public function getrgm() {
+        return $this->rgm;
     }
-    public function setRGM($RGM) {
-        $this->RGM = $RGM;
+    public function setrgm($rgm) {
+        $this->RGM = $rgm;
     }
 
 }

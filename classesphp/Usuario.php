@@ -7,7 +7,7 @@
 
        
 
-        public function __construct($email, $senha){
+        public function __construct($nome, $email, $senha){
             parent::__construct($nome);
             $this->email = $email;
             $this->senha = $senha;
