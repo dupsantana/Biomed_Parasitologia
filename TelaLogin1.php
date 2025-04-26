@@ -30,12 +30,15 @@
 
    
   <!-- HEADER -->
-  <header class="w-100" style="background-color: #272343;">
-  <div class="container">
-    <div class="row p-4">
-        <div class="col-1 fw-bold fs-4" style="color: white; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">CLINICODE</div>
-        
-  </header>
+  <header class="text-center m-0 w-100 shadow-lg" style="background-color: #272343;">
+    <div class="container">
+        <div class="row p-4 align-items-center">
+            <div class="col-12 fw-bold text-center mt-3" style="color: white; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+                <h2><strong>CLINICODE</strong></h2>
+            </div>
+        </div>
+        </div>
+        </header>
 
   <!-- CONTEÚDO CENTRAL -->
   <main>
@@ -45,11 +48,11 @@
           <h2 class="text-center mb-4 display-5 text-white" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Login</h2>
           <form action="" method="post">
             <div class="mb-3">
-              <label for="rgm" class="form-label">RGM</label>
+              <label for="rgm" class="form-label"><strong>RGM / CÓDIGO PROFESSOR</strong></label>
               <input type="text" class="form-control" name="rgm">
             </div>
             <div class="mb-3">
-              <label for="senha" class="form-label">Senha</label>
+              <label for="senha" class="form-label"><strong>SENHA</strong></label>
               <input type="password" class="form-control" name="senha">
             </div>
             <div class="text-center mb-3">
