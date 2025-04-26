@@ -31,15 +31,17 @@
 </style>
 
     <!--cabeçalho da página-->
-    <div class="container-fluid m-0" style="background-color: #272343;">
 
-    <header class="w-100" style="background-color: #272343;">
-  <div class="container">
-    <div class="row p-4">
-        <div class="col-1 fw-bold fs-4" style="color: white; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">CLINICODE</div>
-    </div>
-  </header>
-    </div>
+    <header class="text-center m-0 w-100 shadow-lg" style="background-color: #272343;">
+    <div class="container">
+        <div class="row p-4 align-items-center">
+            <div class="col-12 fw-bold text-center mt-3" style="color: white; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+                <h2><strong>CLINICODE</strong></h2>
+            </div>
+        </div>
+        </div>
+        </header>
+
     
     <main>    
     <!--Container principal da página-->
@@ -73,10 +75,6 @@
                     <label for="userPassword" class="form-label">Senha</label>
                     <input type="password" name="userPassword" class="form-control">
                 </div>               
-                <div class="row mt-3">
-                    <label class="form-label" for="userPassword2">Digite sua senha novamente</label>
-                    <input type="password" name="userPassword2" class="form-control">
-                </div><br>
                 <div class="row mt-3">
                 
                     <button type="submit" class="btn btn-info">Cadastrar</button>

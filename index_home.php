@@ -10,31 +10,38 @@
     <link rel="stylesheet" href="styleedu_1.1.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
-  <style></style>
+  
 
 </head>
 
 <body class="d-flex flex-column"> <!--min-vh-100-->
 
-<header class=" text-center m-0 w-100 shadow-lg" style="background-color: #272343;">
+<header class="text-center m-0 w-100 shadow-lg" style="background-color: #272343;">
     <div class="container">
-    <div class="row p-4">
-        <div class="col-1 fw-bold fs-4" style="color: white; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">CLINICODE</div>
-        <div class="col-9"></div>
-        <div class="col-1">
-        <button id="btn_cadastro_header" type="button" class="btn btn-secondary fw-bold d-flex align-items-center justify-content-center gap-3" onclick="window.location.href='TelaLogin1.php'">Entrar<i class="fa-solid fa-right-to-bracket"></i>   </button>
-  
-</button>
-</div>
-        <div class="col-1">
-        
-        <button id="btn_cadastro_header" type="button" class="btn btn-secondary fw-bold d-flex align-items-center justify-content-center gap-3" onclick="window.location.href='indexTelacadastro.php'">
-  Cadastrar<i class="fa-solid fa-clipboard"></i>
-</button>
-
+        <div class="row p-4 align-items-center">
+            <div class="col-12 fw-bold text-center mt-3" style="color: white; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+                <h1><strong>CLINICODE</strong></h1>
+            </div>
         </div>
-    </div>
 
+        <div class="row p-4 align-items-center">
+            <div class="col-12">
+                <div class="d-flex justify-content-between gap-2">
+                    <button type="button" class="btn btn-secondary fw-bold flex-grow-1 d-flex align-items-center justify-content-center gap-3" onclick="window.location.href='TelaLogin1.php'">
+                        Entrar <i class="fa-solid fa-right-to-bracket"></i>
+                    </button>
+                    
+                    <button type="button" class="btn btn-secondary fw-bold flex-grow-1 d-flex align-items-center justify-content-center gap-3" onclick="window.location.href='Telacadastro_aluno.php'">
+                        Cadastrar Aluno <i class="fa-solid fa-graduation-cap" style="color: #ffffff;"></i>
+                    </button>
+                    
+                    <button type="button" class="btn btn-secondary fw-bold flex-grow-1 d-flex align-items-center justify-content-center gap-3" onclick="window.location.href='Telacadastro_professor.php'">
+                        Cadastrar Professor <i class="fa-solid fa-clipboard"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
     </div>
 </header>
     
