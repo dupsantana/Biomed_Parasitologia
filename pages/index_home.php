@@ -53,13 +53,13 @@
                     <div id="carrosel" class="mt-5 carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="2500">
-                                <img src="imagens/8.png" class="d-block w-100" alt="...">
+                                <img src="img/8.png" class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item" data-bs-interval="2500">
-                                <img src="imagens/9.png" class="d-block w-100" alt="...">
+                                <img src="img/9.png" class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item" data-bs-interval="2500">
-                                <img src="imagens/10.png" class="d-block w-100" alt="...">
+                                <img src="img/10.png" class="d-block w-100" alt="...">
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carrosel"

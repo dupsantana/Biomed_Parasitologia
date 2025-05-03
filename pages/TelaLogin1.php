@@ -27,6 +27,7 @@
   </style>
 </head>
 <body>
+ 
 
    
   <!-- HEADER -->
@@ -46,29 +47,32 @@
       <div class="row justify-content-center">
         <div class="col-md-6 col-lg-4 p-3 rounded" style="background-color: #272343; color: #e1dfe7;">
           <h2 class="text-center mb-4 display-5 text-white" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Login</h2>
-          <form action="tutor.php" method="post">
+          <form action="" method="post">
             <div class="mb-3">
 
-              <label for="userRGM" class="form-label">RGM</label>
-              <input type="text" class="form-control" name="userRGM">
+              <label for="userRGMProfessor" class="form-label">RGM</label>
+              <input type="text" class="form-control" name="userRGMProfessor">
             </div>
             <div class="mb-3">
               <label for="userPassword" class="form-label">Senha</label>
-              <input type="password" class="form-control" name="userPassword">
-           
+              <input type="password" class="form-control" name="userPassword">           
 
             </div>
             <div class="text-center mb-3">
               <a href="esqueciSenha.php">Esqueceu a senha?</a>
             </div>
-            <div class="text-center ">
-            <button type="submit" class="btn btn-info " onclick="window.location.href='aluno.php'" >Entrar</button>
-            </div>
-          </form>
+            <div class="text-center ">            
+            <button type="submit" class="btn btn-info " onclick="window.location.href='aluno.php'" >Entrar</button>            
+            </div>            
+          </form> 
+          <?php 
+              require_once __DIR__. '/../src/Php/validacaoLoginProfessor.php';
+            ?>
         </div>
       </div>
     </div>
   </main>
+ 
 
   <!-- FOOTER -->
   <footer class="text-center p-3 text-light" style="background-color: #272343;">
@@ -77,27 +81,7 @@
       <p>Developers: bigode, pelanza e Clauds</p>
     </div>
   </footer>
-  <?php 
-    include 'validacao.php';
-
-    if($_SERVER["REQUEST_METHOD"]== "POST"){
-
-      $rgm = $_POST["userRGM"];
-      $senha = $_POST["userPassword"];
-        //checar no banco
-      $rgmValidacao = "admin";
-      $senhaValidacao = "admin";
-
-      if($rgm == $rgmValidacao && $senhaValidacao == $senha){
-        $mensagem = urlencode("Professor: $nome RGM: $rgm");
-        header("Location: tutor.php");
-        exit();
-      }else {
-          echo "<h2>RGM ou senha incorretos!</h2>";
-      }
-      }    
   
-  ?>
 
 </body>
 </html>

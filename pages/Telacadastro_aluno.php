@@ -31,6 +31,7 @@
 </style>
 
     <!--cabeçalho da página-->
+
     <header class="text-center m-0 w-100 shadow-lg" style="background-color: #272343;">
     <div class="container">
         <div class="row p-4 align-items-center">
@@ -40,7 +41,7 @@
         </div>
         </div>
         </header>
-    </div>
+
     
     <main>    
     <!--Container principal da página-->
@@ -63,7 +64,7 @@
                     <input type="text" name="userName" class="form-control">              
                 </div>           
                 <div class="row mt-3">
-                    <label for="userRMG" class="form-label">Código Professor</label>
+                    <label for="userRMG" class="form-label">RGM</label>
                     <input type="text" class="form-control" name="userRGM" placeholder="0000000000" maxlength="10" required>
                 </div>
                 <div class="row mt-3">
@@ -74,7 +75,6 @@
                     <label for="userPassword" class="form-label">Senha</label>
                     <input type="password" name="userPassword" class="form-control">
                 </div>               
-               
                 <div class="row mt-3">
                 
                     <button type="submit" class="btn btn-info">Cadastrar</button>
@@ -86,13 +86,12 @@
             <div class="col-lg-4 d-none d-lg-block"> </div>              
            
             <div class="row p-2">
-
-            </div>
-           
+            </div>          
             
         </div>       
         </div>
         </main>
+          
 
         <footer class="text-center p-3 mt-auto">
         <p><strong>Cleonard Solutions © 2025</strong></p>
