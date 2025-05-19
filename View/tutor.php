@@ -129,7 +129,7 @@
                   <p class="card-text text-center">
                     Aqui você vai cadastrar seus pacientes e os exames correspondentes em seu prontuário.
                   </p>
-                  <button class="btn btn-primary fw-bold p-0 text-center"> CADASTRAR </button>
+                  <button class="btn btn-primary fw-bold p-0 text-center"> <a href="cadastroPacientes.php" class="text-light text-decoration-none">CADASTRAR</a></button>
                   
                 </div>
               </div>
@@ -147,7 +147,7 @@
                   <p class="card-text text-center">
                   Aqui você pode consultar seus alunos, pacientes e os prontuários feitos por eles.
                   </p>
-                  <button class="btn btn-primary fw-bold p-0 text-center"> CONSULTAR </button>
+                  <button class="btn btn-primary fw-bold p-0 text-center"> <a href="Consulta.php" class="text-light text-decoration-none">CONSULTAR</a></button>
                 </div>
               </div>
               

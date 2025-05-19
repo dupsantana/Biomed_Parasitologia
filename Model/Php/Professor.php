@@ -2,14 +2,11 @@
   class Professor extends Usuario{
 
    private $rgmProfessor;
-
-    public function __construct($nome, $email, $senha, $rgmProfessor){
-        parent::__construct($nome, $email, $senha);
-
-        $this->rgmProfessor = $rgmProfessor;
-
-    }
-
+   
+    public function __construct(){
+       parent::__construct();
+    }   
+  
     public function getRgmProfessor(){
         return $this->rgmProfessor;
     }
@@ -19,7 +16,11 @@
         $this->rgmProfessor = $rgmProfessor;
     }
 
+    public function __toString(){
     
+        return "Rgm Professor: {$this->rgmProfessor}". parent::__toString();
+    }
+
   }
 
 

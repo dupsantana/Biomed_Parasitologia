@@ -65,9 +65,7 @@
             <button type="submit" class="btn btn-info " onclick="window.location.href='aluno.php'" >Entrar</button>            
             </div>            
           </form> 
-          <?php 
-              require_once __DIR__. '/../src/Php/validacaoLoginProfessor.php';
-            ?>
+          
         </div>
       </div>
     </div>
