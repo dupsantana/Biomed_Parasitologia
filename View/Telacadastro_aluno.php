@@ -57,7 +57,7 @@
             <div class="col-12 col-sm-10 col-md-8 col-lg-4 p-4 rounded" style="background-color: #272343; color: #e1dfe7;" >
                 
                     <h2 class="text-center mb-4 display-5" style="color: white; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Cadastrar</h2>
-                <form action="TelaLogin1.php" method="post">
+                <form action="../Controller/AlunoController.php" method="post">
                 <!--Campos de input-->
                 <div class="row mt-3">               
                     <label for="userName" class="form-label">Nome</label>
@@ -77,7 +77,7 @@
                 </div>               
                 <div class="row mt-3">
                 
-                    <button type="submit" class="btn btn-info">Cadastrar</button>
+                    <button type="submit" name="cadastrar" class="btn btn-info">Cadastrar</button>
                 </form>
                 </div>
             </div>
