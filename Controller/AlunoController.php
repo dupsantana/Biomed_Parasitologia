@@ -1,7 +1,7 @@
 <?php 
     require '../Model/Php/Usuario.php';
     require '../Dao/AlunoDao.php';
-    require '../Dao/ConnectionFactoryAluno.php';   
+    require '../Dao/ConnectionFactory.php';   
     require '../Model/Php/Aluno.php';
     
    $aluno = new Aluno();

@@ -1,11 +1,11 @@
 <?php 
-    class ConnectionFactoryAluno{
+    class ConnectionFactory{
         static $connection;
 
         public static function getConnection(){
             if(!isset($connection)){
                 $host = "localhost";               
-                $dbName = "clinica";
+                $dbName = "clinicode";
                 $port = 3306;
                 $user = "root";
                 $pass = "";
@@ -15,7 +15,7 @@
                     echo"conectado com sucesso!!";
 
                 }catch(PDOException $ex){
-                    echo"Erro ao conectar no banco de dados <p>$ex</p>";
+                    echo"Erro ao conectar no banco de dados<p>$ex</p>";
                 }
                 
             }

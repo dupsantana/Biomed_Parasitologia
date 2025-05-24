@@ -52,32 +52,32 @@
             <!--Coluna da esquerda feita apenas para centralizar a coluna principal -->           
             <div class="col-lg-4 d-none d-lg-block"></div>
 
-            <!--Coluna principal localizada na parte central-->
+            <!--FORMULÁRIO-->
             <div class="col-12 col-sm-10 col-md-8 col-lg-4 p-4 rounded" style="background-color: #272343; color: #e1dfe7;" >
                 
                     <h2 class="text-center mb-4 display-5" style="color: white; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Cadastrar</h2>
-                <form action="TelaLogin1.php" method="post">
+                <form action="../Controller/ProfessorController.php" method="post">
                 <!--Campos de input-->
                 <div class="row mt-3">               
-                    <label for="userName" class="form-label">Nome</label>
-                    <input type="text" name="userName" class="form-control">              
+                    <label for="userNameProfessor" class="form-label">Nome</label>
+                    <input type="text" name="userNameProfessor" class="form-control">              
                 </div>           
                 <div class="row mt-3">
                     <label for="userRGMProfessor" class="form-label">Código Professor</label>
                     <input type="text" class="form-control" name="userRGMProfessor" placeholder="0000000000" maxlength="10" required>
                 </div>
                 <div class="row mt-3">
-                    <label for="userEmail" class="form-label">Email</label>
-                    <input type="email" class="form-control" name="userEmail" placeholder="user@exemple.com">
+                    <label for="userEmailProfessor" class="form-label">Email</label>
+                    <input type="email" class="form-control" name="userEmailProfessor" placeholder="user@exemple.com">
                 </div> 
                 <div class="row mt-3">
-                    <label for="userPassword" class="form-label">Senha</label>
-                    <input type="password" name="userPassword" class="form-control">
+                    <label for="userPasswordProfessor" class="form-label">Senha</label>
+                    <input type="password" name="userPasswordProfessor" class="form-control">
                 </div>               
                
                 <div class="row mt-3">
                 
-                    <button type="submit" class="btn btn-info">Cadastrar</button>
+                    <button type="submit" class="btn btn-info" name="cadastrar">Cadastrar</button>
                    
                 </form>
                 </div>
