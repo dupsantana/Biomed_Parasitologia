@@ -1,4 +1,4 @@
-public class PacienteExame {
+public class Pacientes {
     
     private String nome;
     private String dataNascimento;
@@ -10,7 +10,7 @@ public class PacienteExame {
     private String tomaMedicamento;
     private String medicamento;
 
-    public PacienteExame(){}
+    public Pacientes(){}
 
     public String getNome() {
         return nome;

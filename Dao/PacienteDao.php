@@ -17,7 +17,7 @@
                 $conn->bindValue(":regis", $pacientes->getRegis());
                 $conn->bindValue(":regis", $pacientes->getRegis());
                 $conn->bindValue(":regis", $pacientes->getRegis());
-
+                
 
             }
         }
