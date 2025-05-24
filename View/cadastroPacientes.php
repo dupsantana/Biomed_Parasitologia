@@ -38,6 +38,11 @@
             padding: 1rem;
             margin-top: auto;
         }
+
+        header{
+            color: white;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+        }
     </style>
 </head>
 <body>
@@ -45,7 +50,9 @@
     <header style="background-color: #272343;">
         <div class="container">
             <div class="row p-4">
-                <div class="col-1 fw-bold fs-4" style="color: white; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">CLINICODE</div>
+                <div class="col-12 text-center">
+                    <h1>CLINICODE</h1>
+                </div>
             </div>
         </div>
     </header>
