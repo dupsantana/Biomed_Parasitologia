@@ -8,7 +8,8 @@
    $professorDao = new ProfessorDao; 
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
-        if(isset($_POST['cadastrar'])){
+
+        if(isset($_POST['cprofessor'])){
             $professor->setNome($_POST['userNameProfessor']);
             $professor->setrgmProfessor($_POST['userRGMProfessor']);
             $professor->setEmail($_POST['userEmailProfessor']);

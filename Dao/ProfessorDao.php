@@ -3,9 +3,9 @@
         public function insert(Professor $professor){
 
             try{
-                $sql ="INSERT INTO professor(rgmProfessor,nome,email,senha)VALUES(:rgmProfessor, :nome, :email, :senha)";
+                $sql ="INSERT INTO professor(rgm,nome,email,senha)VALUES(:rgm, :nome, :email, :senha)";
                 $conn = ConnectionFactory::getConnection()->prepare($sql);
-                $conn->bindValue(":rgmProfessor", $professor->getrgmProfessor());
+                $conn->bindValue(":rgm", $professor->getrgmProfessor());
                 $conn->bindValue(":nome", $professor->getNome());
                 $conn->bindValue(":email", $professor->getEmail());
                 

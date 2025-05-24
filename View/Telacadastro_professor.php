@@ -77,7 +77,7 @@
                
                 <div class="row mt-3">
                 
-                    <button type="submit" class="btn btn-info" name="cadastrar">Cadastrar</button>
+                      <button type="submit" name="cprofessor" class="btn btn-info">Cadastrar</button>
                    
                 </form>
                 </div>
