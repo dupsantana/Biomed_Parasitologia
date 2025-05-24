@@ -109,17 +109,17 @@
                     <div class="mb-3">
                         <label class="form-label fw-bold fs-5">Você toma algum medicamento? Se sim, qual?</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="medicamento" id="medicamento_sim" value="sim">
-                            <label class="form-check-label" for="medicamento_sim">Sim</label>
+                            <input class="form-check-input" type="radio" name="medicamento_sim" id="medicamento_sim" value="sim">
+                            <label class="form-check-label" name="medicamento_sim" for="medicamento_sim">Sim</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="medicamento" id="medicamento_nao" value="nao" checked>
-                            <label class="form-check-label" for="medicamento_nao">Não</label>
+                            <input class="form-check-input" type="radio" name="medicamento_nao" id="medicamento_nao" value="nao" checked>
+                            <label class="form-check-label" name="medicamento_nao" for="medicamento_nao">Não</label>
                         </div>
                     </div>
                     <div class="mb-3" id="campo_medicamento" style="display: none;">
                         <label for="qual_medicamento" class="form-label">Qual medicamento?</label>
-                        <input type="text" class="form-control" id="qual_medicamento" placeholder="Digite o nome do medicamento">
+                        <input type="text" class="form-control" name="nome_medicamento" id="qual_medicamento" placeholder="Digite o nome do medicamento">
                     </div>
                 </div>
                

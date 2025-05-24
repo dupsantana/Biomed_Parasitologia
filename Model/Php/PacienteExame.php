@@ -1,5 +1,5 @@
 <?php 
-    class PacienteExame{
+    class Paciente{
         private $nome;
         private $dataNascimento;
         private $dataExame;
