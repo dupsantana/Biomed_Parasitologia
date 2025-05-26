@@ -1,115 +1,104 @@
 <?php 
     class Pacientes{
         private $nome;
-        private $dataNascimento;
+        private $dataNasc;
         private $dataExame;
         private $periodo;
         private $telefone;
-        private $email;
+        private $pacienteMail;
         private $nomeMae;
         private $epf;
-        private $sangueoculto;
+        private $sangueOculto;
         private $naosolici;
         private $medicamento_sim;
         private $medicamento_nao;
         private $nome_medicamento;
 
         public function __construct(){}
-        
-        public function setNome($nome){
-            $this->nome = $nome;
-        }    
-        public function getNome(){
+
+        public function getNome() {
             return $this->nome;
         }
-
-        public function setDataNascimento($dataNasc){
-            $this->dataNascimento = $dataNasc;
+        public function setNome($nome) {
+            $this->nome = $nome;
         }
-        public function getDataNascimento(){
-            return $this->dataNascimento;
+        public function getDataNasc() {
+            return $this->dataNasc;
         }
-
-        public function setDataExame($dataExame){
-            $this->dataExame = $dataExame;
+        public function setDataNasc($dataNasc) {
+            $this->dataNasc = $dataNasc;
         }
-        public function getDataExame(){
+        public function getDataExame() {
             return $this->dataExame;
         }
-
-        public function setPeriodo($periodo){
-            $this->periodo = $periodo;
+        public function setDataExame($dataExame) {
+            $this->dataExame = $dataExame;
         }
-        public function getPeriodo(){
+        public function getPeriodo() {
             return $this->periodo;
         }
-
-        public function setTelefone($telefone){
-            $this->telefone = $telefone;
+        public function setPeriodo($periodo) {
+            $this->periodo = $periodo;
         }
-        public function getTelefone(){
+        public function getTelefone() {
             return $this->telefone;
         }
-
-        public function setEmail($email){
-            $this->email = $email;
+        public function setTelefone($telefone) {
+            $this->telefone = $telefone;
         }
-        public function getEmail(){
-            return $this->email;
+        public function getPacienteMail() {
+            return $this->pacienteMail;
         }
-
-        public function setNomeMae($nMae){
-            $this->nomeMae = $nMae;
+        public function setPacienteMail($pacienteMail) {
+            $this->pacienteMail = $pacienteMail;
         }
-        public function getNomeMae(){
-           return $this->nomeMae;
+        public function getNomeMae() {
+            return $this->nomeMae;
         }
-
-        public function setEpf($epf){
-            $this->epf = $epf;
+        public function setNomeMae($nomeMae) {
+            $this->nomeMae = $nomeMae;
         }
-        public function getEpf(){
+        public function getEpf() {
             return $this->epf;
         }
-
-        public function setSangueOculto($sangueOculto){
-            $this->sangueoculto = $sangueOculto;
+        public function setEpf($epf) {
+            $this->epf = $epf;
         }
-        public function getSangueOculto(){
-            return $this->sangueoculto;
+        public function getSangueOculto() {
+            return $this->sangueOculto;
         }
-
-        public function setNaoSolicitado($naosolici){
-            $this->naosolici = $naosolici;
+        public function setSangueOculto($sangueOculto) {
+            $this->sangueOculto = $sangueOculto;
         }
-        public function getNaoSolicitado(){
+        public function getNaoSolici() {
             return $this->naosolici;
         }
-
-        public function setMedicamentoSim($medicamento_sim){
-            $this->medicamento_sim = $medicamento_sim;
+        public function setNaoSolici($naosolici) {
+            $this->naosolici = $naosolici;
         }
-        public function getMedicamentoSim(){
+        public function getMedicamento_sim() {
             return $this->medicamento_sim;
         }
-
-        public function setMedicamentoNao($medicamento_nao){
-            $this->medicamento_nao = $medicamento_nao;
+        public function setMedicamento_sim($medicamento_sim) {
+            $this->medicamento_sim = $medicamento_sim;
         }
-        public function getMedicamentoNao(){
+        public function getMedicamento_nao() {
             return $this->medicamento_nao;
         }
-
-        public function setNomeMedicamento($nome_medicamento){
-            $this->nome_medicamento = $nome_medicamento;
+        public function setMedicamento_nao($medicamento_nao) {
+            $this->medicamento_nao = $medicamento_nao;
         }
-        public function getNomeMedicamento(){
+        public function getNome_medicamento() {
             return $this->nome_medicamento;
         }
-
+        public function setNome_medicamento($nome_medicamento) {
+            $this->nome_medicamento = $nome_medicamento;
+        }
         public function __toString(){
-            return "Nome: {$this->getNome()} | Data de Nascimento: {$this->getDataNascimento()} | Telefone: {$this->getTelefone()} | Email: {$this->getEmail()} | Nome da Mãe: {$this->getNomeMae()} | EPF: {$this->getEpf()} | Sangue Oculto: {$this->getSangueOculto()} | Não Solicitado: {$this->getNaoSolicitado()} | Medicamento Sim: {$this->getMedicamentoSim()} | Medicamento Não: {$this->getMedicamentoNao()} | Nome do Medicamento: {$this->getNomeMedicamento()}";
+            return "Nome: {$this->nome}, Data de Nascimento: {$this->dataNasc}, Data do Exame: {$this->dataExame}, Período: {$this->periodo}, Telefone: {$this->telefone}, Email: {$this->pacienteMail}, Nome da Mãe: {$this->nomeMae}, EPF: {$this->epf}, Sangue Oculto: {$this->sangueOculto}, Não Solicitado: {$this->naosolici}, Medicamento Sim: {$this->medicamento_sim}, Medicamento Não: {$this->medicamento_nao}, Nome do Medicamento: {$this->nome_medicamento}";
         }
     }
+        
+        
 
 ?>

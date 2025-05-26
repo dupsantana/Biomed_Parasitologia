@@ -64,12 +64,12 @@
             <form action="TelaLogin1.php" method="post">
                 <!-- Campos de input -->
                 <div class="row mt-3">               
-                    <label for="regis" class="form-label">Nome Paciente</label>
-                    <input type="text" name="regis" class="form-control" required>              
+                    <label for="nome" class="form-label">Nome Paciente</label>
+                    <input type="text" name="nome" class="form-control" required>              
                 </div>           
                 <div class="row mt-3">
-                    <label for="datanasc" class="form-label">Data de Nascimento</label>
-                    <input type="date" class="form-control" name="datanasc" maxlength="8" required>
+                    <label for="dataNasc" class="form-label">Data de Nascimento</label>
+                    <input type="date" class="form-control" name="dataNasc" maxlength="8" required>
                 </div>
                 <div class="row mt-3">
                     <label for="telefone" class="form-label">Telefone</label>
