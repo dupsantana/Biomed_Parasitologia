@@ -1,6 +1,6 @@
 public class Exame {
     
-     private String dataRealizacao;
+    private String dataRealizacao;
     private String hora;
     private String dataPrevista;
     private String tipoAmostra;
