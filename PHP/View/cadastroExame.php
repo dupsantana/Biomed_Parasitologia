@@ -75,7 +75,7 @@
     <main>    
         <div class="form-container">
             <h2 class="text-center mb-4 display-5" style="color: white; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Cadastrar Exame</h2>
-            <form action="TelaLogin1.php" method="post">
+            <form action="cadastroExame.php" method="post">
                 
                 <div class="form-section">
                     <h3>Laboratório de Parasitologia</h3>
