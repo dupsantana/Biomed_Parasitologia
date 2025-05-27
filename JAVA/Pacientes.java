@@ -1,14 +1,12 @@
 public class Pacientes {
     
     private String nome;
-    private String dataNascimento;
-    private String dataExame;
-    private String periodo;
+    private String dataNasc;
     private String telefone;
     private String email;
     private String nomeMae;
-    private String tomaMedicamento;
     private String medicamento;
+    private String nome_medicamento;
 
     public Pacientes(){}
 
@@ -20,28 +18,12 @@ public class Pacientes {
         this.nome = nome;
     }
 
-    public String getDataNascimento() {
-        return dataNascimento;
+    public String getDataNasc() {
+        return dataNasc;
     }
 
-    public void setDataNascimento(String dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
-
-    public String getDataExame() {
-        return dataExame;
-    }
-
-    public void setDataExame(String dataExame) {
-        this.dataExame = dataExame;
-    }
-
-    public String getPeriodo() {
-        return periodo;
-    }
-
-    public void setPeriodo(String periodo) {
-        this.periodo = periodo;
+    public void setDataNasc(String dataNasc) {
+        this.dataNasc = dataNasc;
     }
 
     public String getTelefone() {
@@ -68,14 +50,6 @@ public class Pacientes {
         this.nomeMae = nomeMae;
     }
 
-    public String getTomaMedicamento() {
-        return tomaMedicamento;
-    }
-
-    public void setTomaMedicamento(String tomaMedicamento) {
-        this.tomaMedicamento = tomaMedicamento;
-    }
-
     public String getMedicamento() {
         return medicamento;
     }
@@ -84,12 +58,26 @@ public class Pacientes {
         this.medicamento = medicamento;
     }
 
-    @Override
-    public String toString() {
-        return "Nome: " + nome + ", Data de Nascimento=" + dataNascimento + ", Data do Exame: " + dataExame
-                + ", periodo: " + periodo + ", telefone: " + telefone + ", email: " + email + ", nomeMae: " + nomeMae
-                + ", Toma Medicamento: " + tomaMedicamento + ", Medicamento: " + medicamento + "\n";
+    public String getNome_medicamento() {
+        return nome_medicamento;
     }
 
+    public void setNome_medicamento(String nome_medicamento) {
+        this.nome_medicamento = nome_medicamento;
+    }
+
+    
+    @Override
+    public String toString() {
+        return "Pacientes{" +
+                "nome='" + nome + '\'' +
+                ", dataNasc='" + dataNasc + '\'' +
+                ", telefone='" + telefone + '\'' +
+                ", email='" + email + '\'' +
+                ", nomeMae='" + nomeMae + '\'' +
+                ", medicamento_='" + medicamento + '\'' +
+                ", nome_medicamento='" + nome_medicamento + '\'' +
+                '}';
+    }
     
 }

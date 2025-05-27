@@ -84,37 +84,16 @@
                     <input type="text" name="nomeMae" class="form-control">
                 </div>
                 <br>
-                <div class="container">
-                    <label class="form-label fw-bold fs-5">Selecione uma Opção</label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="epf" id="examepf">
-                        <label class="form-check-label" for="examepf">
-                            Exame parasitológico de fezes.
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="sangueocult" id="sangueoculto">
-                        <label class="form-check-label" for="sangeueoculto">
-                            Sangue oculto.
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="naosolici" id="naosolicitado">
-                        <label class="form-check-label" for="naosolicitado">
-                            Não foi solicitado.
-                        </label>
-                    </div>
-                </div>
                 <div class="container mt-3">
                     <div class="mb-3">
                         <label class="form-label fw-bold fs-5">Você toma algum medicamento? Se sim, qual?</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="medicamento_sim" id="medicamento_sim" value="sim">
-                            <label class="form-check-label" name="medicamento_sim" for="medicamento_sim">Sim</label>
+                            <input class="form-check-input" type="radio" name="medicamento" id="medicamento_sim" value="sim">
+                            <label class="form-check-label" name="medicamento" for="medicamento_sim">Sim</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="medicamento_nao" id="medicamento_nao" value="nao" checked>
-                            <label class="form-check-label" name="medicamento_nao" for="medicamento_nao">Não</label>
+                            <input class="form-check-input" type="radio" name="medicamento" id="medicamento_nao" value="nao" checked>
+                            <label class="form-check-label" name="medicamento" for="medicamento_nao">Não</label>
                         </div>
                     </div>
                     <div class="mb-3" id="campo_medicamento" style="display: none;">

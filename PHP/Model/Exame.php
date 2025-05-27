@@ -2,102 +2,104 @@
 
 class exame{
 
-    private $dataRealizacao;
-    private $hora;
-    private $dataPrevista;
-    private $tipoAmostra;
-    private $tecnicaUtilizada;
+    private $registo;
+    private $nome_paciente;
+    private $entrada;
+    private $data_exame;
+    private $data_entrega;
+    private $tipo_amostra;
+    private $tecnica;
     private $consistencia;
     private $coloracao;
     private $muco;
     private $sangue;
-    private $analise;
+    private $responsavel_exame;
+    private $preceptor;
 
     public function __construct(){}
 
-     public function getDataRealizacao() {
-        return $this->dataRealizacao;
+    public function getRegisto() {
+        return $this->registo;
     }
-    public function setDataRealizacao($dataRealizacao) {
-        $this->dataRealizacao = $dataRealizacao;
+    public function setRegisto($registo) {
+        $this->registo = $registo;
     }
-
-    public function getHora() {
-        return $this->hora;
+    public function getNome_paciente() {
+        return $this->nome_paciente;
     }
-    public function setHora($hora) {
-        $this->hora = $hora;
+    public function setNome_paciente($nome_paciente) {
+        $this->nome_paciente = $nome_paciente;
     }
-
-    public function getDataPrevista() {
-        return $this->dataPrevista;
+    public function getEntrada() {
+        return $this->entrada;
     }
-    public function setDataPrevista($dataPrevista) {
-        $this->dataPrevista = $dataPrevista;
+    public function setEntrada($entrada) {
+        $this->entrada = $entrada;
     }
-
-    public function getTipoAmostra() {
-        return $this->tipoAmostra;
+    public function getData_exame() {
+        return $this->data_exame;
     }
-    public function setTipoAmostra($tipoAmostra) {
-        $this->tipoAmostra = $tipoAmostra;
+    public function setData_exame($data_exame) {
+        $this->data_exame = $data_exame;
     }
-
-    public function getTecnicaUtilizada() {
-        return $this->tecnicaUtilizada;
+    public function getData_entrega() {
+        return $this->data_entrega;
     }
-    public function setTecnicaUtilizada($tecnicaUtilizada) {
-        $this->tecnicaUtilizada = $tecnicaUtilizada;
+    public function setData_entrega($data_entrega) {
+        $this->data_entrega = $data_entrega;
     }
-
+    public function getTipo_amostra() {
+        return $this->tipo_amostra;
+    }
+    public function setTipo_amostra($tipo_amostra) {
+        $this->tipo_amostra = $tipo_amostra;
+    }
+    public function getTecnica() {
+        return $this->tecnica;
+    }
+    public function setTecnica($tecnica) {
+        $this->tecnica = $tecnica;
+    }
     public function getConsistencia() {
         return $this->consistencia;
     }
     public function setConsistencia($consistencia) {
         $this->consistencia = $consistencia;
     }
-
     public function getColoracao() {
         return $this->coloracao;
     }
     public function setColoracao($coloracao) {
         $this->coloracao = $coloracao;
     }
-
     public function getMuco() {
         return $this->muco;
     }
     public function setMuco($muco) {
         $this->muco = $muco;
     }
-
     public function getSangue() {
         return $this->sangue;
     }
     public function setSangue($sangue) {
         $this->sangue = $sangue;
     }
-
-    public function getAnalise() {
-        return $this->analise;
+    public function getResponsavel_exame() {
+        return $this->responsavel_exame;
     }
-    public function setAnalise($analise) {
-        $this->analise = $analise;
+    public function setResponsavel_exame($responsavel_exame) {
+        $this->responsavel_exame = $responsavel_exame;
     }
-
-    // 🔸 Método toString
-    public function __toString() {
-        return "Data de Realização: {$this->dataRealizacao}, " .
-               "Hora: {$this->hora}, " .
-               "Data Prevista: {$this->dataPrevista}, " .
-               "Tipo de Amostra: {$this->tipoAmostra}, " .
-               "Técnica Utilizada: {$this->tecnicaUtilizada}, " .
-               "Consistência: {$this->consistencia}, " .
-               "Coloração: {$this->coloracao}, " .
-               "Muco: {$this->muco}, " .
-               "Sangue: {$this->sangue}, " .
-               "Análise: {$this->analise}";
+    public function getPreceptor() {
+        return $this->preceptor;
     }
+    public function setPreceptor($preceptor) {
+        $this->preceptor = $preceptor;
+    }
+    public function __toString(){
+        return "Registo: {$this->registo}, Nome do Paciente: {$this->nome_paciente}, Entrada: {$this->entrada}, Data do Exame: {$this->data_exame}, Data de Entrega: {$this->data_entrega}, Tipo de Amostra: {$this->tipo_amostra}, Técnica: {$this->tecnica}, Consistência: {$this->consistencia}, Coloração: {$this->coloracao}, Muco: {$this->muco}, Sangue: {$this->sangue}, Responsável pelo Exame: {$this->responsavel_exame}, Preceptor Responsável: {$this->preceptor}";
+    }
+    
 
 } 
 
