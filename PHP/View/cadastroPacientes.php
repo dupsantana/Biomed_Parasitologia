@@ -47,15 +47,11 @@
 </head>
 <body>
     <!-- Cabeçalho da página -->
-    <header style="background-color: #272343;">
-        <div class="container">
-            <div class="row p-4">
-                <div class="col-12 text-center">
-                    <h1>CLINICODE</h1>
-                </div>
-            </div>
-        </div>
-    </header>
+   <?php 
+        include'../Model/trechosCod.php';
+        cabecalho();
+        
+    ?>
     
     <main>    
         <!-- Container principal do formulário -->
@@ -109,10 +105,11 @@
         </div>
     </main>
 
-    <footer class="text-center">
-        <p><strong>Cleonard Solutions © 2025</strong></p>
-        <p>Developers: bigode, pelanza e Clauds</p>
-    </footer>
+     <!--FOOTER-->
+      <?php 
+            
+            footer();
+        ?>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>

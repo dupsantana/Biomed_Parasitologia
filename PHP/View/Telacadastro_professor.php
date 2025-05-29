@@ -31,16 +31,11 @@
 </style>
 
     <!--cabeçalho da página-->
-    <header class="text-center m-0 w-100 shadow-lg" style="background-color: #272343;">
-    <div class="container">
-        <div class="row p-4 align-items-center">
-            <div class="col-12 fw-bold text-center mt-3" style="color: white; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
-                <h2><strong>CLINICODE</strong></h2>
-            </div>
-        </div>
-        </div>
-        </header>
-    </div>
+     <?php 
+        include'../Model/trechosCod.php';
+        cabecalho();
+        
+        ?>
     
     <main>    
     <!--Container principal da página-->
@@ -95,10 +90,10 @@
         </div>
         </main>
 
-        <footer class="text-center p-3 mt-auto">
-        <p><strong>Cleonard Solutions © 2025</strong></p>
-        <p>Developers: bigode, pelanza e Clauds</p>
-    </footer>
+        <?php 
+            
+            footer();
+        ?>
        
     
 </body>

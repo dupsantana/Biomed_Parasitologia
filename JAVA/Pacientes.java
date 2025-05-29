@@ -1,5 +1,5 @@
 public class Pacientes {
-    
+    private int id;
     private String nome;
     private String dataNasc;
     private String telefone;
@@ -9,6 +9,14 @@ public class Pacientes {
     private String nome_medicamento;
 
     public Pacientes(){}
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;
@@ -79,5 +87,8 @@ public class Pacientes {
                 ", nome_medicamento='" + nome_medicamento + '\'' +
                 '}';
     }
+
+
+  
     
 }

@@ -1,5 +1,5 @@
 public class Exame {
-    
+    private int id;
     private String registo;
     private String nome_paciente;
     private String entrada;
@@ -18,6 +18,13 @@ public class Exame {
     public Exame() {
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getRegisto() {
         return registo;

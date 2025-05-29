@@ -155,20 +155,16 @@
 
         </div>
 
-    </div>
-
-
-    
+    </div> 
 
 
 
 
-
-
-    <footer id="footer_aluno" class="text-center p-3 mt-auto">
-            <p><strong>Cleonard Solutions © 2025</strong></p>
-            <p>Developers: bigode, pelanza e Clauds</p>
-        </footer>
+    <!--FOOTER-->
+      <?php 
+            include '../Model/trechosCod.php';
+            footer();
+        ?>
 
 </main>
 

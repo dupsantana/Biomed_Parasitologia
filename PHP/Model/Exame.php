@@ -1,8 +1,8 @@
 <?php 
 
 class exame{
-
-    private $registo;
+    private $id;
+    private $registro;
     private $nome_paciente;
     private $entrada;
     private $data_exame;
@@ -18,11 +18,17 @@ class exame{
 
     public function __construct(){}
 
-    public function getRegisto() {
-        return $this->registo;
+    public function getRegistro() {
+        return $this->registro;
     }
-    public function setRegisto($registo) {
-        $this->registo = $registo;
+    public function setId($id){
+        $this->id = $id;
+    }
+    public function getId(){
+        return $this->id;
+    }
+    public function setRegistro($registro) {
+        $this->registro = $registro;
     }
     public function getNome_paciente() {
         return $this->nome_paciente;
@@ -97,7 +103,7 @@ class exame{
         $this->preceptor = $preceptor;
     }
     public function __toString(){
-        return "Registo: {$this->registo}, Nome do Paciente: {$this->nome_paciente}, Entrada: {$this->entrada}, Data do Exame: {$this->data_exame}, Data de Entrega: {$this->data_entrega}, Tipo de Amostra: {$this->tipo_amostra}, Técnica: {$this->tecnica}, Consistência: {$this->consistencia}, Coloração: {$this->coloracao}, Muco: {$this->muco}, Sangue: {$this->sangue}, Responsável pelo Exame: {$this->responsavel_exame}, Preceptor Responsável: {$this->preceptor}";
+        return "Registo: {$this->registro}, Nome do Paciente: {$this->nome_paciente}, Entrada: {$this->entrada}, Data do Exame: {$this->data_exame}, Data de Entrega: {$this->data_entrega}, Tipo de Amostra: {$this->tipo_amostra}, Técnica: {$this->tecnica}, Consistência: {$this->consistencia}, Coloração: {$this->coloracao}, Muco: {$this->muco}, Sangue: {$this->sangue}, Responsável pelo Exame: {$this->responsavel_exame}, Preceptor Responsável: {$this->preceptor}";
     }
     
 

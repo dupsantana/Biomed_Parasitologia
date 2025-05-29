@@ -31,10 +31,11 @@
 <body>
 
   <!-- HEADER -->
-  <header class="w-100" style="background-color: #272343;">
-  <div class="container">
-    <div class="row p-4">
-        <div class="col-1 fw-bold fs-4" style="color: white; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">CLINICODE</div>
+  <?php 
+        include'../Model/trechosCod.php';
+        cabecalho();
+        
+  ?>
         
   </header>
   <!-- CONTEÚDO CENTRAL -->
@@ -57,13 +58,11 @@
         </div>
       </div>
     </main>
-  <!-- FOOTER -->
-  <footer class="text-center p-1 text-light" style="background-color: #272343;">
-    <div >
-      <p><strong>Cleonard Solutions © 2025</strong></p>
-      <p>Developers: bigode, pelanza e Clauds</p>
-    </div>
-  </footer>
+   <!--FOOTER-->
+      <?php 
+            
+            footer();
+        ?>
 
 </body>
 </html>

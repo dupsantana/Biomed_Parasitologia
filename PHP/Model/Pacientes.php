@@ -1,5 +1,6 @@
 <?php 
     class Pacientes{
+        private $id;
         private $nome;
         private $dataNasc;
         private $telefone;
@@ -12,6 +13,12 @@
 
         public function getNome() {
             return $this->nome;
+        }
+         public function setId($id){
+        $this->id = $id;
+        }
+        public function getId(){
+            return $this->id;
         }
         public function setNome($nome) {
             $this->nome = $nome;

@@ -63,12 +63,10 @@
  
 
   <!-- FOOTER -->
-  <footer class="text-center p-3 text-light" style="background-color: #272343;">
-    <div >
-      <p><strong>Cleonard Solutions © 2025</strong></p>
-      <p>Developers: bigode, pelanza e Clauds</p>
-    </div>
-  </footer>    
+ <?php 
+  include '../Model/trechosCod.php';
+  footer();
+ ?>  
 
 </body>
 </html>
