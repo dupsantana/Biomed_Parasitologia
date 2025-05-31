@@ -10,7 +10,7 @@
 
 CREATE TABLE EXAME(
     id INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    registro VARCHAR(30) NOT NULL,  
+    registro VARCHAR(30) NOT NULL,  /*-------MUDAR PARA PRIMARY KEY-------*/
     paciente_id INT NOT NULL,
     entrada VARCHAR(30) NOT NULL,
     data_exame DATE NOT NULL,
@@ -40,3 +40,5 @@ CREATE TABLE EXAME(
     email VARCHAR(80) NOT NULL,
     senha VARCHAR(50) NOT NULL,
  );
+
+
