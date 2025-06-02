@@ -1,6 +1,6 @@
 public class Exame {
     private int id;
-    private String registo;
+    private String registro;
     private String nome_paciente;
     private String entrada;
     private String data_exame;
@@ -26,13 +26,13 @@ public class Exame {
         this.id = id;
     }
 
-    public String getRegisto() {
-        return registo;
+    public String getRegistro() {
+        return registro;
     }
 
 
-    public void setRegisto(String registo) {
-        this.registo = registo;
+    public void setRegisto(String registro) {
+        this.registro = registro;
     }
 
 
@@ -158,7 +158,7 @@ public class Exame {
     @Override
     public String toString() {
         return "Exame{" +
-                "registo='" + registo + '\'' +
+                "registro='" + registro + '\'' +
                 ", nome_paciente='" + nome_paciente + '\'' +
                 ", entrada='" + entrada + '\'' +
                 ", data_exame='" + data_exame + '\'' +

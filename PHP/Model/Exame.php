@@ -103,7 +103,7 @@ class exame{
         $this->preceptor = $preceptor;
     }
     public function __toString(){
-        return "Registo: {$this->registro}, Nome do Paciente: {$this->nome_paciente}, Entrada: {$this->entrada}, Data do Exame: {$this->data_exame}, Data de Entrega: {$this->data_entrega}, Tipo de Amostra: {$this->tipo_amostra}, Técnica: {$this->tecnica}, Consistência: {$this->consistencia}, Coloração: {$this->coloracao}, Muco: {$this->muco}, Sangue: {$this->sangue}, Responsável pelo Exame: {$this->responsavel_exame}, Preceptor Responsável: {$this->preceptor}";
+        return "Registro: {$this->registro}, Nome do Paciente: {$this->nome_paciente}, Entrada: {$this->entrada}, Data do Exame: {$this->data_exame}, Data de Entrega: {$this->data_entrega}, Tipo de Amostra: {$this->tipo_amostra}, Técnica: {$this->tecnica}, Consistência: {$this->consistencia}, Coloração: {$this->coloracao}, Muco: {$this->muco}, Sangue: {$this->sangue}, Responsável pelo Exame: {$this->responsavel_exame}, Preceptor Responsável: {$this->preceptor}";
     }
     
 
