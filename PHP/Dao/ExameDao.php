@@ -2,10 +2,10 @@
     class ExameDao{
         public function insert(Exame $exame){
             try{
-                $sql = "INSERT INTO exame(registo, nome_paciente, entrada, data_exame, data_entrega, tipo_amostra, tecnica, consistencia, coloracao, muco, sangue, responsavel_exame, preceptor) 
-                        VALUES(:registo, :nome_paciente, :entrada, :data_exame, :data_entrega, :tipo_amostra, :tecnica, :consistencia, :coloracao, :muco, :sangue, :responsavel_exame, :preceptor)";
+                $sql = "INSERT INTO exame(registro, nome_paciente, entrada, data_exame, data_entrega, tipo_amostra, tecnica, consistencia, coloracao, muco, sangue, responsavel_exame, preceptor) 
+                        VALUES(:registro, :nome_paciente, :entrada, :data_exame, :data_entrega, :tipo_amostra, :tecnica, :consistencia, :coloracao, :muco, :sangue, :responsavel_exame, :preceptor)";
                 $conn = ConnectionFactory::getConnection()->prepare($sql);
-                $conn->bindValue(":registo", $exame->getRegisto());
+                $conn->bindValue(":registro", $exame->getRegistro());
                 $conn->bindValue(":nome_paciente", $exame->getNome_paciente());
                 $conn->bindValue(":entrada", $exame->getEntrada());
                 $conn->bindValue(":data_exame", $exame->getData_exame());
