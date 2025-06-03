@@ -1,7 +1,8 @@
+package Model;
 public class Exame {
-    private int id;
-    private String registro;
-    private String nome_paciente;
+    
+    private int registro;
+    private int idPaciente;
     private String entrada;
     private String data_exame;
     private String data_entrega;
@@ -10,39 +11,32 @@ public class Exame {
     private String consistencia;
     private String coloracao;
     private String muco;
-    private String sangue;
-    private String responsavel_exame;
-    private String preceptor;
+    private String sangue;    
+    private int idAluno;
+    private int idProfessor;
 
 
     public Exame() {
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getRegistro() {
+    
+    public int getRegistro() {
         return registro;
     }
 
 
-    public void setRegisto(String registro) {
+    public void setRegistro(int registro) {
         this.registro = registro;
     }
 
 
-    public String getNome_paciente() {
-        return nome_paciente;
+    public int getIdpaciente() {
+        return idPaciente;
     }
 
 
-    public void setNome_paciente(String nome_paciente) {
-        this.nome_paciente = nome_paciente;
+    public void setIdpaciente(int id) {
+        this.idPaciente = id;
     }
 
 
@@ -133,44 +127,30 @@ public class Exame {
 
     public void setSangue(String sangue) {
         this.sangue = sangue;
+    }  
+    
+    public int getIdAluno() {
+        return idAluno;
     }
 
-
-    public String getResponsavel_exame() {
-        return responsavel_exame;
+    public void setIdAluno(int idAluno) {
+        this.idAluno = idAluno;
     }
 
-
-    public void setResponsavel_exame(String responsavel_exame) {
-        this.responsavel_exame = responsavel_exame;
+    public int getIdProfessor() {
+        return idProfessor;
     }
 
-
-    public String getPreceptor() {
-        return preceptor;
+    public void setIdProfessor(int idProfessor) {
+        this.idProfessor = idProfessor;
     }
-
-
-    public void setPreceptor(String preceptor) {
-        this.preceptor = preceptor;
+     
+    public String stringSql(){
+        return  "INSERT INTO exame(registro, paciente_id, professor_id, aluno_id, entrada, data_exame, data_entrega,tipo_amostra  tecnica, coloracao, muco, sangue)"
+                + "VALUES('"+this.registro+"', '"+this.idPaciente+"', '"+this.idAluno+"', '"+this.entrada+"', '"+this.data_exame+"', '"+this.data_entrega+"', '"+this.tipo_amostra+"', '"+this.tecnica+"', '"+this.consistencia+"', '"+this.coloracao+"', '"+this.muco+"', '"+this.sangue+"');\n";
     }
+   
 
-    @Override
-    public String toString() {
-        return "Exame{" +
-                "registro='" + registro + '\'' +
-                ", nome_paciente='" + nome_paciente + '\'' +
-                ", entrada='" + entrada + '\'' +
-                ", data_exame='" + data_exame + '\'' +
-                ", data_entrega='" + data_entrega + '\'' +
-                ", tipo_amostra='" + tipo_amostra + '\'' +
-                ", tecnica='" + tecnica + '\'' +
-                ", consistencia='" + consistencia + '\'' +
-                ", coloracao='" + coloracao + '\'' +
-                ", muco='" + muco + '\'' +
-                ", sangue='" + sangue + '\'' +
-                ", responsavel_exame='" + responsavel_exame + '\'' +
-                ", preceptor='" + preceptor + '\'' +
-                '}';
-    }
+
+    
 }

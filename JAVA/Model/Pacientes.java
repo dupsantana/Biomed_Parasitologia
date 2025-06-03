@@ -1,3 +1,4 @@
+package Model;
 public class Pacientes {
     private int id;
     private String nome;

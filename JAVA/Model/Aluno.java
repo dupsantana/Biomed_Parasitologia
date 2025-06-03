@@ -1,3 +1,4 @@
+package Model;
 public class Aluno extends Usuario{
 
     private String rgm;
