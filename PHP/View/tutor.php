@@ -104,16 +104,29 @@
     </div>
     </div>
     <div>
-    <h6 class="ms-3 pb-2"  style="color: white">
-    
-        
-    </h6>   
+    <h6 class="ms-3 pb-2"  style="color: white">  
 
-    </div>   
+    </h6>  
 
+    </div>
 
-    
 </header>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary p-0" >
+  <div class="container-fluid" style="background-color:rgb(110, 103, 155);"> 
+ 
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active"  href="../View/listaProfesores.php">Ver Professores cadastrados</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Ver alunos cadastrados</a>
+        </li>            
+      </ul>
+    </div>
+  </div>
+</nav>
 
     <div class="container" id="container_cards">
         <div class="row">

@@ -3,11 +3,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class File {
-    private static String fileName = "insert.sql";
+public class FileSQLExame {
+    private static String fileName = "sql/insertExame.sql";
 
 
-    public  void writeInsertStatement(String insert){
+    public void writeInsertStatement(String insert){
         try {
             FileWriter fw = new FileWriter(fileName, true);
             PrintWriter pw = new PrintWriter(fw);

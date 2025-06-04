@@ -1,12 +1,21 @@
 package Model;
 public class Aluno extends Usuario{
-
+    private int id;
     private String rgm;
 
     public Aluno(){
         super();
     }
 
+    public int getId() {
+        return id;
+    }
+
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public String getRgm() {
         return rgm;
     }
@@ -19,6 +28,9 @@ public class Aluno extends Usuario{
     public String toString() {
         return super.toString() + "rgm: " + rgm + "\n";
     }
+
+
+    
 
     
 

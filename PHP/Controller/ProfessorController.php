@@ -21,4 +21,17 @@
    }
     }
    
+    function lerProfessor(){
+        $professor = new Professor();
+        $professorDao = new ProfessorDao;
+        $lista = $professorDao->read();
+
+        foreach($lista as $professor){
+            echo" <tr>
+                    <td>{$professor->getRgmProfessor()}</td>
+                    <td>{$professor->getNome()}</td>
+                    <td>{$professor->getEmail()}</td>
+                </tr>";             
+        }
+    }
 ?>

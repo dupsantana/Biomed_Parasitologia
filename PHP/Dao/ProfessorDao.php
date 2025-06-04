@@ -20,5 +20,27 @@
                 echo"<p> Erro </p> <p>$ex</p>";            
             }
         }
+
+        public function read(){
+
+            try{                 
+            $sql = "SELECT * FROM professor";
+            $conn = ConnectionFactory::getConnection()->prepare($sql);
+            $conn->execute();
+            $lista = $conn->fetchAll(PDO::FETCH_ASSOC);
+            $listaProfessor = array();
+            foreach($lista as $linha){
+                $professorEncontrado = new Professor();
+                $professorEncontrado->setRgmProfessor($linha['rgm']);
+                $professorEncontrado->setNome($linha['nome']);
+                $professorEncontrado->setEmail($linha['email']);
+                $listaProfessor[] = $professorEncontrado;
+            }
+                return $listaProfessor;
+
+            }catch(PDOException $ex){
+                echo"<p>Erro ao fazer a consulta".$ex->getMessage()."</p>";
+            }
+        }
     }
 ?>
