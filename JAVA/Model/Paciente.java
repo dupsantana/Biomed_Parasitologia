@@ -1,15 +1,15 @@
 package Model;
-public class Pacientes {
+public class Paciente {
     private int id;
     private String nome;
     private String dataNasc;
     private String telefone;
     private String email;
     private String nomeMae;
-    private String medicamento;
+    private Boolean medicamento;
     private String nome_medicamento;
 
-    public Pacientes(){}
+    public Paciente(){}
 
     public int getId() {
         return id;
@@ -59,11 +59,11 @@ public class Pacientes {
         this.nomeMae = nomeMae;
     }
 
-    public String getMedicamento() {
+    public Boolean getMedicamento() {
         return medicamento;
     }
 
-    public void setMedicamento(String medicamento) {
+    public void setMedicamento(boolean medicamento) {
         this.medicamento = medicamento;
     }
 
@@ -76,18 +76,11 @@ public class Pacientes {
     }
 
     
-    @Override
-    public String toString() {
-        return "Pacientes{" +
-                "nome='" + nome + '\'' +
-                ", dataNasc='" + dataNasc + '\'' +
-                ", telefone='" + telefone + '\'' +
-                ", email='" + email + '\'' +
-                ", nomeMae='" + nomeMae + '\'' +
-                ", medicamento_='" + medicamento + '\'' +
-                ", nome_medicamento='" + nome_medicamento + '\'' +
-                '}';
-    }
+    public String stringSql() {
+    return "INSERT INTO pacientes(id, nome, datanasc, telefone, email, nomeMae, medicamento, nome_medicamento) " +
+           "VALUES('" + this.id + "', '" + this.nome + "', '" + this.dataNasc + "', '" + this.telefone + "', " +
+           "'" + this.email + "', '" + this.nomeMae + "', '" + this.medicamento + "', '" + this.nome_medicamento + "');\n";
+}
 
 
   

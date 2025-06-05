@@ -2,7 +2,7 @@ package Controller;
 import Model.Usuario;
 import Dao.ExameDao;
 import Model.Aluno;
-import Model.Pacientes;
+import Model.Paciente;
 import Model.Professor;
 import Model.Exame;
 
