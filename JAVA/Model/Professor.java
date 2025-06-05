@@ -14,7 +14,7 @@ public class Professor extends Usuario {
     public void setId(int id) {
         this.id = id;
     }
-    public String getRgmProfessor() {
+    public String getrgmProfessor() {
         return rgmProfessor;
     }
 
@@ -26,6 +26,12 @@ public class Professor extends Usuario {
     public String toString() {
         return super.toString() +  " RgmProfessor=" + rgmProfessor + "\n";
     }
+
+     public String stringSql(){
+        return "INSERT INTO professor (id, rgmProfessor, nome, email, senha)"
+        + "VALUES('"+this.id+"', '"+this.rgmProfessor+"','"+getNome()+"', '"+getEmail()+"', '"+getSenha()+"');\n";
+    }
+
 
     
 
