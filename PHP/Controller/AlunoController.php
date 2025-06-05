@@ -20,6 +20,28 @@
    }
     }
 
+    function lerAluno(){
+        $aluno = new aluno();
+        $alunoDao = new AlunoDao;
+        $lista = $alunoDao->read();
+
+        foreach($lista as $aluno){
+            echo"
+            <tr>
+            <td>{$aluno->getrgmAluno()}</td>
+            <td>{$aluno->getnome()}</td>
+            <td>{$aluno->getemail()}</td>
+            </tr>";
+        }
+
+        
+            
+            
+
+        
+    }
+        
+
    
     
    

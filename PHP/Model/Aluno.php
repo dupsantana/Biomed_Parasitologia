@@ -1,7 +1,7 @@
 <?php
 class Aluno extends Usuario{
     private $id;
-    private $rgm;
+    private $rgmAluno;
 
     public function __construct(){
        parent::__construct();
@@ -14,17 +14,17 @@ class Aluno extends Usuario{
     public function setId($id){
         $this->id = $id;
     }
-    public function getrgm() {
-        return $this->rgm;
+    public function getrgmAluno() {
+        return $this->rgmAluno;
     }
     
-    public function setrgm($rgm) {
-        $this->rgm = $rgm;
+    public function setrgmAluno($rgmAluno) {
+        $this->rgmAluno = $rgmAluno;
     }
 
     public function __toString(){
     
-        return "Rgm Aluno: {$this->rgm}". parent::__toString();
+        return "Rgm Aluno: {$this->rgmAluno}". parent::__toString();
         
     }
 

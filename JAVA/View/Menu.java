@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+import Dao.AlunoDao;
 import Dao.ExameDao;
 import Model.Exame;
 import Dao.FileSQLExame;
@@ -36,7 +37,8 @@ public class Menu {
             break;
 
             case 4:
-            
+                AlunoDao alunoDao = new AlunoDao();
+                alunoDao.insert();
             break;
 
             case 0:

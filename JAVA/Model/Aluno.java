@@ -1,7 +1,7 @@
 package Model;
 public class Aluno extends Usuario{
     private int id;
-    private String rgm;
+    private int rgmAluno;
 
     public Aluno(){
         super();
@@ -16,19 +16,23 @@ public class Aluno extends Usuario{
         this.id = id;
     }
     
-    public String getRgm() {
-        return rgm;
+    public int getrgmAluno() {
+        return rgmAluno;
     }
 
-    public void setRgm(String rgm) {
-        this.rgm = rgm;
+    public void setrgmAluno(int rgmAluno) {
+        this.rgmAluno = rgmAluno;
     }
 
     @Override
     public String toString() {
-        return super.toString() + "rgm: " + rgm + "\n";
+        return super.toString() + "rgm: " + rgmAluno + "\n";
     }
 
+    public String stringSql(){
+        return "INSERT INTO aluno (id, rgmAluno, nome, email, senha)"
+        + "VALUES('"+this.id+"', '"+this.rgmAluno+"','"+getNome()+"', '"+getEmail()+"', '"+getSenha()+"');\n";
+    }
 
     
 
