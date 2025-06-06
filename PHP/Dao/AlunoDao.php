@@ -21,6 +21,28 @@
             }
         }
 
+        public function read(){
+
+            try{                 
+            $sql = "SELECT * FROM aluno";
+            $conn = ConnectionFactory::getConnection()->prepare($sql);
+            $conn->execute();
+
+            $lista = $conn->fetchAll(PDO::FETCH_ASSOC);
+            $listaAluno = array();
+            foreach($lista as $linha){
+                $alunoEncontrado = new Aluno();
+                $alunoEncontrado->setrgmAluno($linha['rgmAluno']);
+                $alunoEncontrado->setNome($linha['nome']);
+                $alunoEncontrado->setEmail($linha['email']);
+                $listaAluno[] = $alunoEncontrado;
+            }
+                return $listaAluno;
+
+            }catch(PDOException $ex){
+                echo"<p>Erro ao fazer a consulta".$ex->getMessage()."</p>";
+            }
+        }
        
     }
 ?>
