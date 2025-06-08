@@ -19,10 +19,29 @@ app.set("view engine", "ejs");
 app.get("/", (req, res) => {
     res.send("Executando tudo correto");
 });
-app.post("/processa-dados", (req,res)=>{
+
+//CRUD EXAME
+app.get("/listagem-exame", (req,res)=>{
+  
+  res.render("ListaExame");
+});
+
+app.post("/cadastro-exame", (req,res)=>{
     console.log(req.body);
     res.send("Dados recebidos pelo node");
 });
+
+app.put("/editar-exame", (req,res)=>{
+  console.log(req.body);
+  res.send("Dados de put recebidos com sucesso");
+});
+
+app.delete("/excluir-exame", (req,res)=>{
+
+  console.log(req.body);
+  res.send("dados do delete recebidos com sucesso");
+})
+
 app.listen(3000, () => {
-  console.log('Servidor rodando na porta 3000');
+  console.log("Servidor rodando na porta 3000");
 });
