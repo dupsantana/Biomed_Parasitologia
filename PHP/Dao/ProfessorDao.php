@@ -35,6 +35,7 @@
                 $professorEncontrado->setNome($linha['nome']);
                 $professorEncontrado->setEmail($linha['email']);
                 $listaProfessor[] = $professorEncontrado;
+                
             }
                 return $listaProfessor;
 

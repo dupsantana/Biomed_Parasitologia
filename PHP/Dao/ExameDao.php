@@ -1,5 +1,9 @@
 <?php
+
+use Dba\Connection;
+
     class ExameDao{
+
         public function insert(Exame $exame){
             try{
                 $sql = "INSERT INTO exame(registro, nome_paciente, entrada, data_exame, data_entrega, tipo_amostra, tecnica, consistencia, coloracao, muco, sangue, responsavel_exame, preceptor) 
@@ -26,6 +30,49 @@
                 echo "<p> Erro </p> <p>$ex</p>";
             }
         }
+
+        public function readPacienteForExame(Pacientes $pacientes){
+
+            try{
+                $sql = "SELECT *FROM paciente WHERE nome LIKE :nome";
+                $conn =ConnectionFactory::getConnection()->prepare($sql);
+                //prepara o nome para buscar no manco de dados
+                $nome = "%" . $pacientes->getNome() . "%";
+                //faz o parametro
+                $conn->bindParam(":nome",$nome);
+                $conn->execute();//executa o comando finalmente
+                $resultadoBusca = $conn->fetchAll(PDO::FETCH_ASSOC);
+                //cria um array vazio
+                $lista = [];
+                //pega o resultado e transforma em um objeto//
+                foreach($resultadoBusca as $linha){
+                    $pacienteLinha = new Pacientes();
+                    $pacienteLinha->setId($linha['id']);
+                    $pacienteLinha->setNome($linha['nome']);
+                    $pacienteLinha->setPacienteMail(['pacienteMail']);
+                    $lista[] = $pacienteLinha;
+                }
+                return $lista;
+
+                
+            }catch(PDOException $ex){
+
+                echo "<p>Erro ao fazer a consulta no Banco de dados". $ex->getMessage()."</p>";
+
+            }
+        }
+
+        //aqui é um insert com registro e nome já passados por parametro, retando assim só os restos de dados para fazer o insert corretamente
+        public function insertForPesquisa(Pacientes $paciente){
+
+
+        }
+
+
+        public function update(Aluno $aluno, Professor $professor, Pacientes $paciente, Exame $exame){
+
+        }
     }
+     
 
 ?>

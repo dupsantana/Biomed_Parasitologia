@@ -3,10 +3,9 @@
         public function insert(Pacientes $pacientes){
 
             try{
-                $sql ="INSERT INTO pacientes(nome, dataNasc, telefone, pacienteMail, nomeMae, medicamento, nome_medicamento) VALUE (:nome, :datanasc, :telefone, :pacienteMail, :nomeMae, :medicamento, :nome_medicamento)";
+                $sql ="INSERT INTO pacientes(nome, telefone, pacienteMail, nomeMae, medicamento, nome_medicamento) VALUE (:nome, :telefone, :pacienteMail, :nomeMae, :medicamento, :nome_medicamento)";
                 $conn = ConnectionFactory::getConnection()->prepare($sql);
-                $conn->bindValue(":nome", $pacientes->getNome());
-                $conn->bindValue(":dataNasc", $pacientes->getDataNasc());
+                $conn->bindValue(":nome", $pacientes->getNome());               
                 $conn->bindValue(":telefone", $pacientes->getTelefone());
                 $conn->bindValue(":pacienteMail", $pacientes->getPacienteMail());
                 $conn->bindValue(":nomeMae", $pacientes->getNomeMae());
@@ -21,4 +20,11 @@
             
         }
     }
+    /*id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(80) NOT NULL,
+    telefone VARCHAR(15) NOT NULL,
+    pacienteMail VARCHAR(50) NOT NULL,
+    nomeMae VARCHAR(80) NOT NULL,
+    medicamento BOOLEAN NOT NULL,
+    nome_medicamento VARCHAR(50)*/
 ?>

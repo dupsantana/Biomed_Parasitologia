@@ -5,7 +5,7 @@
             try{
                 $sql ="INSERT INTO aluno(rgmAluno,nome,email,senha)VALUES(:rgmAluno, :nome, :email, :senha)";
                 $conn = ConnectionFactory::getConnection()->prepare($sql);
-                $conn->bindValue(":rgmAluno", $aluno->getrgm());
+                $conn->bindValue(":rgmAluno", $aluno->getrgmAluno());
                 $conn->bindValue(":nome", $aluno->getNome());
                 $conn->bindValue(":email", $aluno->getEmail());
                 

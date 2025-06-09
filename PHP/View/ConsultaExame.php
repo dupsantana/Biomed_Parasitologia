@@ -42,19 +42,41 @@
         <div class="col-md-6 col-lg-4 ">
             <h2 class="mb-4 text-center">Pesquisar</h2>
             <p>Digite o nome do paciente que deseja atribuir um exame</p>
+            <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="get">
             <div class="mb-3"> 
                 <input type="text" name="busca" class="form-control">
             </div>
             <div class="mb-3 text-center">
-                 <input type="submit" class="btn btn-info" name="enviar" value="Buscar">
+                 <input type="submit" class="btn btn-info" name="enviar" value="buscar">
             </div>
+            </form>
            
         </div>
       </div>
     </div>
   </main>
- 
 
+  
+  <!--tabela-->
+    <table class="table">
+      <thead><tr>
+        <th>#Id</th><th>Nome</th><th>Ação</th>
+      </tr></thead>
+      <tbody>
+        <!--Aqui eu vou colocar o server e o isset-->
+          <?php 
+          if($_SERVER["REQUEST_METHOD"] =="GET"){
+            if(isset($_GET['busca'])){
+              include '../Controller/ExameController.php';              
+              PesquisarPaciente();
+            }
+          }
+        
+        ?>
+      </tbody>
+    
+    
+</table>
   <!-- FOOTER -->
  <?php 
   
