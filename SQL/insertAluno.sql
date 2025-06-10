@@ -1,5 +1,5 @@
 
-INSERT INTO aluno (id, rgmAluno, nome, email, senha)VALUES('1', '1174641831','Levi Ackerman', 'roy.mustang@anime.com', 'Tanjiro Kamado');
+/*INSERT INTO aluno (id, rgmAluno, nome, email, senha)VALUES('1', '1174641831','Levi Ackerman', 'roy.mustang@anime.com', 'Tanjiro Kamado');*/
 
 
 

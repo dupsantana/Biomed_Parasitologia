@@ -76,10 +76,10 @@
                 <div class="form-section">
                     <h3>Laboratório de Parasitologia</h3>
                     <div class="row">
-                        <div class="col-md-6 mb-3">
+                        <!--<div class="col-md-6 mb-3">
                             <label for="registro" class="form-label">Nº de Registro</label>
                             <input type="text" name="registro" class="form-control" required>
-                        </div>
+                        </div>-->
                         <div class="col-md-6 mb-3">
                             <label for="nome_paciente" class="form-label">Nome do Paciente</label>
                             <input type="text" name="nome_paciente" class="form-control" required>
@@ -138,11 +138,20 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="responsavel_exame" class="form-label">Responsável pelo Exame</label>
-                            <input type="text" name="responsavel_exame" class="form-control" required>
+                            <select name="aluno" id="aluno" class="form-select">
+                                <?php 
+                                    include'../Controller/ExameController.php';
+                                    readAluno();
+                                ?>
+                            </select>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="preceptor" class="form-label">Preceptor Responsável</label>
-                            <input type="text" name="preceptor" class="form-control" required>
+                            <select name="professor" id="professor" class="form-select">
+                                <?php 
+                                    readProfessor();
+                                ?>
+                            </select>
                         </div>
                     </div>
                 </div>
