@@ -31,7 +31,7 @@ use Dba\Connection;
             }
         }
 
-        public function readPacienteForExame(Pacientes $pacientes){
+       /* public function readPacienteForExame(Pacientes $pacientes){
 
             try{
                 $sql = "SELECT *FROM paciente WHERE nome LIKE :nome";
@@ -60,7 +60,32 @@ use Dba\Connection;
                 echo "<p>Erro ao fazer a consulta no Banco de dados". $ex->getMessage()."</p>";
 
             }
+        }*/
+
+         public function readPaciente(Pacientes $pacientes){
+        try{
+            $sql = "SELECT * FROM paciente";
+            $conn = ConnectionFactory::getConnection()->prepare($sql);
+            $conn->execute();
+
+            $lista = $conn->fetchAll(PDO::FETCH_ASSOC);
+            $listaPaciente = array();
+
+            foreach($lista as $linha){
+                $pacienteEncontrado = new Pacientes();
+                $pacienteEncontrado->setId($linha['id']);
+                $pacienteEncontrado->setNome($linha['nome']);
+                $listaPaciente[]= $pacienteEncontrado;
+            }
+                return $listaPaciente;
+            
+
+        }catch (PDOException $ex){
+            echo "<p> Erro </p> <p>$ex</p>";
         }
+    } 
+
+
 
         //aqui é um insert com registro e nome já passados por parametro, retando assim só os restos de dados para fazer o insert corretamente
         public function insertForPesquisa(Pacientes $paciente){

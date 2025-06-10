@@ -2,7 +2,7 @@
     class PacienteDao{
         public function insert(Pacientes $pacientes){
 
-            try{
+            try{                
                 $sql ="INSERT INTO pacientes(nome, telefone, pacienteMail, nomeMae, medicamento, nome_medicamento) VALUE (:nome, :telefone, :pacienteMail, :nomeMae, :medicamento, :nome_medicamento)";
                 $conn = ConnectionFactory::getConnection()->prepare($sql);
                 $conn->bindValue(":nome", $pacientes->getNome());               
@@ -19,12 +19,8 @@
             }
             
         }
+
+      
     }
-    /*id INTEGER PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(80) NOT NULL,
-    telefone VARCHAR(15) NOT NULL,
-    pacienteMail VARCHAR(50) NOT NULL,
-    nomeMae VARCHAR(80) NOT NULL,
-    medicamento BOOLEAN NOT NULL,
-    nome_medicamento VARCHAR(50)*/
+    
 ?>

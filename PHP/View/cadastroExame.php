@@ -64,6 +64,7 @@
 <body>
     <?php 
         include'../Model/trechosCod.php';
+        include'../Controller/ExameController.php';
         cabecalho();
         
         ?>
@@ -71,7 +72,7 @@
     <main>    
         <div class="form-container">
             <h2 class="text-center mb-4 display-5" style="color: white; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Cadastrar Exame</h2>
-            <form action="http://localhost:3000/cadastro-exame" method="post">
+            <form action="../Controller/ExameController.php" method="post">
                 
                 <div class="form-section">
                     <h3>Laboratório de Parasitologia</h3>
@@ -82,7 +83,13 @@
                         </div>-->
                         <div class="col-md-6 mb-3">
                             <label for="nome_paciente" class="form-label">Nome do Paciente</label>
-                            <input type="text" name="nome_paciente" class="form-control" required>
+                           <select name="paciente" id="paciente" class="form-select">
+                            <?php 
+                            
+                                readPaciente();
+                            
+                            ?>
+                           </select>
                         </div>
                     </div>
                     <div class="row">
@@ -140,7 +147,7 @@
                             <label for="responsavel_exame" class="form-label">Responsável pelo Exame</label>
                             <select name="aluno" id="aluno" class="form-select">
                                 <?php 
-                                    include'../Controller/ExameController.php';
+                                    
                                     readAluno();
                                 ?>
                             </select>
@@ -158,7 +165,7 @@
                
                 <div class="row mt-3">
                     <div class="col-12">
-                        <button type="submit" class="btn btn-info w-100">Enviar</button>
+                        <button type="submit" class="btn btn-info w-100" name="enviar">Enviar</button>
                     </div>
                 </div>
             </form>
