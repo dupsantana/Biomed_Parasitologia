@@ -77,10 +77,10 @@ public class PacienteDao {
             };
 
             String[] medicamento = { 
-                    1 , 2
+                    "1" , "2"
                     };
 
-            int resultado_med = aleat.nextInt(medicamento.length)
+            int resultado_med = aleat.nextInt(medicamento.length);
             if (resultado_med == 2 ){
                 paciente.setMedicamento(false);
             }else{
@@ -90,7 +90,7 @@ public class PacienteDao {
             "Atorvastatina", "Metformina", "AAS",
             "Dorflex"
             };
-            paciente.setNome_Medicamento(nome_medicamento[aleat.nextInt(nome_medicamento.length)]);
+            paciente.setNome_medicamento(nome_medicamento[aleat.nextInt(nome_medicamento.length)]);
 
             };
 
