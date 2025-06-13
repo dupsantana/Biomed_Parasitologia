@@ -7,13 +7,14 @@
     medicamento BOOLEAN NOT NULL,
     nome_medicamento VARCHAR(50)
 );
+ DROP TABLE exame;
 
 CREATE TABLE EXAME (
     registro INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     paciente_id INT NOT NULL,
-    professor_id INT,
-    aluno_id INT,
-    entrada VARCHAR(30) NOT NULL,
+    professor_id INT NOT NULL,
+    aluno_id INT NOT NULL,
+    entrada TIME NOT NULL,
     data_exame DATE NOT NULL,
     data_entrega DATE NOT NULL,
     tipo_amostra VARCHAR(80), 
@@ -21,9 +22,7 @@ CREATE TABLE EXAME (
     consistencia VARCHAR(50),
     coloracao VARCHAR(50),
     muco VARCHAR(50),
-    sangue VARCHAR(50),
-    responsavel_exame VARCHAR(80) NOT NULL,
-    preceptor VARCHAR(80) NOT NULL,
+    sangue VARCHAR(50),   
     FOREIGN KEY (paciente_id) REFERENCES PACIENTE(id) ON DELETE CASCADE,
     FOREIGN KEY (professor_id) REFERENCES PROFESSOR(id) ON DELETE CASCADE,
     FOREIGN KEY (aluno_id) REFERENCES ALUNO(id) ON DELETE CASCADE

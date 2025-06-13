@@ -31,6 +31,7 @@
             $listaProfessor = array();
             foreach($lista as $linha){
                 $professorEncontrado = new Professor();
+                $professorEncontrado ->setId($linha['id']);
                 $professorEncontrado->setRgmProfessor($linha['rgmProfessor']);
                 $professorEncontrado->setNome($linha['nome']);
                 $professorEncontrado->setEmail($linha['email']);

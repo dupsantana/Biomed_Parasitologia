@@ -32,6 +32,7 @@
             $listaAluno = array();
             foreach($lista as $linha){
                 $alunoEncontrado = new Aluno();
+                $alunoEncontrado ->setId($linha['id']);
                 $alunoEncontrado->setrgmAluno($linha['rgmAluno']);
                 $alunoEncontrado->setNome($linha['nome']);
                 $alunoEncontrado->setEmail($linha['email']);

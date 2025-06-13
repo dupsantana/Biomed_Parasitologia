@@ -95,11 +95,11 @@
                     <div class="row">
                         <div class="col-md-4 mb-3">
                             <label for="entrada" class="form-label">Entrada</label>
-                            <input type="text" name="entrada" class="form-control" required>
+                            <input type="time" name="entrada" class="form-control" required>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="data_exame" class="form-label">Data e Hora da Realização do Exame</label>
-                            <input type="datetime-local" class="form-control" name="data_exame" required>
+                            <input type="date" class="form-control" name="data_exame" required>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="data_entrega" class="form-label">Data Prevista para a Entrega do Laudo</label>

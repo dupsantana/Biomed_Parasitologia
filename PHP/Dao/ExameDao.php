@@ -4,13 +4,14 @@ use Dba\Connection;
 
     class ExameDao{
 
+        //INSERT PADRÃO DE EXAME
         public function insert(Exame $exame){
             try{
-                $sql = "INSERT INTO exame(registro, nome_paciente, entrada, data_exame, data_entrega, tipo_amostra, tecnica, consistencia, coloracao, muco, sangue, responsavel_exame, preceptor) 
-                        VALUES(:registro, :nome_paciente, :entrada, :data_exame, :data_entrega, :tipo_amostra, :tecnica, :consistencia, :coloracao, :muco, :sangue, :responsavel_exame, :preceptor)";
-                $conn = ConnectionFactory::getConnection()->prepare($sql);
-                $conn->bindValue(":registro", $exame->getRegistro());
-                $conn->bindValue(":nome_paciente", $exame->getNome_paciente());
+               $sql = "INSERT INTO exame(paciente_id, entrada, data_exame, data_entrega, tipo_amostra,tecnica, consistencia, coloracao, muco, sangue, aluno_id, professor_id)
+               VALUES (:paciente_id, :entrada, :data_exame, :data_entrega, :tipo_amostra, :tecnica, :consistencia, :coloracao, :muco, :sangue, :aluno_id, :professor_id)";
+                $pdo = ConnectionFactory::getConnection();
+                $conn = $pdo-> prepare($sql);
+                $conn->bindValue(":paciente_id", $exame->getPaciente()); 
                 $conn->bindValue(":entrada", $exame->getEntrada());
                 $conn->bindValue(":data_exame", $exame->getData_exame());
                 $conn->bindValue(":data_entrega", $exame->getData_entrega());
@@ -20,69 +21,89 @@ use Dba\Connection;
                 $conn->bindValue(":coloracao", $exame->getColoracao());
                 $conn->bindValue(":muco", $exame->getMuco());
                 $conn->bindValue(":sangue", $exame->getSangue());
-                $conn->bindValue(":responsavel_exame", $exame->getResponsavel_exame());
-                $conn->bindValue(":preceptor", $exame->getPreceptor());
+                $conn->bindValue(":aluno_id", $exame->getResponsavel_exame());
+                $conn->bindValue(":professor_id", $exame->getPreceptor());
+
 
                 //executa o insert
-                return $conn->execute();
+                $conn->execute();                
+               
+                $UltimoId = $pdo->lastInsertId();
+
+                return $UltimoId;
 
             }catch(PDOException $ex){
                 echo "<p> Erro </p> <p>$ex</p>";
+                return null;
             }
-        }
+        }     
 
-       /* public function readPacienteForExame(Pacientes $pacientes){
+        
+        public function buscarPorId(Exame $exame){
+            $idRecebido = $exame->getId();
 
             try{
-                $sql = "SELECT *FROM paciente WHERE nome LIKE :nome";
-                $conn =ConnectionFactory::getConnection()->prepare($sql);
-                //prepara o nome para buscar no manco de dados
-                $nome = "%" . $pacientes->getNome() . "%";
-                //faz o parametro
-                $conn->bindParam(":nome",$nome);
-                $conn->execute();//executa o comando finalmente
-                $resultadoBusca = $conn->fetchAll(PDO::FETCH_ASSOC);
-                //cria um array vazio
-                $lista = [];
-                //pega o resultado e transforma em um objeto//
-                foreach($resultadoBusca as $linha){
-                    $pacienteLinha = new Pacientes();
-                    $pacienteLinha->setId($linha['id']);
-                    $pacienteLinha->setNome($linha['nome']);
-                    $pacienteLinha->setPacienteMail(['pacienteMail']);
-                    $lista[] = $pacienteLinha;
-                }
-                return $lista;
+                $sql = "SELECT * FROM exame WHERE registro = :registro ";
+                $conn = ConnectionFactory::getConnection()->prepare($sql);
+                $conn->bindValue(":registro", $idRecebido, PDO::PARAM_INT);
+                $conn->execute();
+                $resultadoBusca = $conn->fetch(PDO::FETCH_ASSOC);
 
-                
-            }catch(PDOException $ex){
+                //array vazio criado
+                $valor = array();
+                //pega apenas o valor do array criado que veio como resultado da busca do banco e guarda no array vazio
+                foreach($resultadoBusca as $chave => $value){
+                    $valor[] = $value;             
+              }
+              //agora é setado manualmente cada valor do votor para o objeto                
+                $exameRetorno = new Exame();
+                $exameRetorno->setId($valor[0]);
+                $exameRetorno->setPaciente($valor[1]);
+                $exameRetorno->setPreceptor($valor[2]);
+                $exameRetorno->setResponsavel_exame($valor[3]);
+                $exameRetorno->setEntrada($valor[4]);
+                $exameRetorno->setData_exame($valor[5]);
+                $exameRetorno->setData_entrega($valor[6]);
+                $exameRetorno->setTipo_amostra($valor[7]);
+                $exameRetorno->setTecnica($valor[8]);
+                $exameRetorno->setConsistencia($valor[9]);
+                $exameRetorno->setColoracao($valor[10]);
+                $exameRetorno->setMuco($valor[11]);
+                $exameRetorno->setSangue($valor[12]);    
 
-                echo "<p>Erro ao fazer a consulta no Banco de dados". $ex->getMessage()."</p>";
-
-            }
-        }*/
-
-         public function readPaciente(Pacientes $pacientes){
-        try{
-            $sql = "SELECT * FROM paciente";
-            $conn = ConnectionFactory::getConnection()->prepare($sql);
-            $conn->execute();
-
-            $lista = $conn->fetchAll(PDO::FETCH_ASSOC);
-            $listaPaciente = array();
-
-            foreach($lista as $linha){
-                $pacienteEncontrado = new Pacientes();
-                $pacienteEncontrado->setId($linha['id']);
-                $pacienteEncontrado->setNome($linha['nome']);
-                $listaPaciente[]= $pacienteEncontrado;
-            }
-                return $listaPaciente;
+                return $exameRetorno;
             
 
-        }catch (PDOException $ex){
-            echo "<p> Erro </p> <p>$ex</p>";
+            }catch(PDOException $ex){
+                echo "<p>Erro ao fazer a consulta no Banco de dados". $ex->getMessage()."</p>";
+            }
         }
+
+        function readPacienteId(Exame $exame){
+            return "nome";
+        }
+        //READ DE PACIENTE//
+         public function readPaciente(Pacientes $pacientes){
+            try{
+                $sql = "SELECT * FROM paciente";
+                $conn = ConnectionFactory::getConnection()->prepare($sql);
+                $conn->execute();
+
+                $lista = $conn->fetchAll(PDO::FETCH_ASSOC);
+                $listaPaciente = array();
+
+                foreach($lista as $linha){
+                    $pacienteEncontrado = new Pacientes();
+                    $pacienteEncontrado->setId($linha['id']);
+                    $pacienteEncontrado->setNome($linha['nome']);
+                    $listaPaciente[]= $pacienteEncontrado;
+                }
+                    return $listaPaciente;
+                
+
+            }catch (PDOException $ex){
+                echo "<p> Erro </p> <p>$ex</p>";
+            }
     } 
 
 

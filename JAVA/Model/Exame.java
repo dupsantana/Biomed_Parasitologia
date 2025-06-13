@@ -146,7 +146,7 @@ public class Exame {
     }
      
     public String stringSql(){
-        return  "INSERT INTO exame(registro, paciente_id, professor_id, aluno_id, entrada, data_exame, data_entrega,tipo_amostra, tecnica, coloracao, muco, sangue)"
+        return  "INSERT INTO exame(registro, paciente_id, professor_id, aluno_id, entrada, data_exame, data_entrega,tipo_amostra, tecnica, consistencia, coloracao, muco, sangue)"
                 + "VALUES('"+this.registro+"', '"+this.idPaciente+"', '"+this.idAluno+"', '"+this.entrada+"', '"+this.data_exame+"', '"+this.data_entrega+"', '"+this.tipo_amostra+"', '"+this.tecnica+"', '"+this.consistencia+"', '"+this.coloracao+"', '"+this.muco+"', '"+this.sangue+"');\n";
     }
     

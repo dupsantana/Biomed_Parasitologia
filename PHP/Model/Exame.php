@@ -2,8 +2,9 @@
 
 class exame{
     private $id;
-    private $registro;
-    private $nome_paciente;
+    private $paciente;
+    private $responsavel_exame;
+    private $preceptor;    
     private $entrada;
     private $data_exame;
     private $data_entrega;
@@ -13,29 +14,24 @@ class exame{
     private $coloracao;
     private $muco;
     private $sangue;
-    private $responsavel_exame;
-    private $preceptor;
+    
 
     public function __construct(){}
 
-    public function getRegistro() {
-        return $this->registro;
-    }
+   
     public function setId($id){
         $this->id = $id;
     }
     public function getId(){
         return $this->id;
     }
-    public function setRegistro($registro) {
-        $this->registro = $registro;
+    public function getPaciente() {
+        return $this->paciente;
     }
-    public function getNome_paciente() {
-        return $this->nome_paciente;
+    public function setPaciente($paciente) {
+        $this->paciente = $paciente;
     }
-    public function setNome_paciente($nome_paciente) {
-        $this->nome_paciente = $nome_paciente;
-    }
+    
     public function getEntrada() {
         return $this->entrada;
     }
@@ -103,7 +99,7 @@ class exame{
         $this->preceptor = $preceptor;
     }
     public function __toString(){
-        return "Registro: {$this->registro}, Nome do Paciente: {$this->nome_paciente}, Entrada: {$this->entrada}, Data do Exame: {$this->data_exame}, Data de Entrega: {$this->data_entrega}, Tipo de Amostra: {$this->tipo_amostra}, Técnica: {$this->tecnica}, Consistência: {$this->consistencia}, Coloração: {$this->coloracao}, Muco: {$this->muco}, Sangue: {$this->sangue}, Responsável pelo Exame: {$this->responsavel_exame}, Preceptor Responsável: {$this->preceptor}";
+        return "Id: {$this->id} , Paciente: {$this->paciente}, Entrada: {$this->entrada}, Data do Exame: {$this->data_exame}, Data de Entrega: {$this->data_entrega}, Tipo de Amostra: {$this->tipo_amostra}, Técnica: {$this->tecnica}, Consistência: {$this->consistencia}, Coloração: {$this->coloracao}, Muco: {$this->muco}, Sangue: {$this->sangue}, Responsável pelo Exame: {$this->responsavel_exame}, Preceptor Responsável: {$this->preceptor}";
     }
     
 
