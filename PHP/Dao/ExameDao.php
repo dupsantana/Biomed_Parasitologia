@@ -39,49 +39,102 @@ use Dba\Connection;
         }     
 
         
-        public function buscarPorId(Exame $exame){
-            $idRecebido = $exame->getId();
+        public function buscarPorId($exameId){
+            $idRecebido = $exameId;
+
+                try{
+                    $sql = "SELECT * FROM exame WHERE registro = :registro ";
+                    $conn = ConnectionFactory::getConnection()->prepare($sql);
+                    $conn->bindValue(":registro", $idRecebido, PDO::PARAM_INT);
+                    $conn->execute();
+                    $resultadoBusca = $conn->fetch(PDO::FETCH_ASSOC);
+
+                    //array vazio criado
+                    $valor = array();
+                    //pega apenas o valor do array criado que veio como resultado da busca do banco e guarda no array vazio
+                    foreach($resultadoBusca as $chave => $value){
+                        $valor[] = $value;             
+                }
+                //agora é setado manualmente cada valor do votor para o objeto                
+                    $exameRetorno = new Exame();
+                    $exameRetorno->setId($valor[0]);
+                    $exameRetorno->setPaciente($valor[1]);
+                    $exameRetorno->setPreceptor($valor[2]);
+                    $exameRetorno->setResponsavel_exame($valor[3]);
+                    $exameRetorno->setEntrada($valor[4]);
+                    $exameRetorno->setData_exame($valor[5]);
+                    $exameRetorno->setData_entrega($valor[6]);
+                    $exameRetorno->setTipo_amostra($valor[7]);
+                    $exameRetorno->setTecnica($valor[8]);
+                    $exameRetorno->setConsistencia($valor[9]);
+                    $exameRetorno->setColoracao($valor[10]);
+                    $exameRetorno->setMuco($valor[11]);
+                    $exameRetorno->setSangue($valor[12]);    
+
+                    return $exameRetorno;
+                
+
+                }catch(PDOException $ex){
+                    echo "<p>Erro ao fazer a consulta no Banco de dados". $ex->getMessage()."</p>";
+                }
+        }
+
+        public function readAlunoId($idAluno){
+
+            $idRecebido = $idAluno;
 
             try{
-                $sql = "SELECT * FROM exame WHERE registro = :registro ";
+                $sql = "SELECT * FROM aluno WHERE id = :id";
                 $conn = ConnectionFactory::getConnection()->prepare($sql);
-                $conn->bindValue(":registro", $idRecebido, PDO::PARAM_INT);
+                $conn ->bindValue(":id", $idRecebido, PDO::PARAM_INT);
                 $conn->execute();
-                $resultadoBusca = $conn->fetch(PDO::FETCH_ASSOC);
+                $resultado = $conn->fetch(PDO::FETCH_ASSOC);
 
-                //array vazio criado
-                $valor = array();
-                //pega apenas o valor do array criado que veio como resultado da busca do banco e guarda no array vazio
-                foreach($resultadoBusca as $chave => $value){
-                    $valor[] = $value;             
-              }
-              //agora é setado manualmente cada valor do votor para o objeto                
-                $exameRetorno = new Exame();
-                $exameRetorno->setId($valor[0]);
-                $exameRetorno->setPaciente($valor[1]);
-                $exameRetorno->setPreceptor($valor[2]);
-                $exameRetorno->setResponsavel_exame($valor[3]);
-                $exameRetorno->setEntrada($valor[4]);
-                $exameRetorno->setData_exame($valor[5]);
-                $exameRetorno->setData_entrega($valor[6]);
-                $exameRetorno->setTipo_amostra($valor[7]);
-                $exameRetorno->setTecnica($valor[8]);
-                $exameRetorno->setConsistencia($valor[9]);
-                $exameRetorno->setColoracao($valor[10]);
-                $exameRetorno->setMuco($valor[11]);
-                $exameRetorno->setSangue($valor[12]);    
+                $valorAluno = array();
 
-                return $exameRetorno;
-            
+                foreach($resultado as $chave => $valor){
+                    $valorAluno[]= $valor;
+                }                
+
+                $nomeAluno = $valorAluno[2];
+                
+                return $nomeAluno;
+
 
             }catch(PDOException $ex){
                 echo "<p>Erro ao fazer a consulta no Banco de dados". $ex->getMessage()."</p>";
             }
+            
+            return "algo";
+
         }
 
-        function readPacienteId(Exame $exame){
-            return "nome";
+        public function readProfessorId($idProfessor){
+            
+            $idRecebido = $idProfessor;
+            try{
+                $sql = "SELECT * FROM professor WHERE id LIKE :id";
+                $conn = ConnectionFactory::getConnection()->prepare($sql);
+                $conn ->bindValue(":id", $idRecebido, PDO::PARAM_INT);
+                $conn->execute();
+                $resultado = $conn->fetch(PDO::FETCH_ASSOC);
+                $valorProfessor = array();               
+
+                foreach($resultado as $chave => $valor){
+                    $valorProfessor[]= $valor;
+                }
+
+                $nomeProfesor = $valorProfessor[2];
+
+                return $nomeProfesor;
+
+            }catch(PDOException $ex){
+
+                echo "<p>Erro ao fazer a consulta no Banco de dados". $ex->getMessage()."</p>";
+            }
+            return "";
         }
+        
         //READ DE PACIENTE//
          public function readPaciente(Pacientes $pacientes){
             try{

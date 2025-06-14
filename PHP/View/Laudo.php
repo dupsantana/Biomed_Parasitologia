@@ -28,14 +28,14 @@
             
             <p><strong>Data do Exame:</strong><?php echo $exameEncontrado->getData_exame();?></p>
             <p><strong>Entrada:</strong><?php echo $exameEncontrado->getEntrada(); ?></p>            
-            <p><strong>Tipo de Amostra:</strong><?php echo $exameEncontrado->getTipo_amostra(); ?></p>
-            <p><strong>Técnica:</strong><?php echo $exameEncontrado->getTecnica(); ?></p>
-            <p><strong>Consistência:</strong><?php echo $exameEncontrado->getConsistencia(); ?></p>
-            <p><strong>Sangue:</strong><?php echo $exameEncontrado->getSangue(); ?></p>
-            <p><strong>Coloração:</strong><?php echo $exameEncontrado->getColoracao(); ?></p>
-            <p><strong>Muco:</strong><?php echo $exameEncontrado->getMuco();?></p>
-            <p><strong>Aluno Reponsavel: </strong><?php echo $exameEncontrado->getResponsavel_exame(); ?></p>
-            <p><strong>Professor responsavel:</strong><?php echo $exameEncontrado->getPreceptor(); ?></p>
+            <p><strong>Tipo de Amostra:</strong><?php echo  mb_strtoupper($exameEncontrado->getTipo_amostra());  ?></p>
+            <p><strong>Técnica:</strong><?php echo  mb_strtoupper($exameEncontrado->getTecnica()); ?></p>
+            <p><strong>Consistência:</strong><?php echo mb_strtoupper($exameEncontrado->getConsistencia()); ?></p>
+            <p><strong>Sangue:</strong><?php echo mb_strtoupper($exameEncontrado->getSangue()); ?></p>
+            <p><strong>Coloração:</strong><?php echo mb_strtoupper( $exameEncontrado->getColoracao()); ?></p>
+            <p><strong>Muco:</strong><?php echo mb_strtoupper($exameEncontrado->getMuco());?></p>
+            <p><strong>Aluno Reponsavel: </strong><?php echo $alunoNome ?></p>
+            <p><strong>Professor responsavel:</strong><?php echo $professorNome;?></p>
         </div>
     </div>
     </div>

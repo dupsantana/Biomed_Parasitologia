@@ -9,6 +9,7 @@
     require '../Model/Professor.php';
     require '../Model/Pacientes.php';
     require '../Dao/PacienteDao.php';
+    mb_internal_encoding("UTF-8");
 
     
 
@@ -40,16 +41,25 @@
         }
     }
 
+    //PEGA O ID DA URL
     if (isset($_GET['id'])) {
     //$examet = new Exame();   
     $idLaudo=($_GET['id']);
-    $exameBuscaId = new Exame();
-    $exameBuscaId->setId($idLaudo);
+    /*$exameBuscaId = new Exame();
+    $exameBuscaId->setId($idLaudo);*/
     $exameDaoBuscaId = new ExameDao();
-    $exameEncontrado = $exameDaoBuscaId ->buscarPorId($exameBuscaId);       
-    $nomePaciente = $exameDaoBuscaId->readPacienteId($exameEncontrado);
-
-       
+    $exameEncontrado = $exameDaoBuscaId ->buscarPorId($idLaudo);     
+    
+    //pegando o id aluno//
+    $idAluno = $exameEncontrado->getResponsavel_exame();
+    $alunoEncontrado = $exameDaoBuscaId->readAlunoId($idAluno); 
+    $alunoNome = mb_strtoupper($alunoEncontrado);//DEIXA EM MAIUSCULO
+   
+    //pegando o id professor//
+    $idProfessor = $exameEncontrado->getPreceptor();
+    $professoreEncontrado = $exameDaoBuscaId->readProfessorId($idProfessor);
+    $professorNome = mb_strtoupper($professoreEncontrado);//DEIXA EM MAIUSCULO 
+        
      }     
      
     
