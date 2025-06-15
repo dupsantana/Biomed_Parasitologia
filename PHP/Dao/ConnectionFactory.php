@@ -5,7 +5,7 @@
         public static function getConnection(){
             if(!isset($connection)){
                 $host = "localhost";               
-                $dbName = "clinicode";
+                $dbName = "clinicode2";
                 $port = 3306;
                 $user = "root";
                 $pass = "";

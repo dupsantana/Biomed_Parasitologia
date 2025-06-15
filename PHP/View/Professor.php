@@ -8,85 +8,8 @@
     <title>Professor</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="styleedu_1.1.css">
-    <style>
-        /* Estilos Gerais */
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            margin: 0;
-            background-color: #f8f9fa;
-        }
-
-        main {
-            flex: 1;
-        }
-
-        /* Header */
-        header {
-            background-color: #272343 !important;
-            padding: 1rem 0;
-        }
-
-        /* Cards */
-        .card {
-            margin: 1.5rem auto;
-            max-width: 400px;
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Container dos Cards */
-        #container_cards {
-            padding: 2rem 0;
-        }
-
-        /* Footer */
-        #footer_aluno {
-            background-color: #272343;
-            color: white;
-            margin-top: auto;
-            padding: 1.5rem;
-        }
-
-        /* Responsividade */
-        @media (max-width: 768px) {
-            header .row {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-            }
-
-            header .col-1, header .col-10, header .col-1 {
-                width: 100%;
-                max-width: 100%;
-                flex: 0 0 100%;
-            }
-
-            #sair_aluno {
-                width: 100%;
-                margin-top: 1rem;
-            }
-
-            .card {
-                margin: 1rem auto;
-            }
-        }
-
-        @media (max-width: 576px) {
-            #container_cards {
-                padding: 1rem 0;
-            }
-
-            .card {
-                width: 95% !important;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles/styleProfessor.css">
+    
 </head>
 
 <body>
@@ -99,7 +22,7 @@
         
         <div class="col-10"></div>
         <div class="col-1">
-            <button id="sair_aluno"class="fw-bold btn btn btn-secondary" onclick="window.location.href='indexedu_home2.0.php'">SAIR <i class="fa-solid fa-right-from-bracket"></i></button> 
+            <button id="sair_aluno"class="fw-bold btn btn btn-secondary" onclick="window.location.href='index_home.php'">SAIR <i class="fa-solid fa-right-from-bracket"></i></button> 
         </div>
     </div>
     </div>
@@ -118,7 +41,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active"  href="../View/listaProfesores.php">Ver Professores cadastrados</a>
+          <a class="nav-link active"  href="../View/listaProfessores.php">Ver Professores cadastrados</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="#">Ver alunos cadastrados</a>

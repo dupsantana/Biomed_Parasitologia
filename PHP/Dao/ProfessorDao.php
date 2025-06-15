@@ -1,5 +1,7 @@
 <?php 
     class ProfessorDao{
+        // --------------------CREATE--------------------//
+
         public function insert(Professor $professor){
 
             try{
@@ -21,6 +23,10 @@
             }
         }
 
+        
+        
+        // --------------------READ--------------------//
+
         public function read(){
 
             try{                 
@@ -28,6 +34,9 @@
             $conn = ConnectionFactory::getConnection()->prepare($sql);
             $conn->execute();
             $lista = $conn->fetchAll(PDO::FETCH_ASSOC);
+
+            
+
             $listaProfessor = array();
             foreach($lista as $linha){
                 $professorEncontrado = new Professor();
@@ -44,5 +53,28 @@
                 echo"<p>Erro ao fazer a consulta".$ex->getMessage()."</p>";
             }
         }
+
+
+        // --------------------DELETE--------------------//
+        public function delete($rgm){
+            
+            try{
+                //QUERY QUE VAI DELETAR
+            $sql = "DELETE FROM PROFESSOR WHERE rgmProfessor = '$rgm'";
+
+           $conn = ConnectionFactory::getConnection()->prepare($sql);
+            $conn->execute();
+                return true;
+
+            }
+            catch(PDOException $ex) {
+            echo "<p>Erro ao excluir: " . $ex->getMessage() . "</p>";
+            return false;
+        }
+
+
     }
+
+}
+
 ?>
