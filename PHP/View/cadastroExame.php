@@ -64,7 +64,8 @@
 <body>
     <?php 
         include'../Model/trechosCod.php';
-        include'../Controller/ExameController.php';
+        //include'../Controller/ExameController.php';
+        include'../Controller/ExameControllerApi.php';
         cabecalho();
         
         ?>
@@ -72,7 +73,7 @@
     <main>    
         <div class="form-container">
             <h2 class="text-center mb-4 display-5" style="color: white; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Cadastrar Exame</h2>
-            <form action="../Controller/ExameController.php" method="post">
+            <form action="../Controller/ExameControllerApi.php" method="post">
                 
                 <div class="form-section">
                     <h3>Laboratório de Parasitologia</h3>
@@ -85,8 +86,8 @@
                             <label for="nome_paciente" class="form-label">Nome do Paciente</label>
                            <select name="paciente" id="paciente" class="form-select">
                             <?php 
-                            
                                 readPaciente();
+                                
                             
                             ?>
                            </select>

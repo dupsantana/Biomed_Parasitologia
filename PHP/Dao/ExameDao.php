@@ -45,7 +45,7 @@ use Dba\Connection;
                 try{
                     $sql = "SELECT * FROM exame WHERE registro = :registro ";
                     $conn = ConnectionFactory::getConnection()->prepare($sql);
-                    $conn->bindValue(":registro", $idRecebido, PDO::PARAM_INT);
+                    $conn->bindValue(":registro", $idRecebido);
                     $conn->execute();
                     $resultadoBusca = $conn->fetch(PDO::FETCH_ASSOC);
 
@@ -86,7 +86,7 @@ use Dba\Connection;
             try{
                 $sql = "SELECT * FROM aluno WHERE id = :id";
                 $conn = ConnectionFactory::getConnection()->prepare($sql);
-                $conn ->bindValue(":id", $idRecebido, PDO::PARAM_INT);
+                $conn ->bindValue(":id", $idRecebido);
                 $conn->execute();
                 $resultado = $conn->fetch(PDO::FETCH_ASSOC);
 
@@ -115,7 +115,7 @@ use Dba\Connection;
             try{
                 $sql = "SELECT * FROM professor WHERE id LIKE :id";
                 $conn = ConnectionFactory::getConnection()->prepare($sql);
-                $conn ->bindValue(":id", $idRecebido, PDO::PARAM_INT);
+                $conn ->bindValue(":id", $idRecebido);
                 $conn->execute();
                 $resultado = $conn->fetch(PDO::FETCH_ASSOC);
                 $valorProfessor = array();               

@@ -1,5 +1,5 @@
-<?php     
-    require '../Model/Exame.php';
+<?php 
+     require '../Model/Exame.php';
     require '../Dao/ConnectionFactory.php';
     require '../Dao/ExameDao.php';
     require '../Model/Usuario.php';
@@ -30,19 +30,18 @@
             $examein->setMuco($_POST['muco']);
             $examein->setSangue($_POST['sangue']);
             $examein->setResponsavel_exame($_POST['aluno']);
-            $examein->setPreceptor($_POST['professor']);          
-            $exame_id = $exameDaoin->insert($examein);           
+            $examein->setPreceptor($_POST['professor']);
+            $exameApi = $exameDaoApi->insert($examein);               
           
-           
-             
+            //array associativo//
+            print_r($exameApi);      
             
-            if ($exame_id) {
-            header("location:../View/Laudo.php?id=$exame_id");
+            /*if ($exameApi) {
+            header("location:../View/LaudoApi.php");
             exit;
         } else {
             echo "Erro ao cadastrar exame.";
-        }
-            
+        }   */       
         }
     }
 
@@ -70,8 +69,8 @@
     
     function readPaciente(){
         $paciente1 = new Pacientes();
-        $exameDao = new ExameDao();
-        $lista = $exameDao->readPaciente($paciente1);
+        $exameDao = new ExameDaoApi();
+        $lista = $exameDao->readPaciente();
 
         foreach($lista as $pacienteEncontrado){
             echo"<option value = '{$pacienteEncontrado->getId()}'>{$pacienteEncontrado->getNome()}</option>";
@@ -79,9 +78,9 @@
     }
 
    function readAluno(){
-        $aluno = new Aluno();
-        $alunoDao = new AlunoDao();
-        $lista = $alunoDao->read();
+        //$aluno = new Aluno();
+        $exameDao = new ExameDaoApi();
+        $lista = $exameDao->readAluno();
         
         foreach($lista as $aluno){
             echo "<option value='{$aluno->getId()}'>{$aluno->getNome()}</option>";
@@ -89,12 +88,12 @@
 
    }
    function readProfessor(){
-        $professor = new Professor();
-        $professorDao = new ProfessorDao();
-        $lista = $professorDao ->read($professor);
+        //$professor = new Professor();
+        $exameDao = new ExameDaoApi();
+        $lista = $exameDao->readProfessor();
 
-        foreach($lista as $professoreEncontrado){
-            echo"<option value='{$professoreEncontrado->getId()}'>{$professoreEncontrado->getNome()}</option>";
+        foreach($lista as $professor){
+            echo"<option value='{$professor->getId()}'>{$professor->getNome()}</option>";
         }
    }    
 
@@ -109,8 +108,5 @@
     }    
        
         
-    
-
-
 
 ?>

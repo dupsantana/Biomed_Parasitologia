@@ -14,14 +14,83 @@ app.use(bodyParser.json());
 //Encondando todos os parâmetros para JSON
 app.use(bodyParser.urlencoded({extended: true}));
 //Configurando o express para usar o EJS como mecanismo de renderização de views padrão
-app.set("view engine", "ejs");
 
-app.get("/", (req, res) => {
-    res.send("Executando tudo correto");
+
+// Middleware para interpretar JSON no body
+app.use(express.json());
+
+//CREATE DE EXAME
+app.post("/exame", (req, res) => {
+  const exame = req.body; 
+
+    res.json(exame);    
+});
+
+//READ DE ALUNOS
+app.get("/alunos", (req, res)=>{
+  const aluno = req.body; 
+
+  //simulando um banco de dados//
+  const alunos = [
+  { id: 1, nome: "Lucas" },
+  { id: 2, nome: "Isabela" },
+  { id: 3, nome: "Gabriel" },
+  { id: 4, nome: "Laura" },
+  { id: 5, nome: "Mateus" },
+  { id: 6, nome: "Amanda" },
+  { id: 7, nome: "Gustavo" },
+  { id: 8, nome: "Beatriz" },
+  { id: 9, nome: "Rafael" },
+  { id: 10, nome: "Letícia" }
+]; 
+  res.json(alunos);
+  
+});
+
+//READ DE PROFESSORES
+app.get("/professores", (req,res)=>{
+  const professor = req.body;
+
+  //simulando um banco de dados.
+  const professores = [
+  { id: 1, nome: "Dr. Alberto" },
+  { id: 2, nome: "Dra. Regina" },
+  { id: 3, nome: "Dr. Marcelo" },
+  { id: 4, nome: "Dra. Cláudia" },
+  { id: 5, nome: "Dr. Eduardo" },
+  { id: 6, nome: "Dra. Vanessa" },
+  { id: 7, nome: "Dr. Tiago" },
+  { id: 8, nome: "Dra. Patrícia" },
+  { id: 9, nome: "Dr. Bruno" },
+  { id: 10, nome: "Dra. Simone" }
+];
+
+  
+  res.json(professores);
+});
+
+//READ DE PACIENTES//
+app.get("/pacientes", (req,res)=>{
+  const professor = req.body;  
+  //simulando um banco de dados//
+  const pacientes = [
+  { id: 1, nome: "Ana Silva" },
+  { id: 2, nome: "Carlos Oliveira" },
+  { id: 3, nome: "Mariana Souza" },
+  { id: 4, nome: "Pedro Lima" },
+  { id: 5, nome: "Fernanda Costa" },
+  { id: 6, nome: "João Pereira" },
+  { id: 7, nome: "Juliana Martins" },
+  { id: 8, nome: "Ricardo Almeida" },
+  { id: 9, nome: "Patrícia Gomes" },
+  { id: 10, nome: "Felipe Rocha" }
+];
+
+  res.json(pacientes);
 });
 
 //CRUD EXAME
-app.get("/listagem-exame", (req,res)=>{
+/*app.get("/listagem-exame", (req,res)=>{
   
   res.render("ListaExame");
 });
@@ -40,7 +109,7 @@ app.delete("/excluir-exame", (req,res)=>{
 
   console.log(req.body);
   res.send("dados do delete recebidos com sucesso");
-})
+})*/
 
 app.listen(3000, () => {
   console.log("Servidor rodando na porta 3000");
