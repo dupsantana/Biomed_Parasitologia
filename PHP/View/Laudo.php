@@ -51,6 +51,7 @@
     <a name="editar"  href='../View/cadastroExame.php?editar=<?php echo $exameEncontrado->getId();?>' class="btn btn-primary">Editar Exame</a>
     
      </form>
+     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script> 
     <button onclick="gerarPDF()" class="btn btn-success">PDF</button>      
         <script>

@@ -65,14 +65,20 @@
      } 
      if(isset($_GET['deletar']) && isset($_GET['id'])){
         $idExcluir = ($_GET['id']);
-        delete($idExcluir);
+        $exameDaoExcuir = new ExameDao();
+        $exameDelete = $exameDaoExcuir->delete($idExcluir);
+        
+        if($exameDelete == 1){
+            echo" <script>alert('exame excluido com sucesso'); 
+            window.location.href = '../View/aluno.php';</script>";
+            
+        }else{
+             echo"<script>alert('erro ao deletar exame');</script>";
+        }
      } 
 
      
-    function delete($id){
-    
-        
-    }
+   
 
     function readPaciente(){
         $paciente1 = new Pacientes();

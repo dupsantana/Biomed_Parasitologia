@@ -103,8 +103,11 @@
                             <label for="nome_paciente" class="form-label">Nome do Paciente</label>
                            <select name="paciente" id="paciente" class="form-select">
                             <?php 
+                                if(isset($exame)){
+                                    
+                                }else{
                                 readPaciente();
-                                
+                                }
                             
                             ?>
                            </select>
@@ -183,6 +186,7 @@
                                 <?php 
                                     
                                     readAluno();
+                                    
                                 ?>
                             </select>
                         </div>
@@ -205,12 +209,20 @@
             </form>
         </div>
     </main>
+   
 
     <!--FOOTER-->
       <?php 
             
             footer();
         ?>
+       
+        <script>            
+            let paciente = document.getElementById('paciente');
+            paciente.value = <?php $exame->getPaciente(); ?>;
+
+        </script>
+        
 
     <!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>

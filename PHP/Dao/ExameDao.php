@@ -159,14 +159,25 @@ use Dba\Connection;
             }
     } 
 
+        public function delete($id){
+            $idRecebido = $id;
 
+            try{
+                $sql ="DELETE FROM exame WHERE registro = :registro";
+                $conn = ConnectionFactory::getConnection()->prepare($sql);
+                $conn->bindValue(":registro", $idRecebido);
+                $conn->execute();               
 
-        //aqui é um insert com registro e nome já passados por parametro, retando assim só os restos de dados para fazer o insert corretamente
-        public function insertForPesquisa(Pacientes $paciente){
+                return 1;
 
+            }catch(PDOException $ex){
+                  return "<p> Erro </p> <p>$ex</p>";
+            }
 
+          
         }
 
+     
 
         public function update(Aluno $aluno, Professor $professor, Pacientes $paciente, Exame $exame){
 
