@@ -64,16 +64,33 @@
 <body>
     <?php 
         include'../Model/trechosCod.php';
-        //include'../Controller/ExameController.php';
-        include'../Controller/ExameControllerApi.php';
+        include'../Controller/ExameController.php';
+        require_once '../Dao/PacienteDao.php';
+        //include'../Controller/ExameControllerApi.php';
         cabecalho();
+
+        //instancio um novo exameDao 
+        $exameDao = new ExameDao();
+        //gero um if que verifica se a pagina de exame foi gerada por um get(ou seja, se ela veio por 'Editar')
+        //caso ele não venha a tela de cadastro serve para cadastrar normalmente
+          if(isset($_GET['editar'])){
+                $idExame = $_GET['editar'];
+                //chamo a busca por id
+                $exame = $exameDao->buscarPorId($idExame);
+
+                if(!$exame->getId()){ // Se o ID do objeto $fabricante ainda não foi setado
+                    echo "<p>exame não encontrado.</p>";
+                    
+                    exit();
+                }
+            }
         
         ?>
     
     <main>    
         <div class="form-container">
             <h2 class="text-center mb-4 display-5" style="color: white; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Cadastrar Exame</h2>
-            <form action="../Controller/ExameControllerApi.php" method="post">
+            <form action="../Controller/ExameController.php" method="post">
                 
                 <div class="form-section">
                     <h3>Laboratório de Parasitologia</h3>
@@ -96,15 +113,19 @@
                     <div class="row">
                         <div class="col-md-4 mb-3">
                             <label for="entrada" class="form-label">Entrada</label>
-                            <input type="time" name="entrada" class="form-control" required>
+                            <input type="time" name="entrada" class="form-control" required
+                            value="<?= isset($exame) && $exame->getEntrada() ? date('H:i', strtotime($exame->getEntrada())) : '' ?>">
+                            
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="data_exame" class="form-label">Data e Hora da Realização do Exame</label>
-                            <input type="date" class="form-control" name="data_exame" required>
+                            <label for="data_exame" class="form-label">Data da Realização do Exame</label>
+                            <input type="date" class="form-control" name="data_exame" required
+                            value="<?= isset($exame) && $exame->getData_exame() ? date('Y-m-d', strtotime($exame->getData_exame())) : '' ?>">
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="data_entrega" class="form-label">Data Prevista para a Entrega do Laudo</label>
-                            <input type="date" class="form-control" name="data_entrega" required>
+                            <input type="date" class="form-control" name="data_entrega" required
+                            value="<?= isset($exame) && $exame->getData_entrega() ? date('Y-m-d', strtotime($exame->getData_entrega())) : '' ?>">
                         </div>
                     </div>
                 </div>
@@ -114,29 +135,41 @@
                     <div class="row">
                         <div class="col-md-4 mb-3">
                             <label for="tipo_amostra" class="form-label">Tipo de Amostra</label>
-                            <input type="text" name="tipo_amostra" class="form-control" required>
+                            <input type="text" name="tipo_amostra" class="form-control" required                            
+                            value="<?= isset($exame) && $exame->getTipo_amostra() ? $exame->getTipo_amostra() : '' ?>">
+                            <!-- verifica se a variavel exame existe se sim ela preenche os dados automaticamente-->
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="tecnica" class="form-label">Técnica Utilizada</label>
-                            <input type="text" name="tecnica" class="form-control" required>
+                            <input type="text" name="tecnica" class="form-control" required
+                            value="<?=isset ($exame) && $exame->getTecnica() ? $exame->getTecnica()  : ''?>">
+                             <!-- verifica se a variavel exame existe se sim ela preenche os dados automaticamente-->
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="consistencia" class="form-label">Consistência</label>
-                            <input type="text" name="consistencia" class="form-control" required>
+                            <input type="text" name="consistencia" class="form-control" required
+                            value="<?=isset ($exame) && $exame->getConsistencia() ? $exame->getConsistencia() : ''?>">
+                             <!-- verifica se a variavel exame existe se sim ela preenche os dados automaticamente-->
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4 mb-3">
                             <label for="coloracao" class="form-label">Coloração</label>
-                            <input type="text" name="coloracao" class="form-control" required>
+                            <input type="text" name="coloracao" class="form-control" required
+                            value="<?=isset ($exame) && $exame->getConsistencia() ? $exame->getConsistencia() : ''?>">
+                             <!-- verifica se a variavel exame existe se sim ela preenche os dados automaticamente-->
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="muco" class="form-label">Muco</label>
-                            <input type="text" name="muco" class="form-control" required>
+                            <input type="text" name="muco" class="form-control" required
+                            value="<?=isset ($exame) && $exame->getMuco() ? $exame->getMuco() : ''?> ">
+                             <!-- verifica se a variavel exame existe se sim ela preenche os dados automaticamente-->
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="sangue" class="form-label">Sangue</label>
-                            <input type="text" name="sangue" class="form-control" required>
+                            <input type="text" name="sangue" class="form-control" required
+                            value="<?=isset($exame) && $exame->getSangue() ? $exame->getSangue() : ''?>">
+                             <!-- verifica se a variavel exame existe se sim ela preenche os dados automaticamente-->
                         </div>
                     </div>
                 </div>
@@ -179,11 +212,12 @@
             footer();
         ?>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script>
     $(document).ready(function() {
     });
-    </script>
+    </script>-->
+
 </body>
 </html>

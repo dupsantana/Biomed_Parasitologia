@@ -46,13 +46,10 @@
         }
     }
 
-    //PEGA O ID DA URL
-    if (isset($_GET['id'])) {
-    //$examet = new Exame();   
+    if (isset($_GET['id'])) {      
     $idLaudo=($_GET['id']);
-    /*$exameBuscaId = new Exame();
-    $exameBuscaId->setId($idLaudo);*/
-    $exameDaoBuscaId = new ExameDao();
+
+   $exameDaoBuscaId = new ExameDao();
     $exameEncontrado = $exameDaoBuscaId ->buscarPorId($idLaudo);     
     
     //pegando o id aluno//
@@ -65,17 +62,27 @@
     $professoreEncontrado = $exameDaoBuscaId->readProfessorId($idProfessor);
     $professorNome = mb_strtoupper($professoreEncontrado);//DEIXA EM MAIUSCULO 
         
-     }     
+     } 
+     if(isset($_GET['deletar']) && isset($_GET['id'])){
+        $idExcluir = ($_GET['id']);
+        delete($idExcluir);
+     } 
+
      
+    function delete($id){
     
+        
+    }
+
     function readPaciente(){
         $paciente1 = new Pacientes();
         $exameDao = new ExameDao();
-        $lista = $exameDao->readPaciente($paciente1);
-
+        $lista = $exameDao->readPaciente($paciente1);     
+   
         foreach($lista as $pacienteEncontrado){
-            echo"<option value = '{$pacienteEncontrado->getId()}'>{$pacienteEncontrado->getNome()}</option>";
+            echo"<option value = '{$pacienteEncontrado->getId()}' >{$pacienteEncontrado->getNome()}</option>";
         }
+      
     }
 
    function readAluno(){
@@ -98,16 +105,7 @@
         }
    }    
 
-    //chama o update//
-    function chamaUPDATE(){
-        
-    }
-
-    //chama DELETE
-    function chamaDelete(){
-
-    }    
-       
+    
         
     
 
