@@ -27,7 +27,7 @@
         <div class="card-header">Dados do Exame</div>
         <div class="card-body">
             <p><strong>Paciente ID:</strong>
-            <?php echo $exameEncontrado->getId();?></p>
+            <?php echo $exameEncontrado->getPaciente();?></p>
             
             <p><strong>Data do Exame:</strong><?php echo $exameEncontrado->getData_exame();?></p>
             <p><strong>Entrada:</strong><?php echo $exameEncontrado->getEntrada(); ?></p>            

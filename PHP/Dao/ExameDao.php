@@ -136,7 +136,7 @@ use Dba\Connection;
         }
         
         //READ DE PACIENTE//
-         public function readPaciente(Pacientes $pacientes){
+         public function readPaciente(){
             try{
                 $sql = "SELECT * FROM paciente";
                 $conn = ConnectionFactory::getConnection()->prepare($sql);
@@ -179,7 +179,36 @@ use Dba\Connection;
 
      
 
-        public function update(Aluno $aluno, Professor $professor, Pacientes $paciente, Exame $exame){
+        public function update(Exame $exame){
+            //paciente_id, entrada, data_exame, data_entrega, tipo_amostra,tecnica, consistencia, coloracao, muco, sangue, aluno_id, professor_id
+            try{
+                $sql = "UPDATE exame SET paciente_id = :paciente_id, entrada = :entrada, data_exame = :data_exame, data_entrega = :data_entrega, tipo_amostra = :tipo_amostra,
+                tecnica = :tecnica, consistencia = :consistencia, coloracao = :coloracao, muco = :muco, sangue = :sangue, aluno_id = :aluno_id, professor_id = :professor_id 
+                WHERE registro = :registro";
+                $conn = ConnectionFactory::getConnection()->prepare($sql);
+                $conn->bindValue(":paciente_id",$exame->getPaciente());
+                $conn->bindValue(":entrada", $exame->getEntrada());
+                $conn->bindValue(":data_exame", $exame->getData_exame());
+                $conn->bindValue(":data_entrega", $exame->getData_entrega());
+                $conn->bindValue(":tipo_amostra", $exame->getTipo_amostra());
+                $conn->bindValue(":tecnica", $exame->getTecnica());
+                $conn->bindValue(":consistencia", $exame->getConsistencia());
+                $conn->bindValue(":coloracao", $exame->getColoracao());
+                $conn->bindValue(":muco", $exame->getMuco());
+                $conn->bindValue(":sangue", $exame->getSangue());
+                $conn->bindValue(":aluno_id", $exame->getResponsavel_exame());
+                $conn->bindValue(":professor_id", $exame->getPreceptor());
+                $conn->bindValue(":registro", $exame->getId());
+
+                 $conn->execute();
+                 return $conn;
+
+            }catch(PDOException $ex){
+                return"<p>Erro ao atualizar os dados de exame".$ex->getMessage()."</p>";
+            }
+
+
+            return"deu certo";
 
         }
     }

@@ -63,6 +63,7 @@
     $professorNome = mb_strtoupper($professoreEncontrado);//DEIXA EM MAIUSCULO 
         
      } 
+
      if(isset($_GET['deletar']) && isset($_GET['id'])){
         $idExcluir = ($_GET['id']);
         $exameDaoExcuir = new ExameDao();
@@ -77,7 +78,34 @@
         }
      } 
 
-     
+     if(isset($_POST['editar']) && isset($_POST['id'])){
+        
+        
+        $editar = new Exame();
+        $editarDao = new ExameDao();
+        $editar->setId($_POST['id']);
+        $editar->setPaciente($_POST['paciente']);
+        $editar->setEntrada($_POST['entrada']);
+        $editar->setData_exame($_POST['data_exame']);            
+        $editar->setData_entrega($_POST['data_entrega']);            
+        $editar->setTipo_amostra($_POST['tipo_amostra']);            
+        $editar->setTecnica($_POST['tecnica']);
+        $editar->setConsistencia($_POST['consistencia']);
+        $editar->setColoracao($_POST['coloracao']);
+        $editar->setMuco($_POST['muco']);
+        $editar->setSangue($_POST['sangue']);
+        $editar->setResponsavel_exame($_POST['aluno']);
+        $editar->setPreceptor($_POST['professor']);    
+        
+        $resultadoEdicao = $editarDao->update($editar);      
+       
+
+        
+
+        echo"<script>alert('exame editado com sucesso'); 
+            window.location.href = '../View/Laudo.php?id={$editar->getId()}';</script>";
+
+     }
    
 
     function readPaciente(){

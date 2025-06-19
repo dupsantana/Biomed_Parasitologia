@@ -103,11 +103,9 @@
                             <label for="nome_paciente" class="form-label">Nome do Paciente</label>
                            <select name="paciente" id="paciente" class="form-select">
                             <?php 
-                                if(isset($exame)){
-                                    
-                                }else{
+                               
                                 readPaciente();
-                                }
+                                
                             
                             ?>
                            </select>
@@ -203,7 +201,18 @@
                
                 <div class="row mt-3">
                     <div class="col-12">
-                        <button type="submit" class="btn btn-info w-100" name="enviar">Enviar</button>
+                        <?php 
+                            if(isset($exame)){
+                                echo"<input type='hidden' name='id' value='{$exame->getId()}'>
+                                 <input type='submit' name='editar' value = 'Enviar Alterações' class='btn btn-success  w-100'> ";
+                                
+                            }else{
+                                echo"<input type='submit' name='enviar' value = 'Enviar' class='btn btn-info  w-100'> ";
+                       
+                            }
+                        ?>
+                        
+                        
                     </div>
                 </div>
             </form>
@@ -217,19 +226,9 @@
             footer();
         ?>
        
-        <script>            
-            let paciente = document.getElementById('paciente');
-            paciente.value = <?php $exame->getPaciente(); ?>;
+     
 
-        </script>
-        
-
-    <!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-    <script>
-    $(document).ready(function() {
-    });
-    </script>-->
+    
 
 </body>
 </html>
