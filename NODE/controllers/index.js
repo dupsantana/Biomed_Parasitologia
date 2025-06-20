@@ -15,15 +15,21 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 //Configurando o express para usar o EJS como mecanismo de renderização de views padrão
 
-
 // Middleware para interpretar JSON no body
 app.use(express.json());
 
+//usado para inportar funções DAO
+const {insert}=require("../models/DAO/ExameDao");
+
 //CREATE DE EXAME
 app.post("/exame", (req, res) => {
-  const exame = req.body; 
+  const {paciente,entrada,data_exame,data_entrega,tipo_amostra,tecnica,consistencia,coloracao,muco,sangue,aluno,professor} = req.body; 
+  const result = insert(paciente,entrada,data_exame,data_entrega,tipo_amostra,tecnica,consistencia,coloracao,muco,sangue,aluno,professor);
 
-    res.json(exame);    
+    if(result){
+      return res.status(200).json({success : true});
+    }    
+    return res.status(400).json({success : false});
 });
 
 //READ DE ALUNOS
@@ -89,27 +95,27 @@ app.get("/pacientes", (req,res)=>{
   res.json(pacientes);
 });
 
-//CRUD EXAME
-/*app.get("/listagem-exame", (req,res)=>{
+app.get("/exame/:id", (req, res)=>{
+ const id = parseInt(req.params.id);
+ const teste = {
+  "registro": 1,
+  "paciente_id": 1,
+  "entrada": "2025-06-19 09:30:00",
+  "data_exame": "2025-06-18",
+  "data_entrega": "2025-06-19",
+  "tipo_amostra": "Fezes",
+  "tecnica": "Flotação",
+  "consistencia": "Pastosa",
+  "coloracao": "Amarronzada",
+  "muco": "Ausente",
+  "sangue": "Presente",
+  "aluno_id": 5,
+  "professor_id": 2};
   
-  res.render("ListaExame");
+ 
+ res.status(200).json(teste);
 });
 
-app.post("/cadastro-exame", (req,res)=>{
-    console.log(req.body);
-    res.send("Dados recebidos pelo node");
-});
-
-app.put("/editar-exame", (req,res)=>{
-  console.log(req.body);
-  res.send("Dados de put recebidos com sucesso");
-});
-
-app.delete("/excluir-exame", (req,res)=>{
-
-  console.log(req.body);
-  res.send("dados do delete recebidos com sucesso");
-})*/
 
 app.listen(3000, () => {
   console.log("Servidor rodando na porta 3000");

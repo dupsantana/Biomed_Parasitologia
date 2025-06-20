@@ -24,18 +24,18 @@
         <div class="card-header">Dados do Exame</div>
         <div class="card-body">
             <p><strong>Paciente ID:</strong>
-            <?php ?></p>
+            <?php echo $exameEncontrado->getPaciente(); ?></p>
             
-            <p><strong>Data do Exame:</strong><?php ?></p>
-            <p><strong>Entrada:</strong><?php  ?></p>            
-            <p><strong>Tipo de Amostra:</strong><?php   ?></p>
-            <p><strong>Técnica:</strong><?php  ?></p>
-            <p><strong>Consistência:</strong><?php  ?></p>
-            <p><strong>Sangue:</strong><?php  ?></p>
-            <p><strong>Coloração:</strong><?php ?></p>
-            <p><strong>Muco:</strong><?php ?></p>
-            <p><strong>Aluno Reponsavel: </strong><?php ?></p>
-            <p><strong>Professor responsavel:</strong><?php ;?></p>
+            <p><strong>Data do Exame:</strong><?php echo $exameEncontrado->getData_exame();?></p>
+            <p><strong>Entrada:</strong><?php echo $exameEncontrado->getEntrada(); ?></p>            
+            <p><strong>Tipo de Amostra:</strong><?php echo  mb_strtoupper($exameEncontrado->getTipo_amostra());  ?></p>
+            <p><strong>Técnica:</strong><?php echo  mb_strtoupper($exameEncontrado->getTecnica()); ?></p>
+            <p><strong>Consistência:</strong><?php echo mb_strtoupper($exameEncontrado->getConsistencia()); ?></p>
+            <p><strong>Sangue:</strong><?php echo mb_strtoupper($exameEncontrado->getSangue()); ?></p>
+            <p><strong>Coloração:</strong><?php echo mb_strtoupper( $exameEncontrado->getColoracao()); ?></p>
+            <p><strong>Muco:</strong><?php echo mb_strtoupper($exameEncontrado->getMuco());?></p>
+            <p><strong>Aluno Reponsavel: </strong><?php echo $alunoNome ?></p>
+            <p><strong>Professor responsavel:</strong><?php echo $professorNome;?></p>
         </div>
     </div>
     </div>

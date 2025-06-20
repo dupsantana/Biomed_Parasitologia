@@ -31,17 +31,19 @@
             $examein->setSangue($_POST['sangue']);
             $examein->setResponsavel_exame($_POST['aluno']);
             $examein->setPreceptor($_POST['professor']);
-            $exameApi = $exameDaoApi->insert($examein);               
+            $exameApi = $exameDaoApi->insert($examein);  
+            $id;
+            foreach($exameApi as $chave => $valor): $id = $valor; endforeach;            
           
             //array associativo//
-            print_r($exameApi);      
+            //print_r($exameApi);      
             
-            /*if ($exameApi) {
-            header("location:../View/LaudoApi.php");
+            if ($exameApi) {
+            header("location:../View/LaudoApi.php?id=$id");
             exit;
         } else {
             echo "Erro ao cadastrar exame.";
-        }   */       
+        }   
         }
     }
 
@@ -51,9 +53,14 @@
     $idLaudo=($_GET['id']);
     /*$exameBuscaId = new Exame();
     $exameBuscaId->setId($idLaudo);*/
-    $exameDaoBuscaId = new ExameDao();
-    $exameEncontrado = $exameDaoBuscaId ->buscarPorId($idLaudo);     
+    $exameDaoBuscaId = new ExameDaoApi();
+    $exameEncontrado = $exameDaoBuscaId ->buscarPorId($idLaudo);  
+   
     
+    if($exameEncontrado === null){
+        echo"Erro na controller";
+    }
+  
     //pegando o id aluno//
     $idAluno = $exameEncontrado->getResponsavel_exame();
     $alunoEncontrado = $exameDaoBuscaId->readAlunoId($idAluno); 
@@ -62,13 +69,13 @@
     //pegando o id professor//
     $idProfessor = $exameEncontrado->getPreceptor();
     $professoreEncontrado = $exameDaoBuscaId->readProfessorId($idProfessor);
-    $professorNome = mb_strtoupper($professoreEncontrado);//DEIXA EM MAIUSCULO 
+    $professorNome = mb_strtoupper($professoreEncontrado);//DEIXA EM MAIUSCULO */
         
-     }     
+     }   
      
     
     function readPaciente(){
-        $paciente1 = new Pacientes();
+        //$paciente1 = new Pacientes();
         $exameDao = new ExameDaoApi();
         $lista = $exameDao->readPaciente();
 

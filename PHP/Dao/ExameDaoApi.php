@@ -1,4 +1,5 @@
 <?php 
+use Dba\Connection;
 class ExameDaoApi{
     //INSERT
      public function insert(Exame $exame){
@@ -55,6 +56,26 @@ class ExameDaoApi{
             $paciente->setNome(htmlspecialchars($linha['nome']));
             return $paciente;
         }
+        public function listaExame($linha){
+            $exame = new Exame();
+            //paciente_id, entrada, data_exame, data_entrega, tipo_amostra,tecnica, consistencia, coloracao, muco, sangue, aluno_id, professor_id
+                $exame->setId($linha['registro']);
+                $exame->setPaciente($linha['paciente_id']);
+                $exame->setPreceptor($linha['professor_id']);
+                $exame->setResponsavel_exame($linha['aluno_id']);
+                $exame->setEntrada($linha['entrada']);
+                $exame->setData_exame($linha['data_exame']);
+                $exame->setData_entrega($linha['data_entrega']);
+                $exame->setTipo_amostra($linha['tipo_amostra']);
+                $exame->setTecnica($linha['tecnica']);
+                $exame->setConsistencia($linha['consistencia']);
+                $exame->setColoracao($linha['coloracao']);
+                $exame->setMuco($linha['muco']);
+                $exame->setSangue($linha['sangue']);
+               
+                return $exame; 
+
+        }
 
         public function readAluno(){
             $url = "http://localhost:3000/alunos";
@@ -94,13 +115,34 @@ class ExameDaoApi{
             return $pacienteList;
         } 
 
-        public function readAlunoId($idAluno){
-         
+        public function buscarPorId($id){
+            
+             $url ="http://localhost:3000/exame/".urlencode($id);
+             try{
+                 $response = file_get_contents($url);
+            if ($response === FALSE) {
+                return null; // ID não encontrado ou erro na requisição
+            }
+            $data = json_decode($response, true);
+            if ($data) {
+                return $this->listaExame($data);
+            }
+
+
+             }catch(Exception $e){
+                echo"erro ao buscar exame por id: {$e->getMessage()}";
+                return null;
+             }
            
         }
 
+        public function readAlunoId($idAluno){
+           
+           return 1;
+        }
+
         public function readProfessorId($idProfessor){
-            
+             return 1;
            
         }
         
