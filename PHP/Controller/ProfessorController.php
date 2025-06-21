@@ -22,6 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     }
+
+   
 }
 
 // --- PROCESSAR EXCLUSÃO --- //
@@ -48,14 +50,19 @@ function lerProfessor()
                     <td>{$professor->getRgmProfessor()}</td>
                     <td>{$professor->getNome()}</td>
                     <td>{$professor->getEmail()}</td>
+                    
+                    
                     <td>
+                    
                     <!-- Botão Editar -->
-                    <a href='editar_professor.php?rgm={$professor->getRgmProfessor()}' class='btn btn-primary btn-sm'>
+
+                    <a name='editar' href='Telacadastro_professor.php?editar={$professor->getid()}' class='btn btn-primary btn-sm'>
                     Editar
                     </a>
 
                     
                       <!-- Botão Excluir -->
+
                 <form method='POST' action='' style='display: inline;'>
                     <input type='hidden' name='rgm_to_delete' value='{$professor->getRgmProfessor()}'>
                     <button type='submit' name='delete_professor' class='btn btn-danger btn-sm' onclick='return confirm(\"Tem certeza?\")'>
@@ -65,10 +72,19 @@ function lerProfessor()
                   </td>
 
                 </tr>";
+
+                
     }
 }
+    
 
-
+        if (isset($_GET['editar'])){
+            $identProfessor = $_GET['editar'];
+            $professor = new ProfessorDao();
+            $professorEncontrado = $professor->getid($identProfessor);
+            
+            
+        }
 
 
 

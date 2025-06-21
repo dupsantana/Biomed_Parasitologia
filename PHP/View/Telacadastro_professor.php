@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -34,6 +37,11 @@
      <?php 
         include'../Model/trechosCod.php';
         cabecalho();
+
+        require '../Controller/ProfessorController.php';
+        
+        
+  
         
         ?>
     
@@ -55,7 +63,8 @@
                 <!--Campos de input-->
                 <div class="row mt-3">               
                     <label for="userNameProfessor" class="form-label">Nome</label>
-                    <input type="text" name="userNameProfessor" class="form-control">              
+                    <input type="text" name="userNameProfessor" class="form-control" 
+                    value = "<?=isset($professorEncontrado) && $professorEncontrado -> getNome() ? $professorEncontrado -> getNome() : '' ?>">              
                 </div>           
                 <div class="row mt-3">
                     <label for="userRGMProfessor" class="form-label">Código Professor</label>

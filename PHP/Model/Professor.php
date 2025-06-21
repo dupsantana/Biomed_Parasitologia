@@ -1,4 +1,5 @@
 <?php
+require_once 'Usuario.php';
   class Professor extends Usuario{
    private $id; 
    private $rgmProfessor;

@@ -26,6 +26,7 @@ public class AlunoDao {
             "Saitama Unknown", "Genos Unknown", "Tatsumaki Unknown", "Garou Unknown", "King Unknown",  
             "Lelouch Lamperouge", "Suzaku Kururugi", "Eren Krueger", "Kallen Stadtfeld", "Shirley Fenette"};
             aluno.setNome(nomes[aleatorio.nextInt(nomes.length)]);
+
             String[] emails ={"luffy.monkey@anime.com",
                             "zoro.roronoa@anime.com",
                             "nami.unknown@anime.com",
@@ -77,6 +78,7 @@ public class AlunoDao {
                             "kallen.stadtfeld@anime.com",
                             "shirley.fenette@anime.com"};
             aluno.setEmail(emails[aleatorio.nextInt(emails.length)]);
+            
             String[] senhas = {"Monkey D. Luffy", "luffy.monkey@anime.com", "ChapéuDePalha2024!",
     "Roronoa Zoro", "zoro.roronoa@anime.com", "Santoryu#3Espadas",
     "Nami", "nami.unknown@anime.com", "MapaDoTesouro$",

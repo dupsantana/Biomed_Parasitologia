@@ -37,7 +37,7 @@
 
             
 
-            $listaProfessor = array();
+            $listaProfessor = [];
             foreach($lista as $linha){
                 $professorEncontrado = new Professor();
                 $professorEncontrado ->setId($linha['id']);
@@ -74,6 +74,77 @@
 
 
     }
+       
+    
+
+
+        // --------------------GET RGM--------------------//
+
+        public function getRgm($rgm){
+            try{
+                $sql = "SELECT *FROM professor WHERE rgmProfessor = :rgm";
+                $conn = ConnectionFactory::getConnection()->prepare($sql);
+                $conn->bindValue(':rgm', $rgm);
+                $conn->execute();
+                $linha = $conn->fetch(PDO::FETCH_ASSOC);
+
+                if ($linha){
+                    $professor = new Professor();
+                    $professor->setId($linha['id']);
+                    $professor->setRgmProfessor($linha['rgmProfessor']);
+                    $professor->setNome($linha['nome']);
+                    $professor->setEmail($linha['email']);
+                    $professor->setSenha($linha['senha']);
+
+                    return $professor;
+                }
+
+                return null;
+            } catch(PDOException $ex){
+                echo "<p>Erro ao buscar professor: " .$ex->getMessage() . "</p>";
+                return null;
+            }
+        }
+
+         // --------------------UPDATE--------------------//
+
+         public function getid($id){
+            try{
+                $sql = "SELECT *FROM professor WHERE id = :id";
+                $conn = ConnectionFactory::getConnection()->prepare($sql);
+                $conn->bindValue(':id', $id);
+                $conn->execute();
+                $linha = $conn->fetch(PDO::FETCH_ASSOC);
+
+              $lista=[];  
+              foreach($linha as $chave => $valor){
+                
+                
+                   
+
+                $lista[] = $valor;
+
+
+              }
+              $professor = new Professor();
+
+                $professor->setId($lista[0]);
+                $professor->setRgmProfessor($lista[1]);
+                $professor->setNome($lista[2]);
+                $professor->setEmail($lista[3]);
+                $professor->setSenha($lista[4]);
+
+              return $professor;
+
+
+
+
+
+            } catch(PDOException $ex){
+                echo "<p>Erro ao buscar professor: " .$ex->getMessage() . "</p>";
+                return null;
+            }
+        }
 
 }
 
