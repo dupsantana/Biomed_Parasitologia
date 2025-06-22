@@ -68,15 +68,18 @@
                 </div>           
                 <div class="row mt-3">
                     <label for="userRGMProfessor" class="form-label">Código Professor</label>
-                    <input type="text" class="form-control" name="userRGMProfessor" placeholder="0000000000" maxlength="10" required>
+                    <input type="text" class="form-control" name="userRGMProfessor" placeholder="0000000000" maxlength="10" required 
+                    value = "<?=isset($professorEncontrado) && $professorEncontrado -> getRgmProfessor() ? $professorEncontrado -> getRgmProfessor() : '' ?>">
                 </div>
                 <div class="row mt-3">
                     <label for="userEmailProfessor" class="form-label">Email</label>
-                    <input type="email" class="form-control" name="userEmailProfessor" placeholder="user@exemple.com">
+                    <input type="email" class="form-control" name="userEmailProfessor" placeholder="user@exemple.com"
+                    value = "<?=isset($professorEncontrado) && $professorEncontrado -> getemail() ? $professorEncontrado -> getemail() : '' ?>">
                 </div> 
                 <div class="row mt-3">
                     <label for="userPasswordProfessor" class="form-label">Senha</label>
-                    <input type="password" name="userPasswordProfessor" class="form-control">
+                    <input type="password" name="userPasswordProfessor" class="form-control"
+                    value = "<?=isset($professorEncontrado) && $professorEncontrado -> getsenha() ? $professorEncontrado -> getsenha() : '' ?>">
                 </div>               
                
                 <div class="row mt-3">

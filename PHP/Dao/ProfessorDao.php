@@ -129,10 +129,10 @@
               $professor = new Professor();
 
                 $professor->setId($lista[0]);
-                $professor->setRgmProfessor($lista[1]);
+                $professor->setRgmProfessor(rgmProfessor: $lista[1]);
                 $professor->setNome($lista[2]);
-                $professor->setEmail($lista[3]);
-                $professor->setSenha($lista[4]);
+                $professor->setEmail(email: $lista[3]);
+                $professor->setSenha(senha: $lista[4]);
 
               return $professor;
 
