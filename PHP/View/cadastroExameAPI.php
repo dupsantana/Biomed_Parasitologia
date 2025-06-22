@@ -156,7 +156,7 @@
                         <div class="col-md-4 mb-3">
                             <label for="coloracao" class="form-label">Coloração</label>
                             <input type="text" name="coloracao" class="form-control" required
-                            value="<?=isset ($exame) && $exame->getConsistencia() ? $exame->getConsistencia() : ''?>">
+                            value="<?=isset ($exame) && $exame->getConsistencia() ? $exame->getColoracao() : ''?>">
                              <!-- verifica se a variavel exame existe se sim ela preenche os dados automaticamente-->
                         </div>
                         <div class="col-md-4 mb-3">

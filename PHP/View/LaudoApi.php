@@ -26,7 +26,7 @@
             <p><strong>Paciente ID:</strong>
             <?php echo $exameEncontrado->getPaciente(); ?></p>
             
-            <p><strong>Data do Exame:</strong><?php echo $exameEncontrado->getData_exame();?></p>
+            <p><strong>Data do Exame:</strong><?php  $dataBrasil = date("d/m/Y", strtotime($exameEncontrado->getData_exame())); echo $dataBrasil ;?></p>
             <p><strong>Entrada:</strong><?php echo $exameEncontrado->getEntrada(); ?></p>            
             <p><strong>Tipo de Amostra:</strong><?php echo  mb_strtoupper($exameEncontrado->getTipo_amostra());  ?></p>
             <p><strong>Técnica:</strong><?php echo  mb_strtoupper($exameEncontrado->getTecnica()); ?></p>

@@ -58,7 +58,7 @@
     }
   
     //pegando o id aluno//
-    $idAluno = $exameEncontrado->getResponsavel_exame();
+    $idAluno = $exameEncontrado->getResponsavel_exame();    
     $alunoEncontrado = $exameDaoBuscaId->readAlunoId($idAluno);
      
     if($alunoEncontrado == null){
