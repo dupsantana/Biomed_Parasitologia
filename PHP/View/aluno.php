@@ -116,7 +116,7 @@
 
     <div class="container" id="container_cards">
         <div class="row">
-            <div class="col-6">
+            <div class="col-4">
             <div class="card h-100 mx-auto" style="width: 18rem">
                 <img
                   src="img/CARD_2_ALUNO.png"                  
@@ -126,13 +126,13 @@
                 <div class="card-body text-center d-grid">
                   <h5 class="card-title text-center">Cadastro de pacientes</h5>
                   <p class="card-text text-center">
-                    Aqui você vai cadastrar seus pacientes e os exames correspondentes em seu prontuário.
+                    Aqui você vai cadastrar seus pacientes .
                   </p>
                  <button class="btn btn-primary fw-bold p-0 text-center"> <a href="cadastroPacientes.php" class="text-light text-decoration-none">CADASTRAR</a> </button>
                 </div>
               </div>
             </div>
-        <div class="col-6">
+        <div class="col-4">
             
         <div class="card h-100 mx-auto" style="width: 18rem">
                 <img
@@ -143,9 +143,27 @@
                 <div class="card-body text-center d-grid">
                   <h5 class="card-title text-center">Consulta </h5>
                   <p class="card-text text-center">
-                  Aqui você pode cadastrar seus pacientes e os exames correspondentes em seu prontuário.
+                  Aqui você pode consultar seus pacientes .
                   </p>
                   <button class="btn btn-primary fw-bold p-0 text-center"> <a href="Consulta.php" class="text-light text-decoration-none">CONSULTAR</a> </button>
+                </div>
+              </div>
+              
+            </div>
+             <div class="col-4">
+            
+        <div class="card h-100 mx-auto" style="width: 18rem">
+                <img
+                  src="img/Exame1.png"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body text-center d-grid">
+                  <h5 class="card-title text-center">Cadastro de Exames</h5>
+                  <p class="card-text text-center">
+                  Aqui você pode cadastrar seus exames.
+                  </p>
+                  <button class="btn btn-primary fw-bold p-0 text-center"> <a href="cadastroExameAPI.php" class="text-light text-decoration-none">CADASTRAR</a> </button>
                 </div>
               </div>
               

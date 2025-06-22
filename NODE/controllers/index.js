@@ -124,7 +124,7 @@ app.put("/exame", async(req,res)=>{
   } 
   return res.status(200).json(editar);
 
-})
+});
 
 app.listen(3000, () => {
   console.log("Servidor rodando na porta 3000");
