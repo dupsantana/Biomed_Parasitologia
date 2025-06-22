@@ -72,7 +72,7 @@
         cabecalho();
 
         //instancio um novo exameDao 
-        $exameDao = new ExameDao();
+        $exameDao = new ExameDaoApi();
         //gero um if que verifica se a pagina de exame foi gerada por um get(ou seja, se ela veio por 'Editar')
         //caso ele não venha a tela de cadastro serve para cadastrar normalmente
           if(isset($_GET['editar'])){
@@ -80,7 +80,7 @@
                 //chamo a busca por id
                 $exame = $exameDao->buscarPorId($idExame);
 
-                if(!$exame->getId()){ // Se o ID do objeto $fabricante ainda não foi setado
+                if(!$exame->getId()){ // Se o ID do objeto $exame ainda não foi setado
                     echo "<p>exame não encontrado.</p>";
                     
                     exit();
@@ -97,10 +97,7 @@
                 <div class="form-section">
                     <h3>Laboratório de Parasitologia</h3>
                     <div class="row">
-                        <!--<div class="col-md-6 mb-3">
-                            <label for="registro" class="form-label">Nº de Registro</label>
-                            <input type="text" name="registro" class="form-control" required>
-                        </div>-->
+                       
                         <div class="col-md-6 mb-3">
                             <label for="nome_paciente" class="form-label">Nome do Paciente</label>
                            <select name="paciente" id="paciente" class="form-select">

@@ -105,7 +105,7 @@ use Dba\Connection;
                 echo "<p>Erro ao fazer a consulta no Banco de dados". $ex->getMessage()."</p>";
             }
             
-            return "algo";
+            
 
         }
 
@@ -132,7 +132,7 @@ use Dba\Connection;
 
                 echo "<p>Erro ao fazer a consulta no Banco de dados". $ex->getMessage()."</p>";
             }
-            return "";
+            
         }
         
         //READ DE PACIENTE//
@@ -201,7 +201,7 @@ use Dba\Connection;
                 $conn->bindValue(":registro", $exame->getId());
 
                  $conn->execute();
-                 return $conn;
+                 return 1;
 
             }catch(PDOException $ex){
                 return"<p>Erro ao atualizar os dados de exame".$ex->getMessage()."</p>";

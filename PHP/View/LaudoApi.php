@@ -40,9 +40,15 @@
     </div>
     </div>
     <div class="text-center">
-    <input type="submit" name="editar" value= "Editar Exame" class="btn btn-info">
-    <input type="submit" name="deletar" value = "Excluir exame" class="btn btn-danger">  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script> 
+    <form method="get">  
+        <!--input não visivel que passa o id como resposta-->
+        <input type="hidden" name='id' value="<?php echo $exameEncontrado->getId(); ?>">
+        <!--botão de deletar-->
+        <input type="submit" name="deletar" value = "Excluir exame" class="btn btn-danger">
+        <!-- Link que tem um name,Oque Ele faz? ele envia o id do exame pela url  -->
+        <a name="editar" href='../View/cadastroExameAPI.php?editar=<?php echo $exameEncontrado->getId(); ?>'class="btn btn-primary">Editar Exame</a>
+    </form><br>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script> 
     <button onclick="gerarPDF()" class="btn btn-success">PDF</button>      
         <script>
         function gerarPDF() {

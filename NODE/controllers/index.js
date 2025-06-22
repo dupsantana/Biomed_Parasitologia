@@ -19,80 +19,58 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
 
 //usado para inportar funções DAO
-const {insert}=require("../models/DAO/ExameDao");
+const {insert,buscarPorId,deleteExame,update,readAlunos,readProfessores,readAlunoId,
+    readProfessorId,readPaciente}=require("../models/DAO/ExameDao");
 
 //CREATE DE EXAME
-app.post("/exame", (req, res) => {
+app.post("/exame", async(req, res) => {
+  console.log("Body recebido:", req.body);
   const {paciente,entrada,data_exame,data_entrega,tipo_amostra,tecnica,consistencia,coloracao,muco,sangue,aluno,professor} = req.body; 
-  const result = insert(paciente,entrada,data_exame,data_entrega,tipo_amostra,tecnica,consistencia,coloracao,muco,sangue,aluno,professor);
+  const result = await insert(paciente,entrada,data_exame,data_entrega,tipo_amostra,tecnica,consistencia,coloracao,muco,sangue,aluno,professor);
 
-    if(result){
-      return res.status(200).json({success : true});
-    }    
-    return res.status(400).json({success : false});
+  
+  if (!result) {
+    return res.status(400).json({ success: false });
+  }
+
+return res.status(200).json({ success: true, registro: result });
+     
+    
 });
+ 
 
 //READ DE ALUNOS
-app.get("/alunos", (req, res)=>{
-  const aluno = req.body; 
-
-  //simulando um banco de dados//
-  const alunos = [
-  { id: 1, nome: "Lucas" },
-  { id: 2, nome: "Isabela" },
-  { id: 3, nome: "Gabriel" },
-  { id: 4, nome: "Laura" },
-  { id: 5, nome: "Mateus" },
-  { id: 6, nome: "Amanda" },
-  { id: 7, nome: "Gustavo" },
-  { id: 8, nome: "Beatriz" },
-  { id: 9, nome: "Rafael" },
-  { id: 10, nome: "Letícia" }
-]; 
-  res.json(alunos);
+app.get("/alunos", async(req, res)=>{
+  const alunos = await readAlunos();
+  console.log(alunos);
+ if(!alunos){
+  return res.status(400).json({ success: false });
+ }
   
+  return res.status(200).json(alunos);
+    
 });
 
 //READ DE PROFESSORES
-app.get("/professores", (req,res)=>{
-  const professor = req.body;
+app.get("/professores", async(req,res)=>{
+  const professores = await readProfessores();
 
-  //simulando um banco de dados.
-  const professores = [
-  { id: 1, nome: "Dr. Alberto" },
-  { id: 2, nome: "Dra. Regina" },
-  { id: 3, nome: "Dr. Marcelo" },
-  { id: 4, nome: "Dra. Cláudia" },
-  { id: 5, nome: "Dr. Eduardo" },
-  { id: 6, nome: "Dra. Vanessa" },
-  { id: 7, nome: "Dr. Tiago" },
-  { id: 8, nome: "Dra. Patrícia" },
-  { id: 9, nome: "Dr. Bruno" },
-  { id: 10, nome: "Dra. Simone" }
-];
-
-  
-  res.json(professores);
+  console.log(professores);
+  if(!professores){
+     return res.status(400).json({ success: false })
+  }
+  return res.status(200).json(professores);
 });
 
 //READ DE PACIENTES//
-app.get("/pacientes", (req,res)=>{
-  const professor = req.body;  
-  //simulando um banco de dados//
-  const pacientes = [
-  { id: 1, nome: "Ana Silva" },
-  { id: 2, nome: "Carlos Oliveira" },
-  { id: 3, nome: "Mariana Souza" },
-  { id: 4, nome: "Pedro Lima" },
-  { id: 5, nome: "Fernanda Costa" },
-  { id: 6, nome: "João Pereira" },
-  { id: 7, nome: "Juliana Martins" },
-  { id: 8, nome: "Ricardo Almeida" },
-  { id: 9, nome: "Patrícia Gomes" },
-  { id: 10, nome: "Felipe Rocha" }
-];
-
-  res.json(pacientes);
+app.get("/pacientes", async(req,res)=>{
+  const pacientes = await readPaciente();
+  console.log(pacientes);
+  if(!pacientes){
+    return res.status(400).json({success : false});
+  }
+  return res.status(200).json(pacientes);
+ 
 });
 
 app.get("/exame/:id", (req, res)=>{
@@ -116,6 +94,35 @@ app.get("/exame/:id", (req, res)=>{
  res.status(200).json(teste);
 });
 
+app.get("/exame/aluno/:id", (req,res)=>{
+  const idAluno = parseInt(req.params.id);
+  const simulaBanco={
+  "id": 1,
+  "rgmAluno": 12345678,
+  "nome": "João da Silva",
+  "email": "joao.silva@example.com",
+  "senha": "senhaSegura123"
+}
+ res.status(200).json(simulaBanco);
+});
+
+app.get("/exame/professor/:id", (req,res)=>{
+  const idProfessor = parseInt(req.params.id);
+  const sBanco = {
+  "id": 1,
+  "rgmProfessor": 12345678,
+  "nome": "Maria da Silva",
+  "email": "maria.silva@example.com",
+  "senha": "senhaSegura123"
+  }
+  console.log("cheguei aqui");
+  res.status(200).json(sBanco);
+});
+
+app.delete("/exame/:id" , (req,res)=>{
+    const deleteExame = parseInt(req.params.id);
+    res.status(200).json({success: true});
+});
 
 app.listen(3000, () => {
   console.log("Servidor rodando na porta 3000");

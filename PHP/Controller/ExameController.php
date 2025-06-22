@@ -100,10 +100,15 @@
         $resultadoEdicao = $editarDao->update($editar);      
        
 
-        
-
-        echo"<script>alert('exame editado com sucesso'); 
+        if($resultadoEdicao==1){
+            echo"<script>alert('exame editado com sucesso'); 
             window.location.href = '../View/Laudo.php?id={$editar->getId()}';</script>";
+
+        }else{
+            echo"Erro ao atualizar dados";
+        }
+        
+       
 
      }
    
