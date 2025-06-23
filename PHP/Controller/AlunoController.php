@@ -16,10 +16,9 @@
             $alunoDao->insert($aluno);//aqui ele chamou a função inserir(Criar) do AlunoDao mas poderia ser outra(delete,update,read);
             header("location:../View/TelaLogin1.php");//Muda a localização para outra página//
             
-        
+         }
 
    }
-    }
 
     function lerAluno(){
         $aluno = new aluno();
@@ -33,17 +32,6 @@
             <td>{$aluno->getnome()}</td>
             <td>{$aluno->getemail()}</td>
             </tr>";
-        }
-
-        
-            
-            
-
-        
+        }        
     }
-        
-
-   
-    
-   
 ?>

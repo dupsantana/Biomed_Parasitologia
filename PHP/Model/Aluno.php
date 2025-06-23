@@ -1,4 +1,7 @@
 <?php
+session_start();
+
+require_once 'Usuario.php';
 class Aluno extends Usuario{
     private $id;
     private $rgmAluno;

@@ -1,131 +1,170 @@
-//O Express é um framework para Node.js que facilita a criação de servidores web e APIs.
-// Ele permite lidar com rotas, requisições HTTP (GET, POST, etc.), respostas e muito mais de forma simples.
-// Em vez de escrever tudo do zero com Node puro, o Express oferece funções prontas que economizam tempo.
-// Exemplo: com poucas linhas de código, consigo criar um servidor que responde quando alguém acessa uma rota.
 const express = require('express');
-/*O body-parser é um middleware do Express que permite interpretar dados enviados 
-por formulários HTML ou por requisições JSON. Ele é útil quando você precisa acessar
- os dados do corpo (body) de uma requisição POST, por exemplo.*/
-const bodyParser =  require("body-parser");
+const bodyParser = require("body-parser");
 const app = express();
 
-//Configurando para sempre receber os dados no formato JSON
+// Middleware
 app.use(bodyParser.json());
-//Encondando todos os parâmetros para JSON
-app.use(bodyParser.urlencoded({extended: true}));
-//Configurando o express para usar o EJS como mecanismo de renderização de views padrão
-
-// Middleware para interpretar JSON no body
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
-//usado para inportar funções DAO
-const {insert,buscarPorId,deleteExame,update,readAlunos,readProfessores,readAlunoId,
-    readProfessorId,readPaciente}=require("../models/DAO/ExameDao");
-const e = require('express');
+// Importando funções DAO (originais do seu amigo)
+const {
+  insert,
+  buscarPorId,
+  deleteExame,
+  update,
+  readAlunos,
+  readProfessores,
+  readAlunoId,
+  readProfessorId,
+  readPaciente,
+  // abaixo, as novas funções que você deve implementar no DAO:
+  insertAluno,
+  updateAluno,
+  deleteAluno,
+  insertProfessor,
+  updateProfessor,
+  deleteProfessor
+} = require("../models/DAO/ExameDao");
 
-//CREATE DE EXAME
-app.post("/exame", async(req, res) => {
-  console.log("Body recebido:", req.body);
-  const {paciente,entrada,data_exame,data_entrega,tipo_amostra,tecnica,consistencia,coloracao,muco,sangue,aluno,professor} = req.body; 
-  const result = await insert(paciente,entrada,data_exame,data_entrega,tipo_amostra,tecnica,consistencia,coloracao,muco,sangue,aluno,professor);  
-  if (!result) {
-    return res.status(404).json({ success: false });
-  }
-return res.status(200).json({ success: true, registro: result });   
-    
+// ============================
+// ROTAS EXISTENTES DE EXAME
+// ============================
+
+// CREATE DE EXAME
+app.post("/exame", async (req, res) => {
+  const { paciente, entrada, data_exame, data_entrega, tipo_amostra, tecnica, consistencia, coloracao, muco, sangue, aluno, professor } = req.body;
+  const result = await insert(paciente, entrada, data_exame, data_entrega, tipo_amostra, tecnica, consistencia, coloracao, muco, sangue, aluno, professor);
+  if (!result) return res.status(404).json({ success: false });
+  return res.status(200).json({ success: true, registro: result });
 });
- 
 
-//READ DE ALUNOS
-app.get("/alunos", async(req, res)=>{
+// READ DE EXAME POR ID
+app.get("/exame/:id", async (req, res) => {
+  const id = parseInt(req.params.id);
+  const exame = await buscarPorId(id);
+  if (!exame) return res.status(404).json({ success: false });
+  return res.status(200).json(exame);
+});
+
+// DELETE DE EXAME
+app.delete("/exame/:id", async (req, res) => {
+  const idExame = parseInt(req.params.id);
+  const deletar = await deleteExame(idExame);
+  if (!deletar) return res.status(404).json({ success: false });
+  return res.status(200).json({ success: true });
+});
+
+// UPDATE DE EXAME
+app.put("/exame", async (req, res) => {
+  const { id, paciente_id, entrada, data_exame, data_entrega, tipo_amostra, tecnica, consistencia, coloracao, muco, sangue, aluno_id, professor_id } = req.body;
+  const editar = await update(id, paciente_id, entrada, data_exame, data_entrega, tipo_amostra, tecnica, consistencia, coloracao, muco, sangue, aluno_id, professor_id);
+  if (!editar) return res.status(404).json({ success: false });
+  return res.status(200).json(editar);
+});
+
+// ============================
+// ROTAS EXISTENTES DE LEITURA
+// ============================
+
+// READ DE ALUNOS
+app.get("/alunos", async (req, res) => {
   const alunos = await readAlunos();
-  //console.log(alunos);
- if(!alunos){
-  return res.status(404).json({ success: false });
- }  
-  return res.status(200).json(alunos);    
+  if (!alunos) return res.status(404).json({ success: false });
+  return res.status(200).json(alunos);
 });
 
-//READ DE PROFESSORES
-app.get("/professores", async(req,res)=>{
+// READ DE PROFESSORES
+app.get("/professores", async (req, res) => {
   const professores = await readProfessores();
-
-  //console.log(professores);
-  if(!professores){
-     return res.status(404).json({ success: false })
-  }
+  if (!professores) return res.status(404).json({ success: false });
   return res.status(200).json(professores);
 });
 
-//READ DE PACIENTES//
-app.get("/pacientes", async(req,res)=>{
+// READ DE PACIENTES
+app.get("/pacientes", async (req, res) => {
   const pacientes = await readPaciente();
-  //console.log(pacientes);
-  if(!pacientes){
-    return res.status(404).json({success : false});
-  }
+  if (!pacientes) return res.status(404).json({ success: false });
   return res.status(200).json(pacientes);
- 
-});
-//busca exame por id//
-app.get("/exame/:id", async(req, res)=>{
- const id = parseInt(req.params.id);
- const exame = await buscarPorId(id);
-
- console.log("exame encontrado: " + exame);
- if(!exame){
-  return res.status(404).json({success : false});
- }
- return res.status(200).json(exame);
 });
 
-//busca aluno por id
-app.get("/aluno/:id", async(req,res)=>{
+// BUSCA ALUNO POR ID
+app.get("/aluno/:id", async (req, res) => {
   const idAluno = parseInt(req.params.id);
-  //console.log(idAluno);
   const aluno = await readAlunoId(idAluno);
-
-  console.log("aluno encontrado: "+ aluno);
-  if(!aluno){
-    return res.status(404).json({success : false});
-  }
+  if (!aluno) return res.status(404).json({ success: false });
   return res.status(200).json(aluno);
 });
 
-//busca professor por id
-app.get("/professor/:id", async(req,res)=>{
+// BUSCA PROFESSOR POR ID
+app.get("/professor/:id", async (req, res) => {
   const idProfessor = parseInt(req.params.id);
   const professor = await readProfessorId(idProfessor);
-
-  console.log("professor encontrado: "+ professor);
-  if(!professor){
-    res.send.status(404).json({success : false});
-  }
+  if (!professor) return res.status(404).json({ success: false });
   return res.status(200).json(professor);
 });
 
-//DELETE
-app.delete("/exame/:id" , async(req,res)=>{
-  const idExame = parseInt(req.params.id);
-  const deletar = await deleteExame(idExame);  
-  if(!deletar){    
-    return res.status(404).json({success : false});
-  }
-  return res.status(200).json({success : true});
+// ============================
+// NOVAS ROTAS DE CRUD PARA ALUNO
+// ============================
+
+// CREATE ALUNO
+app.post("/aluno", async (req, res) => {
+  const { nome, email, telefone } = req.body;
+  const novoAluno = await insertAluno(nome, email, telefone);
+  if (!novoAluno) return res.status(400).json({ success: false });
+  return res.status(201).json({ success: true, aluno: { id: novoAluno, nome, email, telefone } });
 });
 
-//UPDATE//
-app.put("/exame", async(req,res)=>{
-  const {id,paciente_id,entrada,data_exame,data_entrega,tipo_amostra,tecnica,consistencia,coloracao,muco,sangue,aluno_id,professor_id} = req.body;
-  const editar = await update(id,paciente_id,entrada,data_exame,data_entrega,tipo_amostra,tecnica,consistencia,coloracao,muco,sangue,aluno_id,professor_id);
-  console.log(editar);
-  if(!editar){
-     return res.send.status(404).json({success : false});
-  } 
-  return res.status(200).json(editar);
-
+// UPDATE ALUNO
+app.put("/aluno/:id", async (req, res) => {
+  const id = parseInt(req.params.id);
+  const { nome, email, telefone } = req.body;
+  const atualizado = await updateAluno(id, nome, email, telefone);
+  if (!atualizado) return res.status(404).json({ success: false });
+  return res.status(200).json({ success: true });
 });
 
+// DELETE ALUNO
+app.delete("/aluno/:id", async (req, res) => {
+  const id = parseInt(req.params.id);
+  const deletado = await deleteAluno(id);
+  if (!deletado) return res.status(404).json({ success: false });
+  return res.status(200).json({ success: true });
+});
+
+// ============================
+// NOVAS ROTAS DE CRUD PARA PROFESSOR
+// ============================
+
+// CREATE PROFESSOR
+app.post("/professor", async (req, res) => {
+  const { nome, email } = req.body;
+  const novoProfessor = await insertProfessor(nome, email);
+  if (!novoProfessor) return res.status(400).json({ success: false });
+  return res.status(201).json({ success: true, professor: { id: novoProfessor, nome, email } });
+});
+
+// UPDATE PROFESSOR
+app.put("/professor/:id", async (req, res) => {
+  const id = parseInt(req.params.id);
+  const { nome, email } = req.body;
+  const atualizado = await updateProfessor(id, nome, email);
+  if (!atualizado) return res.status(404).json({ success: false });
+  return res.status(200).json({ success: true });
+});
+
+// DELETE PROFESSOR
+app.delete("/professor/:id", async (req, res) => {
+  const id = parseInt(req.params.id);
+  const deletado = await deleteProfessor(id);
+  if (!deletado) return res.status(404).json({ success: false });
+  return res.status(200).json({ success: true });
+});
+
+// ============================
+// INICIA O SERVIDOR
+// ============================
 app.listen(3000, () => {
   console.log("Servidor rodando na porta 3000");
 });

@@ -4,45 +4,67 @@ require '../Dao/ProfessorDao.php';
 require '../Dao/ConnectionFactory.php';
 require '../Model/Professor.php';
 
-
-
-
-$professor = new Professor();
-$professorDao = new ProfessorDao;
+$professorDao = new ProfessorDao();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    if (isset($_POST['cprofessor'])) {
+    if (isset($_POST['salvar_professor'])) {
+
+        $professor = new Professor();
+
+        // Se existir id, é edição
+        if (!empty($_POST['id'])) {
+            $professor->setId($_POST['id']);
+        }
+
         $professor->setNome($_POST['userNameProfessor']);
-        $professor->setrgmProfessor($_POST['userRGMProfessor']);
+        $professor->setRgmProfessor($_POST['userRGMProfessor']);
         $professor->setEmail($_POST['userEmailProfessor']);
-        $professor->setSenha($_POST['userPasswordProfessor']);
-        $professorDao->insert($professor);//aqui ele chamou a função inserir(Criar) do AlunoDao mas poderia ser outra(delete,update,read);
-        header("location:../View/listaProfessores.php");//Muda a localização para outra página//
 
+        // Tratar senha
+        if (!empty($_POST['userPasswordProfessor'])) {
+            // Se usuário digitou senha nova, cria hash
+            $senhaHash = password_hash($_POST['userPasswordProfessor'], PASSWORD_DEFAULT);
+            $professor->setSenha($senhaHash);
+        } else {
+            if (!empty($_POST['id'])) {
+                // Se não digitou senha e está editando, mantém a senha antiga
+                $professorExistente = $professorDao->getid($_POST['id']);
+                $professor->setSenha($professorExistente->getSenha());
+            } else {
+                // Se não tem id e não digitou senha, erro
+                echo "Senha obrigatória para novo cadastro!";
+                exit();
+            }
+        }
 
-    }
+        if (!empty($_POST['id'])) {
+            // Atualizar professor
+            $professorDao->update($professor);
+        } else {
+            // Inserir professor novo
+            $professorDao->insert($professor);
+        }
 
-   
-}
-
-// --- PROCESSAR EXCLUSÃO --- //
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_professor'])) {
-    $rgm = $_POST['rgm_to_delete'];
-    $professorDao = new ProfessorDao();
-    if ($professorDao->delete($rgm)) {
-        header("Location: Professor.php"); // Recarrega a página após excluir
+        header("Location: ../View/listaProfessores.php");
         exit();
-    } else {
-        echo "<p>Erro ao excluir professor.</p>";
+    }
+
+    // --- EXCLUIR PROFESSOR ---
+    if (isset($_POST['delete_professor'])) {
+        $rgm = $_POST['rgm_to_delete'];
+        if ($professorDao->delete($rgm)) {
+            header("Location: Professor.php");
+            exit();
+        } else {
+            echo "<p>Erro ao excluir professor.</p>";
+        }
     }
 }
-
 
 function lerProfessor()
 {
-    $professor = new Professor();
-    $professorDao = new ProfessorDao;
+    $professorDao = new ProfessorDao();
     $lista = $professorDao->read();
 
     foreach ($lista as $professor) {
@@ -50,49 +72,19 @@ function lerProfessor()
                     <td>{$professor->getRgmProfessor()}</td>
                     <td>{$professor->getNome()}</td>
                     <td>{$professor->getEmail()}</td>
-                    
-                    
                     <td>
-                    
-                    <!-- Botão Editar -->
-
-                    <a name='editar' href='Telacadastro_professor.php?editar={$professor->getid()}' class='btn btn-primary btn-sm'>
-                    Editar
-                    </a>
-
-                    
-                      <!-- Botão Excluir -->
-
-                <form method='POST' action='' style='display: inline;'>
-                    <input type='hidden' name='rgm_to_delete' value='{$professor->getRgmProfessor()}'>
-                    <button type='submit' name='delete_professor' class='btn btn-danger btn-sm' onclick='return confirm(\"Tem certeza?\")'>
-                        Excluir
-                    </button>
-                </form>
-                  </td>
-
+                        <a href='Telacadastro_professor.php?editar={$professor->getId()}' class='btn btn-primary btn-sm'>Editar</a>
+                        <form method='POST' action='' style='display:inline;'>
+                            <input type='hidden' name='rgm_to_delete' value='{$professor->getRgmProfessor()}'>
+                            <button type='submit' name='delete_professor' class='btn btn-danger btn-sm' onclick='return confirm(\"Tem certeza?\")'>Excluir</button>
+                        </form>
+                    </td>
                 </tr>";
-
-                
     }
 }
-    
 
-        if (isset($_GET['editar'])){
-            $identProfessor = $_GET['editar'];
-            $professor = new ProfessorDao();
-            $professorEncontrado = $professor->getid($identProfessor);
-            
-            
-        }
-
-
-
-
-
-
-
-
-
-
-?>
+if (isset($_GET['editar'])) {
+    $identProfessor = $_GET['editar'];
+    $professorDao = new ProfessorDao();
+    $professorEncontrado = $professorDao->getid($identProfessor);
+}
