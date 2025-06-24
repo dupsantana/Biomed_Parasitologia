@@ -12,12 +12,42 @@ const {insert,buscarPorId,deleteExame,update,readAlunos,readProfessores,readAlun
 
 // Importando funções DAO de Pacientes
 const {
+<<<<<<< Updated upstream
   insert: insertPaciente,
   readAll: readAllPacientes,
   buscarPorId: buscarPacientePorId,
   update: updatePaciente,
   deletePaciente
 } = require("../models/DAO/PacientesDao");
+=======
+  insert,
+  buscarPorId,
+  deleteExame,
+  update,
+  readAlunos,
+  readProfessores,
+  readAlunoId,
+  readProfessorId,
+  readPaciente,
+ 
+} = require("../models/DAO/ExameDao");
+
+const{
+   // abaixo, as novas funções que você deve implementar no DAO:
+  insertAluno,
+  updateAluno,
+  deleteAluno,
+  insertProfessor,
+  updateProfessor,
+  deleteProfessor
+} = require("../models/DAO/UsuariosDAO");
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 
 // ============================
 // NOVAS ROTAS DE CRUD PARA PACIENTE
@@ -174,10 +204,11 @@ app.get("/professor/:id", async (req, res) => {
 
 // CREATE ALUNO
 app.post("/aluno", async (req, res) => {
-  const { nome, email, telefone } = req.body;
-  const novoAluno = await insertAluno(nome, email, telefone);
+  const { userName, userRGM, userEmail, userPassword } = req.body;
+  const novoAluno = await insertAluno(userName, userRGM, userEmail, userPassword);
+  console.log("Novo Aluno: ", novoAluno);
   if (!novoAluno) return res.status(400).json({ success: false });
-  return res.status(201).json({ success: true, aluno: { id: novoAluno, nome, email, telefone } });
+  return res.status(201).json({ success: true, id: novoAluno });
 });
 
 // UPDATE ALUNO
