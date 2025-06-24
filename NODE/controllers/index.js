@@ -88,10 +88,7 @@ app.delete("/pacientes/:id", async (req, res) => {
   const deletado = await deletePaciente(id);
   if (!deletado) return res.status(404).json({ success: false });
   return res.status(200).json({ success: true });
-
-// ============================
-// ROTAS EXISTENTES DE EXAME
-// ============================
+});
 
 // CREATE DE EXAME
 app.post("/exame", async (req, res) => {
@@ -229,4 +226,4 @@ app.delete("/professor/:id", async (req, res) => {
 // ============================
 app.listen(3000, () => {
   console.log("Servidor rodando na porta 3000");
-})});
+});

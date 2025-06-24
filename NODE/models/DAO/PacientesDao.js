@@ -1,16 +1,16 @@
 const pool = require('./db');
 
 // CREATE
-async function insert(registro, nome_paciente, datanasc, telefone, pacienteMail, nomeMae, epf, sangueocluto, naosolici, medicamento_sim, medicamento_nao, nome_medicamento) {
+async function insert( nome, datanasc, telefone, pacienteMail, nomeMae, medicamento, nome_medicamento) {
   try {
     const [result] = await pool.query(`
       INSERT INTO pacientes (
-        registro, nome_paciente, datanasc, telefone, pacienteMail, nomeMae,
-        epf, sangueocluto, naosolici, medicamento_sim, medicamento_nao, nome_medicamento
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        nome_paciente, datanasc, telefone, pacienteMail, nomeMae,
+        medicamento, nome_medicamento
+      ) VALUES (?, ?, ?, ?, ?, ?,)
     `, [
-      registro, nome_paciente, datanasc, telefone, pacienteMail, nomeMae,
-      epf, sangueocluto, naosolici, medicamento_sim, medicamento_nao, nome_medicamento
+      nome, datanasc, telefone, pacienteMail, nomeMae,
+      medicamento, nome_medicamento
     ]);
     if (result.insertId && result.insertId > 0) {
       return result.insertId;
