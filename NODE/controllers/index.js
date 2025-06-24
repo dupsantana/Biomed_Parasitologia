@@ -41,28 +41,27 @@ const {
 // ============================
 
 // CREATE PACIENTE
-app.post("/paciente", async (req, res) => {
+app.post("/pacientes", async (req, res) => {
   const {
-    registro, nome_paciente, datanasc, telefone, pacienteMail, nomeMae,
-    epf, sangueocluto, naosolici, medicamento_sim, medicamento_nao, nome_medicamento
+    nome, datanasc, telefone, pacienteMail, nomeMae,
+    medicamento, nome_medicamento
   } = req.body;
   const novoPaciente = await insertPaciente(
-    registro, nome_paciente, datanasc, telefone, pacienteMail, nomeMae,
-    epf, sangueocluto, naosolici, medicamento_sim, medicamento_nao, nome_medicamento
+    nome, datanasc, telefone, pacienteMail, nomeMae, medicamento, nome_medicamento
   );
   if (!novoPaciente) return res.status(400).json({ success: false });
-  return res.status(201).json({ success: true, paciente: { id: novoPaciente, nome_paciente, registro } });
+  return res.status(201).json({ success: true, paciente: { id: novoPaciente, nome, pacienteMail } });
 });
 
 // READ TODOS OS PACIENTES
-app.get("/paciente", async (req, res) => {
+app.get("/pacientes", async (req, res) => {
   const pacientes = await readAllPacientes();
   if (!pacientes) return res.status(404).json({ success: false });
   return res.status(200).json(pacientes);
 });
 
 // READ PACIENTE POR ID
-app.get("/paciente/:id", async (req, res) => {
+app.get("/pacientes/:id", async (req, res) => {
   const id = parseInt(req.params.id);
   const paciente = await buscarPacientePorId(id);
   if (!paciente) return res.status(404).json({ success: false });
@@ -70,27 +69,25 @@ app.get("/paciente/:id", async (req, res) => {
 });
 
 // UPDATE PACIENTE
-app.put("/paciente/:id", async (req, res) => {
+app.put("/pacientes/:id", async (req, res) => {
   const id = parseInt(req.params.id);
   const {
-    registro, nome_paciente, datanasc, telefone, pacienteMail, nomeMae,
-    epf, sangueocluto, naosolici, medicamento_sim, medicamento_nao, nome_medicamento
+    nome, datanasc, telefone, pacienteMail, nomeMae,
+    medicamento, nome_medicamento
   } = req.body;
   const atualizado = await updatePaciente(
-    id, registro, nome_paciente, datanasc, telefone, pacienteMail, nomeMae,
-    epf, sangueocluto, naosolici, medicamento_sim, medicamento_nao, nome_medicamento
+    id, nome, datanasc, telefone, pacienteMail, nomeMae, medicamento, nome_medicamento
   );
   if (!atualizado) return res.status(404).json({ success: false });
   return res.status(200).json({ success: true });
 });
 
 // DELETE PACIENTE
-app.delete("/paciente/:id", async (req, res) => {
+app.delete("/pacientes/:id", async (req, res) => {
   const id = parseInt(req.params.id);
   const deletado = await deletePaciente(id);
   if (!deletado) return res.status(404).json({ success: false });
   return res.status(200).json({ success: true });
-});
 
 // ============================
 // ROTAS EXISTENTES DE EXAME
@@ -232,4 +229,4 @@ app.delete("/professor/:id", async (req, res) => {
 // ============================
 app.listen(3000, () => {
   console.log("Servidor rodando na porta 3000");
-});
+})});

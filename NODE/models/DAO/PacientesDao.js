@@ -4,7 +4,7 @@ const pool = require('./db');
 async function insert(registro, nome_paciente, datanasc, telefone, pacienteMail, nomeMae, epf, sangueocluto, naosolici, medicamento_sim, medicamento_nao, nome_medicamento) {
   try {
     const [result] = await pool.query(`
-      INSERT INTO paciente (
+      INSERT INTO pacientes (
         registro, nome_paciente, datanasc, telefone, pacienteMail, nomeMae,
         epf, sangueocluto, naosolici, medicamento_sim, medicamento_nao, nome_medicamento
       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
@@ -26,7 +26,7 @@ async function insert(registro, nome_paciente, datanasc, telefone, pacienteMail,
 // READ ALL
 async function readAll() {
   try {
-    const [rows] = await pool.query("SELECT * FROM paciente");
+    const [rows] = await pool.query("SELECT * FROM pacientes");
     if (rows.length > 0) {
       return rows;
     }
@@ -41,7 +41,7 @@ async function readAll() {
 async function buscarPorId(id) {
   try {
     if (id) {
-      const [rows] = await pool.query(`SELECT * FROM paciente WHERE id = ?`, [id]);
+      const [rows] = await pool.query(`SELECT * FROM pacientes WHERE id = ?`, [id]);
       if (rows.length > 0) {
         return rows[0];
       }
@@ -55,16 +55,16 @@ async function buscarPorId(id) {
 }
 
 // UPDATE
-async function update(id, registro, nome_paciente, datanasc, telefone, pacienteMail, nomeMae, epf, sangueocluto, naosolici, medicamento_sim, medicamento_nao, nome_medicamento) {
+async function update(id, nome, datanasc, telefone, pacienteMail, nomeMae, medicamento, nome_medicamento) {
   try {
     const [result] = await pool.query(`
       UPDATE paciente SET
-        registro = ?, nome_paciente = ?, datanasc = ?, telefone = ?, pacienteMail = ?, nomeMae = ?,
-        epf = ?, sangueocluto = ?, naosolici = ?, medicamento_sim = ?, medicamento_nao = ?, nome_medicamento = ?
+        nome = ?, datanasc = ?, telefone = ?, pacienteMail = ?, nomeMae = ?,
+        medicamento = ?, nome_medicamento = ?
       WHERE id = ?
     `, [
-      registro, nome_paciente, datanasc, telefone, pacienteMail, nomeMae,
-      epf, sangueocluto, naosolici, medicamento_sim, medicamento_nao, nome_medicamento, id
+      nome, datanasc, telefone, pacienteMail, nomeMae,
+      medicamento, nome_medicamento, id
     ]);
     return result.affectedRows > 0;
   } catch (erro) {
@@ -77,7 +77,7 @@ async function update(id, registro, nome_paciente, datanasc, telefone, pacienteM
 async function deletePaciente(id) {
   try {
     if (id) {
-      const [result] = await pool.query(`DELETE FROM paciente WHERE id = ?`, [id]);
+      const [result] = await pool.query(`DELETE FROM pacientes WHERE id = ?`, [id]);
       return result.affectedRows > 0;
     }
     return false;
