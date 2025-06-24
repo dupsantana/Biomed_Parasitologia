@@ -12,25 +12,15 @@ const {insert,buscarPorId,deleteExame,update,readAlunos,readProfessores,readAlun
 
 // Importando funções DAO de Pacientes
 const {
-<<<<<<< Updated upstream
+
   insert: insertPaciente,
   readAll: readAllPacientes,
   buscarPorId: buscarPacientePorId,
   update: updatePaciente,
   deletePaciente
 } = require("../models/DAO/PacientesDao");
-=======
-  insert,
-  buscarPorId,
-  deleteExame,
-  update,
-  readAlunos,
-  readProfessores,
-  readAlunoId,
-  readProfessorId,
-  readPaciente,
- 
-} = require("../models/DAO/ExameDao");
+
+
 
 const{
    // abaixo, as novas funções que você deve implementar no DAO:
@@ -41,13 +31,7 @@ const{
   updateProfessor,
   deleteProfessor
 } = require("../models/DAO/UsuariosDAO");
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
 
 // ============================
 // NOVAS ROTAS DE CRUD PARA PACIENTE
