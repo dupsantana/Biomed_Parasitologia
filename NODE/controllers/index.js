@@ -27,6 +27,71 @@ const {
   deleteProfessor
 } = require("../models/DAO/ExameDao");
 
+// Importando funções DAO de Pacientes
+const {
+  insert: insertPaciente,
+  readAll: readAllPacientes,
+  buscarPorId: buscarPacientePorId,
+  update: updatePaciente,
+  deletePaciente
+} = require("../models/DAO/PacientesDao");
+
+// ============================
+// NOVAS ROTAS DE CRUD PARA PACIENTE
+// ============================
+
+// CREATE PACIENTE
+app.post("/paciente", async (req, res) => {
+  const {
+    registro, nome_paciente, datanasc, telefone, pacienteMail, nomeMae,
+    epf, sangueocluto, naosolici, medicamento_sim, medicamento_nao, nome_medicamento
+  } = req.body;
+  const novoPaciente = await insertPaciente(
+    registro, nome_paciente, datanasc, telefone, pacienteMail, nomeMae,
+    epf, sangueocluto, naosolici, medicamento_sim, medicamento_nao, nome_medicamento
+  );
+  if (!novoPaciente) return res.status(400).json({ success: false });
+  return res.status(201).json({ success: true, paciente: { id: novoPaciente, nome_paciente, registro } });
+});
+
+// READ TODOS OS PACIENTES
+app.get("/paciente", async (req, res) => {
+  const pacientes = await readAllPacientes();
+  if (!pacientes) return res.status(404).json({ success: false });
+  return res.status(200).json(pacientes);
+});
+
+// READ PACIENTE POR ID
+app.get("/paciente/:id", async (req, res) => {
+  const id = parseInt(req.params.id);
+  const paciente = await buscarPacientePorId(id);
+  if (!paciente) return res.status(404).json({ success: false });
+  return res.status(200).json(paciente);
+});
+
+// UPDATE PACIENTE
+app.put("/paciente/:id", async (req, res) => {
+  const id = parseInt(req.params.id);
+  const {
+    registro, nome_paciente, datanasc, telefone, pacienteMail, nomeMae,
+    epf, sangueocluto, naosolici, medicamento_sim, medicamento_nao, nome_medicamento
+  } = req.body;
+  const atualizado = await updatePaciente(
+    id, registro, nome_paciente, datanasc, telefone, pacienteMail, nomeMae,
+    epf, sangueocluto, naosolici, medicamento_sim, medicamento_nao, nome_medicamento
+  );
+  if (!atualizado) return res.status(404).json({ success: false });
+  return res.status(200).json({ success: true });
+});
+
+// DELETE PACIENTE
+app.delete("/paciente/:id", async (req, res) => {
+  const id = parseInt(req.params.id);
+  const deletado = await deletePaciente(id);
+  if (!deletado) return res.status(404).json({ success: false });
+  return res.status(200).json({ success: true });
+});
+
 // ============================
 // ROTAS EXISTENTES DE EXAME
 // ============================
