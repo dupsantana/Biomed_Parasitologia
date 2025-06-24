@@ -41,6 +41,9 @@ const{
   updateProfessor,
   deleteProfessor
 } = require("../models/DAO/UsuariosDAO");
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 // ============================
