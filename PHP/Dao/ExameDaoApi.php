@@ -274,8 +274,39 @@ class ExameDaoApi{
              
            
         }
+
+         public function insertPaciente(Pacientes $paciente){
+        $url = "http://localhost:3000/pacientes";
+        $dados = [
+            "nome" => $paciente->getNome(),
+            "datanasc" => $paciente->getDatanasc(),
+            "telefone" => $paciente->getTelefone(),
+            "pacienteMail" => $paciente->getPacienteMail(),
+            "nomeMae" => $paciente->getNomeMae(),
+            "medicamento" => $paciente->getMedicamento(),
+            "nome_medicamento" => $paciente->getNome_medicamento()
+        ];
+
+        $options = [
+            "http"=>[
+                "header" => "Content-Type: application/json\r\n",
+                "method" => "POST",
+                "content" => json_encode($dados)
+            ]
+        ];
+        $context = stream_context_create($options);
+        $result = file_get_contents($url, false, $context);
+        $resposta = $result ? json_decode($result, true) : false;
+
+        if($resposta && isset($resposta["success"]) && $resposta["success"]) {
+            return true;
+        } else {
+            echo "Erro ao cadastrar paciente.";
+            return false;
+        }
         
-      
+    }
+
 }
 
 ?>
