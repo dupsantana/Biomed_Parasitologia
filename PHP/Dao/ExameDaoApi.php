@@ -122,7 +122,7 @@ class ExameDaoApi{
 
           //READ DE PACIENTE//
          public function readPaciente(){
-            $url = "http://localhost:3000/pacientes";
+            $url = "http://localhost:3000/paciente";
             $result = file_get_contents($url);
             $pacienteList = array();
             $lista = json_decode($result, true);

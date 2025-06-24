@@ -38,7 +38,7 @@ app.post("/pacientes", async (req, res) => {
 
 // READ TODOS OS PACIENTES
 app.get("/pacientes", async (req, res) => {
-  const pacientes = await readAllPacientes();
+  const pacientes = await readAll();
   if (!pacientes) return res.status(404).json({ success: false });
   return res.status(200).json(pacientes);
 });
@@ -72,7 +72,9 @@ app.delete("/pacientes/:id", async (req, res) => {
   if (!deletado) return res.status(404).json({ success: false });
   return res.status(200).json({ success: true });
 });
-
+//---------------------------------------------//
+///CRUD DE EXAME///
+//--------------------------------------------//
 // CREATE DE EXAME
 app.post("/exame", async (req, res) => {
   const { paciente, entrada, data_exame, data_entrega, tipo_amostra, tecnica, consistencia, coloracao, muco, sangue, aluno, professor } = req.body;
@@ -91,6 +93,15 @@ app.get("/exame/:id", async (req, res) => {
     return res.status(404).json({ success: false });
   }
   return res.status(200).json(exame);
+});
+//READ PACIENTE//
+// READ DE PACIENTES
+app.get("/paciente", async (req, res) => {
+  const pacientes = await readPaciente();
+  if (!pacientes) {
+    return res.status(404).json({ success: false });
+  }
+  return res.status(200).json(pacientes);
 });
 
 // DELETE DE EXAME
