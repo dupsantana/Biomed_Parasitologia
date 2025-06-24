@@ -1,10 +1,10 @@
 const express = require('express');
-const bodyParser = require("body-parser");
+//const bodyParser = require("body-parser");
 const app = express();
 
-// Middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+
+/*app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));*/
 app.use(express.json());
 
 
@@ -95,14 +95,6 @@ app.get("/exame/:id", async (req, res) => {
   return res.status(200).json(exame);
 });
 //READ PACIENTE//
-// READ DE PACIENTES
-app.get("/paciente", async (req, res) => {
-  const pacientes = await readPaciente();
-  if (!pacientes) {
-    return res.status(404).json({ success: false });
-  }
-  return res.status(200).json(pacientes);
-});
 
 // DELETE DE EXAME
 app.delete("/exame/:id", async (req, res) => {
@@ -147,7 +139,7 @@ app.get("/professores", async (req, res) => {
 });
 
 // READ DE PACIENTES
-app.get("/pacientes", async (req, res) => {
+app.get("/paciente", async (req, res) => {
   const pacientes = await readPaciente();
   if (!pacientes) {
     return res.status(404).json({ success: false });

@@ -49,8 +49,7 @@ async function deleteExame(id){
 try{
   if(id){
     const result  = await pool.query(`DELETE FROM exame WHERE registro = ?`,[id]);
-
-    if(result.length === 0 )return false;
+   
     return true;
   }
 }catch(erro){
