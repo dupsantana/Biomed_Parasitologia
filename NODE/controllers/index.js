@@ -10,6 +10,68 @@ app.use(express.json());
 
 const {insert,buscarPorId,deleteExame,update,readAlunos,readProfessores,readAlunoId,readProfessorId,readPaciente} = require("../models/DAO/ExameDao");
 
+// Importando funções DAO de Pacientes
+const {
+  insert: insertPaciente,
+  readAll: readAllPacientes,
+  buscarPorId: buscarPacientePorId,
+  update: updatePaciente,
+  deletePaciente
+} = require("../models/DAO/PacientesDao");
+
+// ============================
+// NOVAS ROTAS DE CRUD PARA PACIENTE
+// ============================
+
+// CREATE PACIENTE
+app.post("/pacientes", async (req, res) => {
+  const {
+    nome, datanasc, telefone, pacienteMail, nomeMae,
+    medicamento, nome_medicamento
+  } = req.body;
+  const novoPaciente = await insertPaciente(
+    nome, datanasc, telefone, pacienteMail, nomeMae, medicamento, nome_medicamento
+  );
+  if (!novoPaciente) return res.status(400).json({ success: false });
+  return res.status(201).json({ success: true, paciente: { id: novoPaciente, nome, pacienteMail } });
+});
+
+// READ TODOS OS PACIENTES
+app.get("/pacientes", async (req, res) => {
+  const pacientes = await readAllPacientes();
+  if (!pacientes) return res.status(404).json({ success: false });
+  return res.status(200).json(pacientes);
+});
+
+// READ PACIENTE POR ID
+app.get("/pacientes/:id", async (req, res) => {
+  const id = parseInt(req.params.id);
+  const paciente = await buscarPacientePorId(id);
+  if (!paciente) return res.status(404).json({ success: false });
+  return res.status(200).json(paciente);
+});
+
+// UPDATE PACIENTE
+app.put("/pacientes/:id", async (req, res) => {
+  const id = parseInt(req.params.id);
+  const {
+    nome, datanasc, telefone, pacienteMail, nomeMae,
+    medicamento, nome_medicamento
+  } = req.body;
+  const atualizado = await updatePaciente(
+    id, nome, datanasc, telefone, pacienteMail, nomeMae, medicamento, nome_medicamento
+  );
+  if (!atualizado) return res.status(404).json({ success: false });
+  return res.status(200).json({ success: true });
+});
+
+// DELETE PACIENTE
+app.delete("/pacientes/:id", async (req, res) => {
+  const id = parseInt(req.params.id);
+  const deletado = await deletePaciente(id);
+  if (!deletado) return res.status(404).json({ success: false });
+  return res.status(200).json({ success: true });
+
 // ============================
 // ROTAS EXISTENTES DE EXAME
 // ============================
@@ -167,4 +229,4 @@ app.delete("/professor/:id", async (req, res) => {
 
 app.listen(3000, () => {
   console.log("Servidor rodando na porta 3000");
-});
+})});
