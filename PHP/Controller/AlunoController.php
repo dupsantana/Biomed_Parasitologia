@@ -3,6 +3,7 @@
     require '../Dao/AlunoDao.php';
     require '../Dao/ConnectionFactory.php';   
     require '../Model/Aluno.php';
+    require '../Dao/AlunoDaoApi.php';
     
    $aluno = new Aluno();
    $alunoDao = new AlunoDao; 
@@ -13,7 +14,9 @@
             $aluno->setrgmAluno($_POST['userRGM']);
             $aluno->setEmail($_POST['userEmail']);
             $aluno->setSenha($_POST['userPassword']);
-            $alunoDao->insert($aluno);//aqui ele chamou a função inserir(Criar) do AlunoDao mas poderia ser outra(delete,update,read);
+            $alunoDaoApi = new AlunoDaoApi();
+            $alunoDaoApi->insert($aluno);
+            //$alunoDao->insert($aluno);//aqui ele chamou a função inserir(Criar) do AlunoDao mas poderia ser outra(delete,update,read);
             header("location:../View/TelaLogin1.php");//Muda a localização para outra página//
             
          }
