@@ -7,25 +7,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Importando funções DAO (originais do seu amigo)
-const {
-  insert,
-  buscarPorId,
-  deleteExame,
-  update,
-  readAlunos,
-  readProfessores,
-  readAlunoId,
-  readProfessorId,
-  readPaciente,
-  // abaixo, as novas funções que você deve implementar no DAO:
-  insertAluno,
-  updateAluno,
-  deleteAluno,
-  insertProfessor,
-  updateProfessor,
-  deleteProfessor
-} = require("../models/DAO/ExameDao");
+
+const {insert,buscarPorId,deleteExame,update,readAlunos,readProfessores,readAlunoId,readProfessorId,readPaciente} = require("../models/DAO/ExameDao");
 
 // ============================
 // ROTAS EXISTENTES DE EXAME
@@ -35,7 +18,9 @@ const {
 app.post("/exame", async (req, res) => {
   const { paciente, entrada, data_exame, data_entrega, tipo_amostra, tecnica, consistencia, coloracao, muco, sangue, aluno, professor } = req.body;
   const result = await insert(paciente, entrada, data_exame, data_entrega, tipo_amostra, tecnica, consistencia, coloracao, muco, sangue, aluno, professor);
-  if (!result) return res.status(404).json({ success: false });
+  if (!result) {
+    return res.status(404).json({ success: false });
+  }
   return res.status(200).json({ success: true, registro: result });
 });
 
@@ -43,7 +28,9 @@ app.post("/exame", async (req, res) => {
 app.get("/exame/:id", async (req, res) => {
   const id = parseInt(req.params.id);
   const exame = await buscarPorId(id);
-  if (!exame) return res.status(404).json({ success: false });
+  if (!exame) {
+    return res.status(404).json({ success: false });
+  }
   return res.status(200).json(exame);
 });
 
@@ -51,7 +38,9 @@ app.get("/exame/:id", async (req, res) => {
 app.delete("/exame/:id", async (req, res) => {
   const idExame = parseInt(req.params.id);
   const deletar = await deleteExame(idExame);
-  if (!deletar) return res.status(404).json({ success: false });
+  if (!deletar){ 
+    return res.status(404).json({ success: false });
+  }
   return res.status(200).json({ success: true });
 });
 
@@ -59,7 +48,9 @@ app.delete("/exame/:id", async (req, res) => {
 app.put("/exame", async (req, res) => {
   const { id, paciente_id, entrada, data_exame, data_entrega, tipo_amostra, tecnica, consistencia, coloracao, muco, sangue, aluno_id, professor_id } = req.body;
   const editar = await update(id, paciente_id, entrada, data_exame, data_entrega, tipo_amostra, tecnica, consistencia, coloracao, muco, sangue, aluno_id, professor_id);
-  if (!editar) return res.status(404).json({ success: false });
+  if (!editar){
+     return res.status(404).json({ success: false });
+  }
   return res.status(200).json(editar);
 });
 
@@ -70,21 +61,27 @@ app.put("/exame", async (req, res) => {
 // READ DE ALUNOS
 app.get("/alunos", async (req, res) => {
   const alunos = await readAlunos();
-  if (!alunos) return res.status(404).json({ success: false });
+  if (!alunos){
+     return res.status(404).json({ success: false });
+  }
   return res.status(200).json(alunos);
 });
 
 // READ DE PROFESSORES
 app.get("/professores", async (req, res) => {
   const professores = await readProfessores();
-  if (!professores) return res.status(404).json({ success: false });
+  if (!professores) {
+    return res.status(404).json({ success: false });
+  }
   return res.status(200).json(professores);
 });
 
 // READ DE PACIENTES
 app.get("/pacientes", async (req, res) => {
   const pacientes = await readPaciente();
-  if (!pacientes) return res.status(404).json({ success: false });
+  if (!pacientes) {
+    return res.status(404).json({ success: false });
+  }
   return res.status(200).json(pacientes);
 });
 
@@ -92,7 +89,10 @@ app.get("/pacientes", async (req, res) => {
 app.get("/aluno/:id", async (req, res) => {
   const idAluno = parseInt(req.params.id);
   const aluno = await readAlunoId(idAluno);
-  if (!aluno) return res.status(404).json({ success: false });
+
+  if (!aluno){
+     return res.status(404).json({ success: false });
+  }
   return res.status(200).json(aluno);
 });
 
@@ -100,7 +100,9 @@ app.get("/aluno/:id", async (req, res) => {
 app.get("/professor/:id", async (req, res) => {
   const idProfessor = parseInt(req.params.id);
   const professor = await readProfessorId(idProfessor);
-  if (!professor) return res.status(404).json({ success: false });
+  if (!professor){
+   return res.status(404).json({ success: false });
+  }
   return res.status(200).json(professor);
 });
 
@@ -162,9 +164,7 @@ app.delete("/professor/:id", async (req, res) => {
   return res.status(200).json({ success: true });
 });
 
-// ============================
-// INICIA O SERVIDOR
-// ============================
+
 app.listen(3000, () => {
   console.log("Servidor rodando na porta 3000");
 });
