@@ -95,7 +95,7 @@ class ExameDaoApi{
         }
 
         public function readAluno(){
-            $url = "http://localhost:3000/alunos";
+                $url = "http://localhost:3000/alunos";
                 $result = file_get_contents($url);
                 $alunoList = array();
                 $lista = json_decode($result,true);

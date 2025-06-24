@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 
 require_once 'Usuario.php';
   class Professor extends Usuario{
