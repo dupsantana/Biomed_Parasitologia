@@ -1,4 +1,3 @@
-
 <?php 
 require_once "../Dao/PacienteDao.php";
 require_once "../Model/Pacientes.php";
@@ -53,6 +52,4 @@ class PacienteController {
         return $this->pacienteDao->delete($id);
     }
 }
-?>
-
 ?>

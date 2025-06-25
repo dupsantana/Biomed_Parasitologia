@@ -57,7 +57,7 @@
         <!-- Container principal do formulário -->
         <div class="form-container">
             <h2 class="text-center mb-4 display-5" style="color: white; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Cadastro de Pacientes</h2>
-            <form action="../Controller/PacienteController.php" method="post">
+            <form action="../PHP/Controller/PacienteController.php" method="post">
                 <!-- Campos de input -->
                 <div class="row mt-3">               
                     <label for="nome" class="form-label">Nome Paciente</label>
