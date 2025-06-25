@@ -1,6 +1,9 @@
-// ========== INÍCIO DAS IMPLEMENTAÇÕES (CRUD ALUNO) ==========
-
 const pool = require('./db');
+
+// ===========================
+// CRUD ALUNO
+// ===========================
+
 // CREATE ALUNO
 async function insertAluno(userName, userRGM, userEmail, userPassword) {
   try {
@@ -8,16 +11,38 @@ async function insertAluno(userName, userRGM, userEmail, userPassword) {
       `INSERT INTO aluno (nome, rgmAluno, email, senha) VALUES (?, ?, ?, ?)`,
       [userName, userRGM, userEmail, userPassword]
     );
-    if(result.insertId && result.insertId > 0 ){
-      return result.insertId;
-    }else{
-      return false;
-    }
+    return result.insertId && result.insertId > 0 ? result.insertId : false;
   } catch (erro) {
     console.error("Erro insertAluno:", erro.message);
     return false;
   }
- //console.log("Rodou legal!", userName, userRGM, userEmail, userPassword);
+}
+
+// READ TODOS OS ALUNOS
+async function readAluno() {
+  try {
+    const [rows] = await pool.query(
+      `SELECT id, nome, rgmAluno, email, senha FROM aluno`
+    );
+    return rows;
+  } catch (erro) {
+    console.error("Erro readAluno:", erro.message);
+    return false;
+  }
+}
+
+// READ ALUNO POR ID
+async function readAlunosId(id) {
+  try {
+    const [rows] = await pool.query(
+      `SELECT id, nome, rgmAluno, email, senha FROM aluno WHERE id = ?`,
+      [id]
+    );
+    return rows.length > 0 ? rows[0] : false;
+  } catch (erro) {
+    console.error("Erro readAlunosId:", erro.message);
+    return false;
+  }
 }
 
 // UPDATE ALUNO
@@ -48,20 +73,46 @@ async function deleteAluno(id) {
   }
 }
 
-// ========== INÍCIO DAS IMPLEMENTAÇÕES (CRUD PROFESSOR) ==========
+// ===========================
+// CRUD PROFESSOR
+// ===========================
 
 // CREATE PROFESSOR
 async function insertProfessor(nome, email) {
   try {
     const [result] = await pool.query(
-      `INSERT INTO professor (nome, email) VALUES (?, ?)`,
-      [nome, email]
-    );
-    return result.insertId && result.insertId > 0
-      ? result.insertId
-      : false;
+      `INSERT INTO professor (nome, email) VALUES (?, ?)`
+    , [nome, email]);
+    return result.insertId && result.insertId > 0 ? result.insertId : false;
   } catch (erro) {
     console.error("Erro insertProfessor:", erro.message);
+    return false;
+  }
+}
+
+// READ TODOS OS PROFESSORES
+async function readProfessor() {
+  try {
+    const [rows] = await pool.query(
+      `SELECT id, nome, email FROM professor`
+    );
+    return rows;
+  } catch (erro) {
+    console.error("Erro readProfessores:", erro.message);
+    return false;
+  }
+}
+
+// READ PROFESSOR POR ID
+async function readProfId(id) {
+  try {
+    const [rows] = await pool.query(
+      `SELECT id, nome, email FROM professor WHERE id = ?`,
+      [id]
+    );
+    return rows.length > 0 ? rows[0] : false;
+  } catch (erro) {
+    console.error("Erro readProfId:", erro.message);
     return false;
   }
 }
@@ -94,11 +145,16 @@ async function deleteProfessor(id) {
   }
 }
 
+// Exportando todas as funções
 module.exports = {
-   insertAluno,
+  insertAluno,
+  readAluno,
+  readAlunosId,
   updateAluno,
   deleteAluno,
   insertProfessor,
+  readProfessor,
+  readProfId,
   updateProfessor,
   deleteProfessor
 };
