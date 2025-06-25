@@ -19,23 +19,36 @@ const {
   update: updatePaciente,
   deletePaciente
 } = require("../models/DAO/PacientesDao");
+<<<<<<< Updated upstream
+
+
+=======
+>>>>>>> Stashed changes
 
 
 
-const{
-   // abaixo, as novas funções que você deve implementar no DAO:
-  insertAluno,
-  updateAluno,
-  deleteAluno,
+
+//ALUNO E PRFESSOR
+const {
   insertProfessor,
+  readProfessor,
+  readProfId,
   updateProfessor,
-  deleteProfessor
+  deleteProfessor,
+  insertAluno,
+  readAluno,
+  readAlunosId,
+  updateAluno,
+  deleteAluno
 } = require("../models/DAO/UsuariosDAO");
+<<<<<<< Updated upstream
+
+=======
+>>>>>>> Stashed changes
 
 
-// ============================
-// NOVAS ROTAS DE CRUD PARA PACIENTE
-// ============================
+
+
 
 // CREATE PACIENTE
 app.post("/pacientes", async (req, res) => {
@@ -130,9 +143,7 @@ app.put("/exame", async (req, res) => {
   return res.status(200).json(editar);
 });
 
-// ============================
-// ROTAS EXISTENTES DE LEITURA
-// ============================
+
 
 // READ DE ALUNOS
 app.get("/alunos", async (req, res) => {
@@ -165,7 +176,7 @@ app.get("/paciente", async (req, res) => {
 app.get("/aluno/:id", async (req, res) => {
   const idAluno = parseInt(req.params.id);
   const aluno = await readAlunoId(idAluno);
-
+  console.log(aluno);
   if (!aluno){
      return res.status(404).json({ success: false });
   }
@@ -182,9 +193,7 @@ app.get("/professor/:id", async (req, res) => {
   return res.status(200).json(professor);
 });
 
-// ============================
-// NOVAS ROTAS DE CRUD PARA ALUNO
-// ============================
+
 
 // CREATE ALUNO
 app.post("/aluno", async (req, res) => {
@@ -198,23 +207,22 @@ app.post("/aluno", async (req, res) => {
 // UPDATE ALUNO
 app.put("/aluno/:id", async (req, res) => {
   const id = parseInt(req.params.id);
-  const { nome, email, telefone } = req.body;
-  const atualizado = await updateAluno(id, nome, email, telefone);
+  const { userName, userRGM, userEmail, userPassword } = req.body;
+  const atualizado = await updateAluno(userName, userRGM, userEmail, userPassword);
   if (!atualizado) return res.status(404).json({ success: false });
   return res.status(200).json({ success: true });
 });
 
 // DELETE ALUNO
 app.delete("/aluno/:id", async (req, res) => {
+  console.log("AIII DOGGG");
   const id = parseInt(req.params.id);
   const deletado = await deleteAluno(id);
   if (!deletado) return res.status(404).json({ success: false });
   return res.status(200).json({ success: true });
 });
 
-// ============================
-// NOVAS ROTAS DE CRUD PARA PROFESSOR
-// ============================
+
 
 // CREATE PROFESSOR
 app.post("/professor", async (req, res) => {
@@ -245,3 +253,4 @@ app.delete("/professor/:id", async (req, res) => {
 app.listen(3000, () => {
   console.log("Servidor rodando na porta 3000");
 });
+
