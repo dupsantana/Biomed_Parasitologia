@@ -19,7 +19,7 @@ class PacienteController {
         $paciente->setTelefone($dados['telefone']);
         $paciente->setPacienteMail($dados['pacienteMail']);
         $paciente->setNomeMae($dados['nomeMae']);
-        $paciente->setMedicamento($dados['medicamento']);
+        $paciente->setMedicamento($dados['medicamento']);       
         $paciente->setNome_medicamento($dados['nome_medicamento']);
         return $this->pacienteDao->insert($paciente);
     }
@@ -55,4 +55,3 @@ class PacienteController {
 }
 ?>
 
-?>

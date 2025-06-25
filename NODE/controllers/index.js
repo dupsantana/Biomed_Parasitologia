@@ -93,7 +93,7 @@ app.delete("/pacientes/:id", async (req, res) => {
 app.post("/exame", async (req, res) => {
   const { paciente, entrada, data_exame, data_entrega, tipo_amostra, tecnica, consistencia, coloracao, muco, sangue, aluno, professor } = req.body;
   const result = await insert(paciente, entrada, data_exame, data_entrega, tipo_amostra, tecnica, consistencia, coloracao, muco, sangue, aluno, professor);
-  if (!result) {
+  if (!result) {    
     return res.status(404).json({ success: false });
   }
   return res.status(200).json({ success: true, registro: result });

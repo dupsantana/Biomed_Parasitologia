@@ -110,7 +110,7 @@ async function readProfessores(){
 }
 async function readPaciente(){
   try{
-    const [rows] = await pool.query("SELECT * FROM paciente");
+    const [rows] = await pool.query("SELECT * FROM pacientes");
     const pacientes = rows;
 
     if(pacientes.length > 0){

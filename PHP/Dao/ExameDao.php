@@ -138,7 +138,7 @@ use Dba\Connection;
         //READ DE PACIENTE//
          public function readPaciente(){
             try{
-                $sql = "SELECT * FROM paciente";
+                $sql = "SELECT * FROM pacientes";
                 $conn = ConnectionFactory::getConnection()->prepare($sql);
                 $conn->execute();
 
