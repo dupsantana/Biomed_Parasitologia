@@ -1,55 +1,42 @@
-<?php 
+<?php
 require_once "../Dao/PacienteDao.php";
 require_once "../Model/Pacientes.php";
 
-class PacienteController {
-
+class PacienteController
+{
     private $pacienteDao;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->pacienteDao = new PacienteDao();
     }
 
-    // CREATE
-    public function inserir($dados) {
-        $paciente = new Pacientes();
-        $paciente->setNome($dados['nome']);
-        $paciente->setDatanasc($dados['datanasc']);
-        $paciente->setTelefone($dados['telefone']);
-        $paciente->setPacienteMail($dados['pacienteMail']);
-        $paciente->setNomeMae($dados['nomeMae']);
-        $paciente->setMedicamento($dados['medicamento']);
-        $paciente->setNome_medicamento($dados['nome_medicamento']);
-        return $this->pacienteDao->insert($paciente);
-    }
+    public function cadastrar()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $paciente = new Pacientes();
+            $paciente->setNome($_POST['nome']);
+            $paciente->setTelefone($_POST['telefone']);
+            $paciente->setPacienteMail($_POST['pacienteMail']);
+            $paciente->setNomeMae($_POST['nomeMae']);
+            $paciente->setMedicamento($_POST['medicamento']);
+            $paciente->setNome_medicamento($_POST['nome_medicamento']);
 
-    // READ ALL
-    public function listarTodos() {
-        return $this->pacienteDao->readAll();
-    }
+            $resultado = $this->pacienteDao->insert($paciente);
 
-    // READ BY ID
-    public function buscarPorId($id) {
-        return $this->pacienteDao->readById($id);
-    }
-
-    // UPDATE
-    public function atualizar($dados) {
-        $paciente = new Pacientes();
-        $paciente->setId($dados['id']);
-        $paciente->setNome($dados['nome']);
-        $paciente->setDatanasc($dados['datanasc']);
-        $paciente->setTelefone($dados['telefone']);
-        $paciente->setPacienteMail($dados['pacienteMail']);
-        $paciente->setNomeMae($dados['nomeMae']);
-        $paciente->setMedicamento($dados['medicamento']);
-        $paciente->setNome_medicamento($dados['nome_medicamento']);
-        return $this->pacienteDao->update($paciente);
-    }
-
-    // DELETE
-    public function deletar($id) {
-        return $this->pacienteDao->delete($id);
+            if ($resultado) {
+                echo"<script>window.location.href='../View/Professor.php';</script>";
+                exit;
+            } else {
+                echo "<script>alert('Erro ao cadastrar paciente!'); window.history.back();</script>";
+                exit;
+            }
+        }
     }
 }
-?>
+
+// Fora da classe, apenas isto:
+$controller = new PacienteController();
+$controller->cadastrar();
+
+    

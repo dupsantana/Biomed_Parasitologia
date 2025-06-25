@@ -1,5 +1,5 @@
 -- Active: 1746662565731@@127.0.0.1@3306@clinicode2
-    CREATE TABLE paciente(  
+    CREATE TABLE pacientes(  
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(80) NOT NULL,
     telefone VARCHAR(15) NOT NULL,

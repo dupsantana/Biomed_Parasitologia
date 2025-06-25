@@ -1,18 +1,19 @@
 <?php
+require_once "../Dao/ConnectionFactory.php";
 class PacienteDao {
 
     // CREATE
-    public function insert(Pacientes $pacientes) {
+    public function insert(Pacientes $paciente) {
         try {
             $sql = "INSERT INTO pacientes(nome, telefone, pacienteMail, nomeMae, medicamento, nome_medicamento) 
                     VALUES (:nome, :telefone, :pacienteMail, :nomeMae, :medicamento, :nome_medicamento)";
             $conn = ConnectionFactory::getConnection()->prepare($sql);
-            $conn->bindValue(":nome", $pacientes->getNome());
-            $conn->bindValue(":telefone", $pacientes->getTelefone());
-            $conn->bindValue(":pacienteMail", $pacientes->getPacienteMail());
-            $conn->bindValue(":nomeMae", $pacientes->getNomeMae());
-            $conn->bindValue(":medicamento", $pacientes->getMedicamento());
-            $conn->bindValue(":nome_medicamento", $pacientes->getNome_medicamento());
+            $conn->bindValue(":nome", $paciente->getNome());
+            $conn->bindValue(":telefone", $paciente->getTelefone());
+            $conn->bindValue(":pacienteMail", $paciente->getPacienteMail());
+            $conn->bindValue(":nomeMae", $paciente->getNomeMae());
+            $conn->bindValue(":medicamento", $paciente->getMedicamento());
+            $conn->bindValue(":nome_medicamento", $paciente->getNome_medicamento());
             return $conn->execute();
         } catch(PDOException $ex) {
             echo "<p>Erro ao inserir paciente: $ex</p>";
