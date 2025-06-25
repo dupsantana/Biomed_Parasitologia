@@ -1,15 +1,15 @@
 const pool = require('./db');
 
 // CREATE
-async function insert( nome, datanasc, telefone, pacienteMail, nomeMae, medicamento, nome_medicamento) {
+async function insert( nome, telefone, pacienteMail, nomeMae, medicamento, nome_medicamento) {
   try {
     const [result] = await pool.query(`
       INSERT INTO pacientes (
-        nome_paciente, datanasc, telefone, pacienteMail, nomeMae,
+        nome, telefone, pacienteMail, nomeMae,
         medicamento, nome_medicamento
-      ) VALUES (?, ?, ?, ?, ?, ?,)
+      ) VALUES (?, ?, ?, ?, ?, ?)
     `, [
-      nome, datanasc, telefone, pacienteMail, nomeMae,
+      nome, telefone, pacienteMail, nomeMae,
       medicamento, nome_medicamento
     ]);
     if (result.insertId && result.insertId > 0) {
@@ -55,15 +55,15 @@ async function buscarPorId(id) {
 }
 
 // UPDATE
-async function update(id, nome, datanasc, telefone, pacienteMail, nomeMae, medicamento, nome_medicamento) {
+async function update(id, nome, telefone, pacienteMail, nomeMae, medicamento, nome_medicamento) {
   try {
     const [result] = await pool.query(`
-      UPDATE paciente SET
-        nome = ?, datanasc = ?, telefone = ?, pacienteMail = ?, nomeMae = ?,
+      UPDATE pacientes SET
+        nome = ?, telefone = ?, pacienteMail = ?, nomeMae = ?,
         medicamento = ?, nome_medicamento = ?
       WHERE id = ?
     `, [
-      nome, datanasc, telefone, pacienteMail, nomeMae,
+      nome, telefone, pacienteMail, nomeMae,
       medicamento, nome_medicamento, id
     ]);
     return result.affectedRows > 0;
